@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { HomeRoutingModule } from './home-routing.module';
-import { HomeComponent } from './home.component';
+import { LoppyRoutingModule } from './loppy-routing.module';
+import { LoppyComponent } from './loppy.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    LoppyComponent
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule,
+    LoppyRoutingModule,
     SharedModule,
   ]
 })
-export class HomeModule { }
+export class LoppyModule { }
