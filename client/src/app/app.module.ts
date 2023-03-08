@@ -11,9 +11,15 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
+import { TrendingComponent } from './components/trending/trending.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
