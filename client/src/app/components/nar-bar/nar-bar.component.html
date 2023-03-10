@@ -11,7 +11,6 @@
         <a class="home" href="/home">Home</a>
         <a class="library" href="/library">Library</a>
         <a class="market"href="/marketplace">Marketplace</a>
-a>
      
     </div>
     <div class="navBar-right">
@@ -22,7 +21,7 @@ a>
         <div id="line"></div>
 
 
-        <button class="btn" id="Login">Login
+        <button class="btn" id="Login" (click)="authService.logoutWithGoogle()">Login
         </button>
         <button class="btn" id="help">Help
         </button>
