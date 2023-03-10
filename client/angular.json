@@ -9,6 +9,7 @@
         "@schematics/angular:component": {
           "style": "scss"
         }
+        
       },
       "root": "",
       "sourceRoot": "src",
@@ -30,7 +31,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -100,7 +101,7 @@
               "src/assets"
             ],
             "styles": [
-              "@angular/material/prebuilt-themes/indigo-pink.css",
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -120,6 +121,7 @@
     }
   },
   "cli": {
-    "analytics": "476c89c8-d8a9-43c5-a6a7-c8ba99ef4d57"
+    "analytics": "185d30a2-7752-4ce5-9729-a2280c558850"
   }
+  
 }

@@ -1,5 +1,12 @@
 import { Player } from "./player.model";
-import { Question } from "./question.model";
+
+export interface Room {
+  id: string;
+  pin: string;
+  createId: string;
+  players: Player[];
+  quizId: string;
+}
 
 export interface Room {
   id: number;

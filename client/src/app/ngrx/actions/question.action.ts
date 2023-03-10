@@ -60,3 +60,35 @@ export const deleteQuestionFailure=createAction(
   "[Question] DELETE_QUESTION_FAILURE",
   props<{error:string}>()
 );
+
+export const getQuestion=createAction(
+  "[Question] GET_QUESTION",
+  props<{questionId:string}>()
+);
+
+export const getQuestionSuccess=createAction(
+  "[Question] GET_QUESTION_SUCCESS",
+  props<{question:Question}>()
+);
+
+export const getQuestionFailure=createAction(
+  "[Question] GET_QUESTION_FAILURE",
+  props<{error:string}>()
+);
+
+export const getQuestionsByQuizId=createAction(
+  "[Question] GET_QUESTIONS_BY_QUIZ_ID",
+  props<{quizId:string}>()
+);
+
+export const getQuestionsByQuizIdSuccess=createAction(
+  "[Question] GET_QUESTIONS_BY_QUIZ_ID_SUCCESS",
+  props<{questions:Question[]}>()
+);
+
+export const getQuestionsByQuizIdFailure=createAction(
+  "[Question] GET_QUESTIONS_BY_QUIZ_ID_FAILURE",
+  props<{error:string}>()
+);
+
+

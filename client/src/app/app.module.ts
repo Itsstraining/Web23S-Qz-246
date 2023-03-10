@@ -8,7 +8,6 @@ import {HttpClientModule} from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { userReducer } from './ngrx/reducer/user.reducer';
-
 import { SharedModule } from './shared/shared.module';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
@@ -20,6 +19,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
 import { TrendingComponent } from './components/trending/trending.component';
+import { questionReducer } from './ngrx/reducer/question.reducer';
+import { UserEffect } from './ngrx/effects/user.effect';
+
 
 
 @NgModule({
