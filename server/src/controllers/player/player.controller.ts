@@ -1,6 +1,6 @@
 import { Body, Controller, Get,Put,Query } from '@nestjs/common';
 import { Delete, Param, Post } from '@nestjs/common/decorators';
-import { Player } from 'src/schemas/players.schema';
+import { Player } from 'src/schemas/player.schema';
 import { PlayerService } from 'src/services/player/player.service';
 
 @Controller('player')
@@ -17,16 +17,19 @@ export class PlayerController {
         let player = await this.playerService.getById(id);
         return player;
     }
-    @Put('update')
+
+    @Post()
+    async create(@Body() player: Player) {
+        return await this.playerService.create(player);
+    }
+
+    @Put()
     async update(@Query('id') id: string,@Body() player: Player) {
         let data = await this.playerService.update(id, player);
         return data;
     }
-    @Post('create')
-    async create(@Body() player: Player) {
-        return await this.playerService.create(player);
-    }
-    @Delete('delete')
+
+    @Delete()
     async delete(@Query('id') id: string) {
         return await this.playerService.deleteUser(id);
     }

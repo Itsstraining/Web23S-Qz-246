@@ -20,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
 import { TrendingComponent } from './components/trending/trending.component';
+import { questionReducer } from './ngrx/reducer/question.reducer';
 import { UserEffect } from './ngrx/effects/user.effect';
 
 
@@ -27,16 +28,20 @@ import { UserEffect } from './ngrx/effects/user.effect';
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    StoreModule.forRoot({
+      question: questionReducer,
+    }, {}),
+    EffectsModule.forRoot([
+
+    ]),
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,
-       
+
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),

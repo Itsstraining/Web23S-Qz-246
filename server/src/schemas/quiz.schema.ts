@@ -1,11 +1,11 @@
 import { Prop, Schema, SchemaFactory } from "@nestjs/mongoose";
-import { HydratedDocument } from "mongoose";
+import mongoose, { HydratedDocument } from "mongoose";
 import { Question } from "src/models/question.model";
 export type QuizDocument = HydratedDocument<Quiz>;
 @Schema()
 export class Quiz {
     @Prop()
-    quizId: number;
+    quizId: string;
     @Prop()
     quizName: string;
     @Prop()
@@ -16,7 +16,7 @@ export class Quiz {
     creatorId: string;
     @Prop()
     isPublic: boolean;
-    @Prop()
+    @Prop({ type: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Question' }] })
     questions: Question[];
 }
 export const QuizSchema = SchemaFactory.createForClass(Quiz);
