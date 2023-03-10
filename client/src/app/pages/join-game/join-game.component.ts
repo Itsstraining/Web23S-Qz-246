@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class JoinGameComponent {
 
+  pin: string='';
+  isInputName: boolean = false;
+  name: string = '';
+  enterPin(){
+    this.isInputName = true;
+  }
+  playGame(){
+    console.log(this.pin);
+    console.log(this.name);
+  }
 }

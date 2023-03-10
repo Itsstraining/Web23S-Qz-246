@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { LibraryRoutingModule } from './library-routing.module';
 import { LibraryComponent } from './library.component';
+import {MatIconModule} from '@angular/material/icon'
 
 
 @NgModule({
@@ -10,6 +11,7 @@ import { LibraryComponent } from './library.component';
     LibraryComponent
   ],
   imports: [
+    MatIconModule,
     CommonModule,
     LibraryRoutingModule
   ]
