@@ -3,12 +3,13 @@ import { HydratedDocument } from "mongoose";
 export type UsersDocument = HydratedDocument<User>;
 @Schema ()
 export class User {
-    @Prop({required:true})
-    userId: string;
     @Prop()
-    userName: string;
+    userid: string;
     @Prop()
-    userAvatar: string;
-    
+    displayName: string;
+    @Prop()
+    email: string;
+    @Prop()
+    photoURL: string;
 }
 export const UserSchema = SchemaFactory.createForClass(User);
