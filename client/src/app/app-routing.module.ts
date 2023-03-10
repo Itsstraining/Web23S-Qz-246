@@ -18,7 +18,7 @@ const routes: Routes = [
       import('./pages/player/player.module').then((m) => m.PlayerModule),
   },
   {
-    path: 'raking',
+    path: 'ranking',
     loadChildren: () =>
       import('./pages/raking/raking.module').then((m) => m.RakingModule),
   },
@@ -40,6 +40,21 @@ const routes: Routes = [
     path: 'loppy',
     loadChildren: () =>
       import('./pages/loppy/loppy/loppy.module').then((m) => m.LoppyModule),
+  },
+  {
+    path: 'join-quiz',
+    loadChildren: () =>
+    import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
+  },
+  {
+    path: 'username',
+    loadChildren: () =>
+      import('./pages/username/username.module').then((m) => m.UsernameModule),
+  },
+  {
+    path: 'library',
+    loadChildren: () =>
+      import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
 ];
 

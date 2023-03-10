@@ -7,11 +7,12 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
+import { JoinGameModule } from "../pages/join-game/join-game.module";
 @NgModule({
   declarations: [
     NarBarComponent,
     TaskquizComponent,
-    TrendingComponent
+    TrendingComponent,
   ],
   imports: [
     MatMenuModule,
@@ -25,7 +26,7 @@ import {MatButtonModule} from '@angular/material/button';
   exports: [
     NarBarComponent,
     FormsModule,
-    TaskquizComponent,  
+    TaskquizComponent,
     TrendingComponent,
     MatMenuModule,
     MatExpansionModule,
