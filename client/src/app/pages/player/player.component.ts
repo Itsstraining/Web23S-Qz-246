@@ -6,10 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent {
-   time = 6;
+   time = 10;
 
    isShowCountdown = true;
-   isShowQuestion = false;
+   isShowQuestion = true;
 ngOnInit() {
     this.makeIteration();
 }
@@ -22,7 +22,7 @@ ngOnInit() {
 
     }else if(this.time === 0){
         // console.log("Time is over");
-        this.isShowCountdown = false;
+        this.isShowCountdown = true;
         this.isShowQuestion = true;
     }
     console.log(this.time);
