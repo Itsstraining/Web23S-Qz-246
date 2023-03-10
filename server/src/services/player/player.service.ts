@@ -35,9 +35,9 @@ export class PlayerService {
             return null;
         }
     }
-    async update(_id:string ,player: Player) {
+    async update(id:string,player: Player) {
         try{
-            let data= await this.playerModel.findByIdAndUpdate(_id,player);
+            let data= await this.playerModel.findOneAndUpdate({id:id},player);
             return data as Player;
         }catch(e){
             console.log(e);

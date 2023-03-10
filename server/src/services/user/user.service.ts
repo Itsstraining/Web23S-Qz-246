@@ -16,8 +16,7 @@ export class UserService {
     }
     async getById(id: string): Promise<User|null> {
         try{
-            let data= await this.userModel.findOne({userId: id}).exec();
-            return data as User;
+            let data= await this.userModel.findOne({userId: id});
         }catch(e){
             console.log(e);
             return null;
@@ -32,9 +31,9 @@ export class UserService {
             return null;
         }
     }
-    async updateById(_id:string ,user: User) {
+    async updateById(id :string ,user: User) {
         try{
-            let data= await this.userModel.findByIdAndUpdate(_id,user);
+            let data= await this.userModel.findByIdAndUpdate({id:id},user);
             return data as User;
         }catch(e){
             console.log(e);
