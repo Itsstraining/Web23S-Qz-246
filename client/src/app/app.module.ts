@@ -13,19 +13,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
 import { TrendingComponent } from './components/trending/trending.component';
+import { questionReducer } from './ngrx/reducer/question.reducer';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
-    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({
+      question: questionReducer,
+    }, {}),
+    EffectsModule.forRoot([
+
+    ]),
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     BrowserAnimationsModule,

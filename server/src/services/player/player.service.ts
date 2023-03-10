@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from 'mongoose';
-import { Player, PlayerDocument } from 'src/schemas/players.schema';
+import { Player, PlayerDocument } from 'src/schemas/player.schema';
 
 
 @Injectable()
@@ -26,26 +26,27 @@ export class PlayerService {
             return null;
         }
     }
-    async create(player: Player) {
-        try{
-            let newPlayer = await this.playerModel.create(player);
-            return newPlayer as Player;
-        }catch(e){
-            console.log(e);
-            return null;
-        }
-    }
-    async update(_id:string ,player: Player) {
-        try{
-            let data= await this.playerModel.findByIdAndUpdate(_id,player);
-            return data as Player;
-        }catch(e){
-            console.log(e);
-            return null;
-        }
 
-        
+    async create(player: Player):Promise<Player|null> {
+        try{
+            await this.playerModel.create(player);
+            return player;
+        }catch(e){
+            console.log(e);
+            return null;
+        }
     }
+
+    async update(id:string ,player: Player) {
+        try{
+            await this.playerModel.findOneAndUpdate({id:id},player);
+            return player ;
+        }catch(e){
+            console.log(e);
+            return null;
+        }
+    }
+
     async deleteUser(id:string): Promise<boolean>{
         await this.playerModel.findOneAndDelete({id: id});
         return true;
