@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { NarBarComponent } from "../components/nar-bar/nar-bar.component";
+import { FormsModule } from '@angular/forms';
 import { TaskquizComponent } from "../components/taskquiz/taskquiz.component";
 import { TrendingComponent } from "../components/trending/trending.component";
 import {MatMenuModule} from '@angular/material/menu';
@@ -19,9 +20,11 @@ import {MatButtonModule} from '@angular/material/button';
     MatButtonModule
   ],
   providers: [
+    FormsModule
   ],
   exports: [
     NarBarComponent,
+    FormsModule,
     TaskquizComponent,  
     TrendingComponent,
     MatMenuModule,
