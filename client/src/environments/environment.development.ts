@@ -6,4 +6,7 @@ export const environment = {
     apiKey: 'AIzaSyAxJ6XPSIgUJko_LXZ9UoxGnEHHsJuhVOE',
     authDomain: 'qz-project-a5e85.firebaseapp.com',
     messagingSenderId: '404318488813',
-  },};
+  },
+  production: false,
+  baseURL: 'http://localhost:3000/',
+};

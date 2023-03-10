@@ -5,6 +5,8 @@ export type QuestionDocument = HydratedDocument<Question>;
 @Schema()
 export class Question {
     @Prop()
+    questionId: string;
+    @Prop()
     questionType: string;
     @Prop()
     point: number;
@@ -15,11 +17,6 @@ export class Question {
     @Prop()
     title: string;
     @Prop()
-    question: string;
-    @Prop()
     answers: Answer[];
-    @Prop()
-    questionId: number;
-  
 }
 export const QuestionSchema = SchemaFactory.createForClass(Question);

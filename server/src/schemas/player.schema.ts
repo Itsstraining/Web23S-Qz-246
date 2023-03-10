@@ -8,8 +8,8 @@ export class Player {
     @Prop()
     name: string;
     @Prop()
-    score: string;
+    score: number;
     @Prop()
-    correctAnswer: string;
+    correctAnswer: number;
 }
 export const PlayerSchema = SchemaFactory.createForClass(Player);
