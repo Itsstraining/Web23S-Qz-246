@@ -36,21 +36,24 @@ body {
 
 .blog-box {
     
-    min-width: 40vh;
-    min-height: 40vh;
-    max-width: 40vh;
-    max-height: 40vh;
+    min-width: 35vh;
+    max-width: 35vh;
+    min-height: 30vh;
+    
+    max-height: 30vh;
     // height: 200%;
     background-color: #ffffff;
     border: 1px solid #ececec;
-    margin: 3%;
+    // margin: 3%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
     transition: 0.5s;
+    border-radius: 7px;
 }
 
 .blog-img {
     width: 100%;
-    height: 30vh;
+    height: 15vh;
+    
 
     // height: 100%;
 }
@@ -62,13 +65,16 @@ body {
     object-fit: cover;
     object-position: center;
     transition: 0.5s;
+    border-radius: 7px;
 }
 
 .blog-text {
     // padding: 30px;
     display: flex;
-    flex-direction: column;
+    // flex-direction: column;
+    padding: 6px;
     transition: 0.5s;
+
    
 
 }
