@@ -1,0 +1,151 @@
+.container{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.top{
+    position: relative;
+    width: 100%;
+    height: 2.8rem;
+    background-color: #F8F2FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 90%;
+}
+.quantity-question{
+    position: absolute;
+    width: 50%;
+    left: 2em;
+    p{
+        color: #000;
+        font-size: 1.5em;
+        font-weight: 700;
+        margin: 0;
+    }
+}
+.img{
+    display: flex;
+    padding: 5px 5px;
+    justify-content: center;
+    align-items: center;
+    width: 7%;
+    height: auto;
+    background-color: #fff;
+    border-radius: 1rem;
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    width: 1.2rem;
+    img{
+        width: 100%;
+        background-color: #fff;
+    }
+}
+ 
+.quiz{
+    width:40%;
+    margin-left: 0.5em;
+    display: flex;
+    justify-content: center;
+    p{
+        margin: 0;
+        color: #000;
+        font-weight: 700;
+        font-size: 1.1em;
+    }
+}
+.center{
+    width: 100%;
+    height: 34.3rem;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.background{
+    max-width: 100%;
+    object-fit: cover;
+}
+.content{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1em 1em;
+}
+.img-Correct{
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: 1em;
+    img{
+        width: 100%;
+        height: 100%;
+    }
+}
+.correct{
+    width: 20%;
+    height: 5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    opacity: 75%;
+    p{
+        margin: 0;
+        color: #fff;
+        font-weight: 600;
+        font-size: 3rem;
+    }
+}
+.bottom{
+    position: relative;
+    width: 100%;
+    height: 4rem;
+    background-color: #F8F2FA;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 90%;
+}
+.user-name{
+    position: absolute;
+    left: 2em;
+    p{
+        color: #000;
+        font-size: 1.5em;
+        font-weight: 700;
+        margin: 0;
+    }
+}
+.score{
+    position: absolute;
+    right: 2em;
+    padding: 8px 8px;
+    background-color: #000;
+    color: #fff;
+    border-radius: 0.2rem;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+
+.choice-question{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 1em 1em;
+}
