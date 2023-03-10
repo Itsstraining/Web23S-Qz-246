@@ -1,4 +1,10 @@
-<div class="container">
+<div class="container" *ngIf="isShowCountdown">
+        {{time}}
+    </div> 
+
+<div class="container" *ngIf="isShowQuestion">
+
+    <!-- <div *ngIf="isShowQuestion"> -->
         <div class="top">
             <div class="quantity-question">
                 <p>1 of 10</p>
@@ -11,38 +17,47 @@
                     <p>Quiz</p>
                 </div>
             </div>
-
-    </div>
-    <!-- <div class="center-result">
-        <div class="background">
-            <img src="https://i.imgur.com/DmVkmUE.jpg">
+    
         </div>
-        <div class="content">
-            <div class="img-Correct">
-                <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png">
+        <!-- <div class="center-result">
+            <div class="background">
+                <img src="https://i.imgur.com/DmVkmUE.jpg">
             </div>
-            <div class="correct">
-                <p>Correct</p>
+            <div class="content">
+                <div class="img-Correct">
+                    <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png">
+                </div>
+                <div class="correct">
+                    <p>Correct</p>
+                </div>
+            </div>
+        </div> -->
+        <div class="center-question">
+            <div class="background">
+                <img src="https://i.imgur.com/DmVkmUE.jpg">
+            </div>
+            <div class="choice-question">
+                <div class="answerItem">
+                    <div class="square"></div>
+                </div>
+                <div class="answerItem">
+                    <div class="circle"></div>
+                </div>
+                <div class="answerItem">
+                    <div class="triangle"></div>
+                </div>
+                <div class="answerItem">
+                    <div class="rhombus"></div>
+                </div>
             </div>
         </div>
-    </div> -->
-    <div class="center-question">
-        <div class="background">
-            <img src="https://i.imgur.com/DmVkmUE.jpg">
-        </div>
-        <div class="choice-question">
-            <div class="answerItem"><div class="square"></div></div>
-            <div class="answerItem"><div class="circle"></div> </div>
-            <div class="answerItem"><div class="triangle"></div> </div>
-            <div class="answerItem"><div class="rhombus"></div> </div>
+        <div class="bottom">
+            <div class="user-name">
+                <p>Duy</p>
+            </div>
+            <div class="score">
+                100000000000000000000
+            </div>
         </div>
     </div>
-    <div class="bottom">
-        <div class="user-name">
-            <p>Duy</p>
-        </div>
-        <div class="score">
-            100000000000000000000
-        </div>
-    </div>
-</div>
+<!-- </div> -->
