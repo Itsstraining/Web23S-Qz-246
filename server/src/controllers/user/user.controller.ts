@@ -22,7 +22,7 @@ export class UserController {
     }
 
     @Put()
-    async update(@Query('id') _id: string,@Body() user: User) {
+    async update(@Query('id') _id: string, @Body() user: User) {
         return await this.userService.updateById(_id, user);
     }
     
@@ -42,6 +42,7 @@ export class UserController {
             return this.userService.create(user);
         }
     }
+    
     // @Delete('delete')
     // async delete(@Query('id') id: string) {
     //     return await this.userService.deleteById(id);
