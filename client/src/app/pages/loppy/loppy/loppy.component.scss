@@ -26,14 +26,14 @@
 }
 
 .img {
-    display: flex;
-    padding: 5px 5px;
-    justify-content: center;
-    align-items: center;
-    width: 7%;
-    height: auto;
-    background-color: #fff;
-    border-radius: 1rem;
+    // display: flex;
+    // padding: 5px 5px;
+    // justify-content: center;
+    // align-items: center;
+    // width: 7%;
+    // height: auto;
+    // background-color: #fff;
+    // border-radius: 1rem;
 }
 
 
@@ -47,9 +47,21 @@
     box-sizing: border-box;
 }
 
-.background {
-    max-width: 100%;
+// .background{
+//     max-width: 100%;
+//     object-fit: cover;
+// }
+
+.background{
+    width: 1920px;
+    height: 830px;
+    overflow: hidden;
     object-fit: cover;
+}
+
+.background img{
+    object-fit: cover;
+    overflow: hidden;
 }
 
 .content {

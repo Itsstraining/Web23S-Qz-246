@@ -1,10 +1,10 @@
 <section class="section">
     <div class="question-list">
-        <div class="quiz-info">
+        <!-- <div class="quiz-info">
             <h1> Set quiz name</h1>
             <button class="quiz-info-button">Settings
             </button>
-        </div>
+        </div> -->
         <div class="question-list-container">
             <!-- {quizData.questionList.length > 0 &&
           quizData.questionList.map((question) => (
@@ -25,13 +25,13 @@
         </div>
     </div>
     <div class="question-creator">
-        <input type="text" name="question" value={questionData.question} onChange={handleQuestionChange}
+        <input type="text" name="question" value="1 con vit xoe ra 2 cai canh" onChange={handleQuestionChange}
             placeholder="Write your question here" class="question-name" />
         <div class="image-container">
             <h3>
                 Find and upload an image
             </h3>
-            <div>
+            <div class="image-sth">
                 <!-- <FileBase
             type="file"
             multiple={false}
@@ -40,11 +40,15 @@
               setQuestionImage(base64)
             }}
           /> -->
+          <img src="https://play-lh.googleusercontent.com/A6y8kFPu6iiFg7RSkGxyNspjOBmeaD3oAOip5dqQvXASnZp-Vg65jigJJLHr5mOEOryx">
             </div>
             <!-- {questionImage && <img src={questionImage} alt="" />} -->
         </div>
         <div class="answers-container">
             <div class="answer-field">
+                logo
+                idk 1
+                <div class="answer">true</div>
                 <!-- <AnswerInput
             value={questionData.answerList[0].body}
             name={"a"}
@@ -68,6 +72,9 @@
           /> -->
             </div>
             <div class="answer-field">
+                logo
+                idk 2
+                <div class="answer">false</div>
                 <!-- <AnswerInput
             value={questionData.answerList[1].body}
             name={"b"}
@@ -93,6 +100,9 @@
             <!-- {!isQuestionTrueFalse && (
           <> -->
             <div class="answer-field">
+                logo
+                idk 3
+                <div class="answer">false</div>
                 <!-- <AnswerInput
                 value={questionData.answerList[2].body}
                 name={"c"}
@@ -114,6 +124,9 @@
               /> -->
             </div>
             <div class="answer-field">
+                logo
+                idk 4
+                <div class="answer">false</div>
                 <!-- <AnswerInput
                 value={questionData.answerList[3].body}
                 name={"d"}
@@ -142,21 +155,30 @@
         <div class="options">
             <div style="display: block" class="question-options">
                 <h1>Quiz</h1>
-                <!-- <div class="option-label">
+                <div class="option-label">
                     <label>Title</label>
-                </div> -->
-                <!-- <input value={quizData.name} type="text" name="name" onChange={handleQuizChange} /> -->
-                <!-- <div class="option-label">
+                </div>
+                <input style="border-color: rgb(204, 204, 204);
+                border-radius: 4px;
+                border-style: solid;
+                border-width: 1px;;" value={quizData.name} type="text" name="name" onChange={handleQuizChange} />
+                <div class="option-label">
                     <label>Description</label>
-                </div> -->
-                <!-- <input value={quizData.description} type="text" name="description" onChange={handleQuizChange} /> -->
-                <!-- <div class="option-label">
+                </div>
+                <input style="border-color: rgb(204, 204, 204);
+                border-radius: 4px;
+                border-style: solid;
+                border-width: 1px;;" value={quizData.description} type="text" name="description" onChange={handleQuizChange} />
+                <div class="option-label">
                     <label>
                         Points per question
                     </label>
-                </div> -->
-                <!-- <input type="number" min={1} value={quizData.pointsPerQuestion} name="pointsPerQuestion" -->
-                <!-- onChange={handleQuizChange} /> -->
+                </div>
+                <input style="border-color: rgb(204, 204, 204);
+                border-radius: 4px;
+                border-style: solid;
+                border-width: 1px;;" type="number" min={1} value={quizData.pointsPerQuestion} name="pointsPerQuestion"
+                onChange={handleQuizChange} />
                 <!-- <div class="option-label">
                     <label>Access</label>
                 </div> -->
@@ -188,6 +210,17 @@
                     <label>
                         Background Image
                     </label>
+                    <div class="image-sth1">
+                        <!-- <FileBase
+                    type="file"
+                    multiple={false}
+                    onDone={({ base64 }) => {
+                      setQuestionData({ ...questionData, backgroundImage: base64 })
+                      setQuestionImage(base64)
+                    }}
+                  /> -->
+                  <img src="https://play-lh.googleusercontent.com/A6y8kFPu6iiFg7RSkGxyNspjOBmeaD3oAOip5dqQvXASnZp-Vg65jigJJLHr5mOEOryx">
+                    </div>
                 </div>
                 <div>
                     <!-- <FileBase type="file" multiple={false} onDone={({ base64 })=> {
@@ -216,7 +249,7 @@
             </div>
             <!-- </div> -->
             <div style="display:block" class="question-options">
-                <div class=option}>
+                <div class="option">
                     <div class="option-label">
                         <img src="questionType" alt="" />
                         <label>
@@ -230,6 +263,7 @@
                     name="questionType"
                     value={questionData.questionType}
                     > -->
+                    <select>
                     <option defaultValue disabled>
                         Select question type
                     </option>
@@ -237,6 +271,7 @@
                     <option value="True/False">
                         True/False
                     </option>
+                </select>
                     <!-- </select> -->
                 </div>
                 <div class="option">
@@ -305,7 +340,7 @@
                         </option>
                     </select>
                 </div>
-                <div>
+                <div class="bottom-button">
                     <button onClick={handleQuestionSubmit} class="option-button">
                         Save changes
                     </button>

@@ -13,11 +13,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
 import { TrendingComponent } from './components/trending/trending.component';
+import { NavBarCreateComponent } from './components/nav-bar-create/nav-bar-create.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarCreateComponent,
     
     
   ],
