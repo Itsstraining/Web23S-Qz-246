@@ -1,9 +1,9 @@
 
-import { UserModel } from "src/app/models/user.model";
+import { User } from "src/models/user.model";
 
 export interface UserState {
-    users: UserModel[];
-    user:UserModel|null;
+    users: User[];
+    user:User|null;
     loading: boolean;
     error: string;
 }

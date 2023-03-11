@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'slideshow', loadChildren: () => import('./pages/slideshow/slideshow.module').then(m => m.SlideshowModule) },
 
   {
-    path: 'join-quiz',
+    path: 'join-game',
     loadChildren: () =>
     import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
   },
