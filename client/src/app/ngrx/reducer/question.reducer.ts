@@ -26,6 +26,20 @@ export const questionReducer = createReducer(
     error,
     isLoading: false,
   })),
+  on(QuestionActions.getQuestion, (state) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(QuestionActions.getQuestionSuccess, (state, { question }) => ({
+    ...state,
+    selectedQuestion: question,
+    isLoading: false,
+  })),
+  on(QuestionActions.getQuestionFailure, (state, { error }) => ({
+    ...state,
+    error,
+    isLoading: false,
+  })),
   on(QuestionActions.addNewQuestion, (state) => ({
     ...state,
     isLoading: true,

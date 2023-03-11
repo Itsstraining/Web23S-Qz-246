@@ -10,3 +10,14 @@ export const logout=createAction('[User] Logout');
 export const logoutSuccess=createAction('[User] Logout Success');
 export const logoutFailure=createAction('[User] Logout Failure',props<{error:string}>());
 
+export const register=createAction('[User] Register');
+export const registerSuccess=createAction('[User] Register Success',props<{user:UserModel}>());
+export const registerFailure=createAction('[User] Register Failure',props<{error:string}>());
+
+export const getUser=createAction('[User] Get User');
+export const getUserSuccess=createAction('[User] Get User Success',props<{user:UserModel}>());
+export const getUserFailure=createAction('[User] Get User Failure',props<{error:string}>());
+
+export const updateUser=createAction('[User] Update User');
+export const updateUserSuccess=createAction('[User] Update User Success',props<{user:UserModel}>());
+export const updateUserFailure=createAction('[User] Update User Failure',props<{error:string}>());
