@@ -5,12 +5,15 @@
       <li class="nav-item">Image Gallery</li>
     </ul>
 </nav> -->
-<div id="navBar">
+
+<div id="navBar"  *ngIf="nav.visible">
     <div class="navBar-left">
         <div>Qz</div>
         <a class="home" href="/home">Home</a>
-        <a class="library" href="/library">Library</a>
-        <a class="market"href="/marketplace">Marketplace</a>
+        <a class="library" href="#">Library</a>
+        <a class="market" href="/marketplace">Marketplace</a>
+
+       
      
     </div>
     <div class="navBar-right">
@@ -19,14 +22,14 @@
             <p>Play</p>
         </button>
         <div id="line"></div>
+        <button mat-button [matMenuTriggerFor]="menu" class="btn" id="Login">Login
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Log out</button>
 
-
-        <button class="btn" id="Login" (click)="authService.logoutWithGoogle()">Login
-        </button>
-        <button class="btn" id="help">Help
+            </mat-menu>
+            <button class="btn" id="Login" (click)="authService.logoutWithGoogle()">Login
+            </button>
+            <button class="btn" id="help">Help</button>
         </button>
     </div>
 </div>
-
-
-

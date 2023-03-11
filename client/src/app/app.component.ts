@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'client';
+  constructor(private authService:AuthService) {}
+  // ngOnInit(): void {
+  //   this.isShowNavBar= this.authService.isShowNavBar;
+  // }
+
   // user$?: Observable<User>;
   // constructor(
   //   private store: Store<{
