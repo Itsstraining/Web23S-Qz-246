@@ -33,6 +33,7 @@ export class AuthService {
       }
     });
   }
+
   async loginWithGoogle() {
     let provider = new GoogleAuthProvider();
     return new Promise<UserModel>(async (resolve, reject) => {
