@@ -7,11 +7,3 @@ export interface Room {
   players: Player[];
   quizId: string;
 }
-
-export interface Room {
-  id: number;
-  pin: string;
-  createId: string;
-  players: Player[];
-  quizId: string;
-}

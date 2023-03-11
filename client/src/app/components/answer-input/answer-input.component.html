@@ -1,0 +1,22 @@
+<div class="answer-container">
+    <input
+    *ngIf="lengthAnswer !== 2"
+    type="text" value={{answerItem.body}}
+    name={{answerItem.id}}
+    class="answer-input" [(ngModel)]="answerItem.body" (change)="onAnswerCheckChange()"/>
+  
+    <input
+    *ngIf="lengthAnswer == 2"
+    type="text" value={{answerItem.body}}
+    name={{answerItem.id}}
+    readonly
+    class="answer-input" [(ngModel)]="answerItem.body" (change)="onAnswerCheckChange()"/>
+    <div  class="answer-check">
+      
+      <input type="checkbox" [checked]="answerItem.isCorrect"
+      [(ngModel)]="answerItem.isCorrect"
+      (change)="onAnswerCheckChange()" />
+    </div>
+  </div>
+  
+  

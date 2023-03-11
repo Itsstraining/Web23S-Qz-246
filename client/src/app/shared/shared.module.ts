@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { TaskquizComponent } from "../components/taskquiz/taskquiz.component";
 import { TrendingComponent } from "../components/trending/trending.component";
 import { NavBarCreateComponent } from "../components/nav-bar-create/nav-bar-create.component";
+import { QuestionItemComponent } from "../components/question-item/question-item.component";
+import { AnswerInputComponent } from "../components/answer-input/answer-input.component";
+import { CommonModule } from "@angular/common";
 
 
 @NgModule({
@@ -12,8 +15,12 @@ import { NavBarCreateComponent } from "../components/nav-bar-create/nav-bar-crea
     TaskquizComponent,
     TrendingComponent,
     NavBarCreateComponent,
+    QuestionItemComponent,
+    AnswerInputComponent,
   ],
   imports: [
+    FormsModule,
+    CommonModule,
   ],
   providers: [
     FormsModule
@@ -24,6 +31,8 @@ import { NavBarCreateComponent } from "../components/nav-bar-create/nav-bar-crea
     TaskquizComponent,  
     TrendingComponent,
     NavBarCreateComponent,
+    QuestionItemComponent,
+    AnswerInputComponent,
   ]
 })
 export class SharedModule { }

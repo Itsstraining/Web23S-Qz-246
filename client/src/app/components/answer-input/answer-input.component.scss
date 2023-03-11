@@ -1,0 +1,46 @@
+.answer-container{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    // padding: 0 10px;
+    width: 100%;
+    height: 100%;
+    // background-color: aquamarine;
+  }
+  
+  .answer-input{
+    width: 70%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: rgb(255, 255, 255);
+    font-size: 2.5vw;
+  }
+  .answer-check {
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // height: 50px;
+    // border: 4px solid white;
+    // border-radius: 50%;
+    // background-color: rgb(140, 154, 48);
+  }
+  
+  .answer-check input {
+    width: 100%;
+    height: 100%;
+    // visibility: hidden;
+    // position: relative;
+    // left: 50%;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
+  }
+  
+  // .answer-check:hover {
+  //   background-color: violet;
+  // }
+  
+  

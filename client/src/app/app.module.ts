@@ -21,13 +21,15 @@ import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
 import { TrendingComponent } from './components/trending/trending.component';
 import { questionReducer } from './ngrx/reducer/question.reducer';
 import { UserEffect } from './ngrx/effects/user.effect';
+import { QuestionItemComponent } from './components/question-item/question-item.component';
+import { AnswerInputComponent } from './components/answer-input/answer-input.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    
+
     
   ],
   imports: [
