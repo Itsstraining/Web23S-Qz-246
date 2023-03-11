@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'ranking',
     loadChildren: () =>
-      import('./pages/raking/raking.module').then((m) => m.RakingModule),
+      import('./pages/ranking/ranking.module').then((m) => m.RankingModule),
   },
   {
     path: 'create-quiz',
