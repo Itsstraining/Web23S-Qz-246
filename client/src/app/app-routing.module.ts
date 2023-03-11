@@ -48,6 +48,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/loppy/loppy/loppy.module').then((m) => m.LoppyModule),
   },
+  { path: 'slideshow', loadChildren: () => import('./pages/slideshow/slideshow.module').then(m => m.SlideshowModule) },
 ];
 
 @NgModule({
