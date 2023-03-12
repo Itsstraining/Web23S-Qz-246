@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Answer } from 'src/models/answer.model';
+import { Player } from 'src/models/player.model';
+import { Question } from 'src/models/question.model';
 
 @Component({
   selector: 'app-player',
@@ -11,13 +15,32 @@ export class PlayerComponent {
   isShowCountdown = true;
   isShowQuestion = false;
   isShowResultQuestion = false;
-  isAnwerCorrect = false;
+  isSelectAnswer = false;
+  isAnwerCorrect = true;
+
+  isQuestionAnswered = false;
+  isPreviewScreen = false;
+  isQuestionScreen = false;
+  isResultScreen = false;
+  timer = 5;
+  answerTime = 0;
+  showText = false;
+  isAnswerClicked = false;
+  answerSelected?: Answer;
+  answerCorrect = false;
+  question$?: Observable<Question | any>;
+  questionData?: Question;
+  currentIndex = 1;
+  isShowRank = false;
+  infoPlayer!: Player;
+  rank = 0;
 
   ngOnInit() {
-    this.makeIteration();
+    this.makeIteration(5);
   }
 
-  makeIteration = (): void => {
+  makeIteration = (seconds: number): void => {
+    this.time = seconds;
     console.clear();
     if (this.time > 0) {
       console.log(this.time);
@@ -34,6 +57,11 @@ export class PlayerComponent {
 
   selectAnswer() {
     this.isShowResultQuestion = true;
+    this.isSelectAnswer = true;
+  }
+
+  renderResultQuestion() {
+    this.isSelectAnswer  = false;
   }
 
 }

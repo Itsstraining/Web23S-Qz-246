@@ -1,7 +1,5 @@
 <div class="container">
-
   <!-- loading khi bắt đầu chơi -->
-
   <div class="loading" *ngIf="isShowCountdown">
     <!-- <div class="loading-text">
       <p>GET START</p>
@@ -20,7 +18,6 @@
       <img src="https://i.imgur.com/0t72GFL.jpg">
     </div>
   </div>
-
   <div class="show__question" *ngIf="isShowQuestion">
     <div class="top">
       <div class="quantity-question">
@@ -36,53 +33,54 @@
       </div>
     </div>
 
-    <!-- <div class="center-result" *ngIf="isShowResultQuestion">
+    <div class="center-question">
       <div class="background">
         <img src="https://i.imgur.com/DmVkmUE.jpg">
       </div>
-      <div class="content">
-        <div class="img-Correct">
-          <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png">
-        </div>
-        <div class="correct">
-          <p>Correct</p>
-        </div>
-      </div>
-    </div> -->
 
-    <div class="center-result" *ngIf="isShowResultQuestion">
-      <div class="background">
-        <img src="https://i.imgur.com/DmVkmUE.jpg">
-      </div>
-      <div class="content">
-        <div class="img-Correct">
-          <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png">
-        </div>
-        <div class="correct">
-          <p>Correct</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="center-question" *ngIf="!isShowResultQuestion">
-      <div class="background">
-        <img src="https://i.imgur.com/DmVkmUE.jpg">
-      </div>
-      <div class="choice-question">
+      <div class="choice-question" *ngIf="!isShowResultQuestion">
         <div class="answerItem" (click)="selectAnswer()">
           <div class="square"></div>
         </div>
-        <div class="answerItem">
+        <div class="answerItem" (click)="selectAnswer()">
           <div class="circle"></div>
         </div>
-        <div class="answerItem">
+        <div class="answerItem" (click)="selectAnswer()">
           <div class="triangle"></div>
         </div>
-        <div class="answerItem">
+        <div class="answerItem" (click)="selectAnswer()">
           <div class="rhombus"></div>
         </div>
       </div>
+
+      <div class="content" *ngIf="isShowResultQuestion && isSelectAnswer" (click)="renderResultQuestion()">
+        <div class="lds-facebook">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+
+      <div class="content" *ngIf="isShowResultQuestion && !isSelectAnswer && isAnwerCorrect">
+        <div class="img-Correct">
+          <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png">
+        </div>
+        <div class="correct">
+          <p>Correct</p>
+        </div>
+      </div>
+
+      <div class="content" *ngIf="isShowResultQuestion && !isSelectAnswer && !isAnwerCorrect">
+        <div class="img-Correct">
+          <img src="https://img.freepik.com/free-icon/cancel_318-580464.jpg">
+        </div>
+        <div class="correct">
+          <p>Incorrect</p>
+        </div>
+      </div>
+
     </div>
+
     <div class="bottom">
       <div class="user-name">
         <p>Duy</p>
@@ -92,7 +90,5 @@
       </div>
     </div>
   </div>
-
   <!-- Trang loading chuyển câu hỏi -->
-
 </div>
