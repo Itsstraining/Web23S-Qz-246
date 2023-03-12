@@ -65,6 +65,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
+  {
+    path: 'slideshow',
+    loadChildren: () =>
+      import('./pages/slideshow/slideshow.module').then((m) => m.SlideshowModule),
+  }
 
 ];
 
