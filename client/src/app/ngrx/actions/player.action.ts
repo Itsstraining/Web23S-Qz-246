@@ -10,3 +10,68 @@ export const getPlayersSuccess=createAction(
   "[Player] GET_PLAYERS_SUCCESS",
   props<{players:Player[]}>()
 );
+
+export const getPlayersFailure=createAction(
+  "[Player] GET_PLAYERS_FAILURE",
+  props<{error:string}>()
+);
+
+export const getPlayer=createAction(
+  "[Player] GET_PLAYER",
+  props<{id:string}>()
+);
+
+export const getPlayerSuccess=createAction(
+  "[Player] GET_PLAYER_SUCCESS",
+  props<{player:Player}>()
+);
+
+export const getPlayerFailure=createAction(
+  "[Player] GET_PLAYER_FAILURE",
+  props<{error:string}>()
+);
+
+export const addNewPlayer=createAction(
+  "[Player] CREATE_PLAYER",
+  props<{player:Player}>()
+);
+
+export const addNewPlayerSuccess=createAction(
+  "[Player] CREATE_PLAYER_SUCCESS",
+  props<{player:Player}>()
+);
+
+export const addNewPlayerFailure=createAction(
+  "[Player] CREATE_PLAYER_FAILURE",
+  props<{error:string}>()
+);
+
+export const updatePlayer=createAction(
+  "[Player] UPDATE_PLAYER",
+  props<{player:Player}>()
+);
+
+export const updatePlayerSuccess=createAction(
+  "[Player] UPDATE_PLAYER_SUCCESS",
+  props<{player:Player}>()
+);
+
+export const updatePlayerFailure=createAction(
+  "[Player] UPDATE_PLAYER_FAILURE",
+  props<{error:string}>()
+);
+
+export const deletePlayer=createAction(
+  "[Player] DELETE_PLAYER",
+  props<{id:string}>()
+);
+
+export const deletePlayerSuccess=createAction(
+  "[Player] DELETE_PLAYER_SUCCESS",
+  props<{id:string}>()
+);
+
+export const deletePlayerFailure=createAction(
+  "[Player] DELETE_PLAYER_FAILURE",
+  props<{error:string}>()
+);

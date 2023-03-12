@@ -6,27 +6,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent {
-   time = 10;
+  time = 5;
 
-   isShowCountdown = true;
-   isShowQuestion = true;
-ngOnInit() {
+  isShowCountdown = true;
+  isShowQuestion = false;
+  isShowResultQuestion = false;
+  isAnwerCorrect = false;
+
+  ngOnInit() {
     this.makeIteration();
-}
+  }
 
-    makeIteration = (): void => {
+  makeIteration = (): void => {
     console.clear();
     if (this.time > 0) {
-        console.log(this.time);
-        setTimeout(this.makeIteration, 1000); // 1 second waiting
+      console.log(this.time);
+      setTimeout(this.makeIteration, 1000); // 1 second waiting
 
-    }else if(this.time === 0){
-        // console.log("Time is over");
-        this.isShowCountdown = true;
-        this.isShowQuestion = true;
+    } else if (this.time === 0) {
+      // console.log("Time is over");
+      this.isShowCountdown = false;
+      this.isShowQuestion = true;
     }
     console.log(this.time);
     this.time -= 1;
-};
+  };
+
+  selectAnswer() {
+    this.isShowResultQuestion = true;
+  }
 
 }

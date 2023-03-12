@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'ranking',
     loadChildren: () =>
-      import('./pages/raking/raking.module').then((m) => m.RakingModule),
+      import('./pages/ranking/ranking.module').then((m) => m.RankingModule),
   },
   {
     path: 'create-quiz',
@@ -51,7 +51,7 @@ const routes: Routes = [
   { path: 'slideshow', loadChildren: () => import('./pages/slideshow/slideshow.module').then(m => m.SlideshowModule) },
 
   {
-    path: 'join-quiz',
+    path: 'join-game',
     loadChildren: () =>
     import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
   },
@@ -65,6 +65,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
+  {
+    path: 'slideshow',
+    loadChildren: () =>
+      import('./pages/slideshow/slideshow.module').then((m) => m.SlideshowModule),
+  }
 
 ];
 

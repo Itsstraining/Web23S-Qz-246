@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Auth, authState, GoogleAuthProvider, signInWithPopup } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { UserModel } from '../models/user.model';
+import {User}  from '../../models/user.model';
 import { UserState } from '../ngrx/states/user.state';
 import * as UserActions from '../ngrx/actions/user.action';
 import { environment } from 'src/environments/environment';
@@ -21,11 +21,11 @@ export class AuthService {
   ) {
     authState(this.auth).subscribe((user) => {
       if (user) {
-        let account: UserModel = {
-          id: user?.uid,
-          displayName: user?.displayName,
-          email: user?.email,
-          photoURL: user?.photoURL,
+        let account: User = {
+          userid: user?.uid,
+          displayName: user?.displayName as string,
+          email: user?.email as string,
+          photoURL: user?.photoURL as string
         };
         this.authStore.dispatch(UserActions.loginSuccess({ user: account }));
         this.userInfo = account;
@@ -36,22 +36,22 @@ export class AuthService {
 
   async loginWithGoogle() {
     let provider = new GoogleAuthProvider();
-    return new Promise<UserModel>(async (resolve, reject) => {
+    return new Promise<User>(async (resolve, reject) => {
       try{
         let result = await signInWithPopup(this.auth, provider);
         if(result){
-          let user: UserModel = {
-          id  : result.user?.uid,
-          displayName: result.user?.displayName,
-          email: result.user?.email,
-          photoURL: result.user?.photoURL,
+          let user: User = {
+          userid  : result.user?.uid  as string,
+          displayName: result.user?.displayName as string,
+          email: result.user?.email as string,
+          photoURL: result.user?.photoURL as string,
         };
         console.log('data'+result.user?.uid);
         resolve(user);
         this.router.navigate(['home']);
         this.http
         .post(this.baseURL + 'signin', {
-          userid: user.id,
+          userid: user.userid,
           displayName: user.displayName,
           email: user.email,
           photoURL: user.photoURL,
@@ -60,7 +60,7 @@ export class AuthService {
           console.log(res);
         });
         }
-        
+
       }catch(error){
         reject(null);
       }
@@ -82,4 +82,3 @@ export class AuthService {
   //   return this.http.get(environment.baseURL)
   // }
 }
-  
