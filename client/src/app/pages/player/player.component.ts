@@ -10,7 +10,7 @@ import { Question } from 'src/models/question.model';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent {
-  time = 5;
+  time:number = 5;
 
   isShowCountdown = true;
   isShowQuestion = false;
@@ -18,35 +18,34 @@ export class PlayerComponent {
   isSelectAnswer = false;
   isAnwerCorrect = true;
 
-  isQuestionAnswered = false;
-  isPreviewScreen = false;
-  isQuestionScreen = false;
-  isResultScreen = false;
-  timer = 5;
-  answerTime = 0;
-  showText = false;
-  isAnswerClicked = false;
-  answerSelected?: Answer;
-  answerCorrect = false;
-  question$?: Observable<Question | any>;
-  questionData?: Question;
-  currentIndex = 1;
-  isShowRank = false;
-  infoPlayer!: Player;
-  rank = 0;
+  // isQuestionAnswered = false;
+  // isPreviewScreen = false;
+  // isQuestionScreen = false;
+  // isResultScreen = false;
+  // timer = 5;
+  // answerTime = 0;
+  // showText = false;
+  // isAnswerClicked = false;
+  // answerSelected?: Answer;
+  // answerCorrect = false;
+  // question$?: Observable<Question | any>;
+  // questionData?: Question;
+  // currentIndex = 1;
+  // isShowRank = false;
+  // infoPlayer!: Player;
+  // rank = 0;
 
   ngOnInit() {
-    this.makeIteration(5);
+    this.time = 6;
+    this.makeIteration();
   }
 
-  makeIteration = (seconds: number): void => {
-    this.time = seconds;
+  makeIteration = (): void => {
     console.clear();
-    if (this.time > 0) {
+    if (this.time > 1) {
       console.log(this.time);
       setTimeout(this.makeIteration, 1000); // 1 second waiting
-
-    } else if (this.time === 0) {
+    } else if (this.time === 1) {
       // console.log("Time is over");
       this.isShowCountdown = false;
       this.isShowQuestion = true;
