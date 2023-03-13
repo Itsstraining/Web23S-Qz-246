@@ -15,6 +15,8 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconButton } from '@angular/material/button';
+
 
 
 import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
@@ -23,12 +25,14 @@ import { questionReducer } from './ngrx/reducer/question.reducer';
 import { UserEffect } from './ngrx/effects/user.effect';
 import { QuestionItemComponent } from './components/question-item/question-item.component';
 import { AnswerInputComponent } from './components/answer-input/answer-input.component';
+import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarNewComponent,
 
     
   ],

@@ -8,10 +8,10 @@ export class QuestionService {
 
   constructor() { }
 
-  questions = [
+  questions:Question[] = [
     {
       questionType: "Quiz",
-      point: 1,
+      point: 2,
       answerTime: 30,
       backgroundImage: "",
       title: "Câu hỏi 1",
@@ -36,6 +36,7 @@ export class QuestionService {
       questionId: 2,
     },
   ];
+
   questionType=[
     "Quiz","True/False"
   ]

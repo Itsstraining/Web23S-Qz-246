@@ -43,7 +43,7 @@ export class CreateQuizComponent {
       reader.onload = () => {
         this.quiz.quizImage = reader.result as string;
       };
-      $('.image-input label').css('display','none');
+      // $('.image-input label').css('display','none');
     }
   }
 

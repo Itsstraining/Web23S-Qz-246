@@ -8,5 +8,5 @@ export interface Quiz {
   creatorId: string;
   isPublic: boolean;
   questions: Question[];
-  quizId: number;
+  quizId: string;
 }

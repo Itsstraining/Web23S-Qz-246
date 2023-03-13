@@ -7,16 +7,18 @@ import { QuestionService } from './question.service';
 })
 export class QuizService {
 
-  constructor(private questionSevice: QuestionService) { }
+  constructor(
+    private questionSevice: QuestionService,
 
+    ) { }
   quiz :Quiz= {
-    quizName: "",
-    quizDescription: "",
+    quizId: "1",
+    quizName: "Quiz mới",
+    quizDescription: "Mô tả quiz mới",
     quizImage: "",
     creatorId: "1",
     isPublic: false,
     questions: this.questionSevice.questions,
-    quizId: 1,
   }
 
   updateQuiz(quiz:Quiz){

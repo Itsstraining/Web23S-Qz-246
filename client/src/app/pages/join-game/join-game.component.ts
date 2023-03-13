@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { PlayerService } from 'src/app/services/player.service';
+import { QuestionService } from 'src/app/services/question.service';
+import { Question } from 'src/models/question.model';
 
 @Component({
   selector: 'app-join-game',
@@ -7,14 +12,63 @@ import { Component } from '@angular/core';
 })
 export class JoinGameComponent {
 
-  pin: string='';
+  pin: string = '';
   isInputName: boolean = false;
   name: string = '';
-  enterPin(){
-    this.isInputName = true;
+  isPlayerAdded = false
+  namePlayer: string = ""
+  question$?: Observable<Question | any>;
+  constructor(private playerService: PlayerService,
+    private router: Router,
+    private questionService: QuestionService) { }
+
+  ngOnInit(): void {
+    this.getNextQuestion();
+    this.playerService.getPlayerList().subscribe((playerList: any) => {
+      this.playerService.playerList = playerList;
+      console.log("getPlayerList", this.playerService.playerList)
+      this.playerService.playerList.findIndex((player: any) => {
+        if (player.name === this.namePlayer) {
+          console.log("playerCurrent", player)
+          this.playerService.playerCurrent = player
+        }
+      })
+      // this.playerService.updatePlayerList(playerList)
+    })
   }
-  playGame(){
+
+  enterPin() {
+    this.isInputName = true;
+    if (isNaN(Number(this.pin)) || this.namePlayer.length === 0) {
+      alert("Please enter correct pin")
+      return
+    }
+  }
+
+  joinGame() {
     console.log(this.pin);
     console.log(this.name);
+    if (this.namePlayer.length === 0) {
+      alert("Please enter name")
+      return
+    }
+    let infoPlayer = {
+      room: this.pin,
+      id: this.playerService.playerList.length + 1,
+      name: this.namePlayer,
+      score: 0,
+      correctAnswer: 0,
+    }
+    this.playerService.joinGame(infoPlayer);
+    this.isPlayerAdded = !this.isPlayerAdded
+  }
+
+  getNextQuestion() {
+    this.question$ = this.playerService.nextQuestion();
+    this.question$.subscribe((question: any) => {
+      this.questionService.questionSelected = question;
+      console.log("join-game", this.playerService.playerList)
+      this.router.navigateByUrl('/player');
+    });
   }
 }
