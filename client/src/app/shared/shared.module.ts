@@ -30,9 +30,10 @@ import { JoinGameModule } from "../pages/join-game/join-game.module";
     MatExpansionModule,
     MatSliderModule,
     MatButtonModule,
+  
   ],
   providers: [
-    FormsModule
+    FormsModule,
   ],
   exports: [
     NarBarComponent,
@@ -47,7 +48,7 @@ import { JoinGameModule } from "../pages/join-game/join-game.module";
     MatMenuModule,
     MatExpansionModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
   ]
 })
 export class SharedModule { }

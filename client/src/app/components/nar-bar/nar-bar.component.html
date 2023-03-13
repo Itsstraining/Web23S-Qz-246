@@ -1,35 +1,31 @@
-<!-- <nav class="navbar">
-    <ul class="main-nav">
-      <li class="nav-item">Home</li>
-      <li class="nav-item">Blog</li>
-      <li class="nav-item">Image Gallery</li>
-    </ul>
-</nav> -->
-
-<div id="navBar"  *ngIf="nav.visible">
+<div id="navBar" >
     <div class="navBar-left">
-        <div>Qz</div>
-        <a class="home" href="/home">Home</a>
-        <a class="library" href="#">Library</a>
-        <a class="market" href="/marketplace">Marketplace</a>
+        <div class="title">Qz</div>
+        <div class="quiz-info">
+            <input value="" placeholder="Enter Qz Title...">
+            <button class="quiz-info-button">Settings
+            </button>
+        </div>
 
-       
-     
     </div>
+
+
+
     <div class="navBar-right">
         <button class="btn" id="theme">
-            <img src="../../assets/6878705.png">
-            <p>Play</p>
+            <img src="../../../assets/palette.png">
+            themes
+        </button>
+        <button class="btn" id="preview">
+            <img src="../../../assets/eye.png">
+            preview
         </button>
         <div id="line"></div>
-        <button mat-button [matMenuTriggerFor]="menu" class="btn" id="Login">Login
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item>Log out</button>
 
-            </mat-menu>
-            <button class="btn" id="Login" (click)="authService.logoutWithGoogle()">Login
-            </button>
-            <button class="btn" id="help">Help</button>
+
+
+        <button class="btn" id="exit">Exit
         </button>
+        <button class="btn" id="save">Save</button>
     </div>
 </div>

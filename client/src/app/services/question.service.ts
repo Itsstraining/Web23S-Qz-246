@@ -13,7 +13,7 @@ export class QuestionService {
       questionType: "Quiz",
       point: 1,
       answerTime: 30,
-      backgroundImage: "https://play-lh.googleusercontent.com/A6y8kFPu6iiFg7RSkGxyNspjOBmeaD3oAOip5dqQvXASnZp-Vg65jigJJLHr5mOEOryx",
+      backgroundImage: "",
       title: "Câu hỏi 1",
       answers: [
         { id: "a", body: "aa", isCorrect: true },
