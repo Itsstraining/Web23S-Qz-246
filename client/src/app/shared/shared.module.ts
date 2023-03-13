@@ -8,6 +8,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import { JoinGameModule } from "../pages/join-game/join-game.module";
+import { CommonModule } from "@angular/common";
 @NgModule({
   declarations: [
     NarBarComponent,
@@ -18,7 +19,8 @@ import { JoinGameModule } from "../pages/join-game/join-game.module";
     MatMenuModule,
     MatExpansionModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
+    CommonModule
   ],
   providers: [
     FormsModule

@@ -1244,24 +1244,37 @@
       </div>
       <div class="container2">
         <div class="enterpin">
-          <div class="main">
+          <div class="main" *ngIf="!isPlayerAdded">
             <img src="../../../assets/img/userlmn_8f4cd10c5bd436df71486827c6e9de95.png">
-            <a class="lets" herf="/home">Let's play</a>
-            <span class="fontfeel">Do you feel confidient? here you’ll </span>
-            <span class="feel">challange one of the most difficult questions !</span>
-            <div *ngIf="!isInputName; else templateName">
-              <input class="pin" id="btn" type="text" placeholder="Game Pin" [(ngModel)]="pin">
-              <form>
-                <button class="btnani" formaction="/username" href="/username" id="btn1"
-                  (click)="enterPin()">Enter</button>
-              </form>
-            </div>
-            <ng-template #templateName>
-              <input class="pin" id="btn" type="text" placeholder="Enter Name" [(ngModel)]="namePlayer">
-              <button class="btnani" id="btn1" (click)="joinGame()">Join Game</button>
-            </ng-template>
+              <a class="lets" herf="/home">Let's play</a>
+              <span class="fontfeel">Do you feel confidient? here you’ll </span>
+              <span class="feel">challange one of the most difficult questions !</span>
+              <div *ngIf="!isInputName; else templateName">
+                <input class="pin" id="btn" type="text" placeholder="Game Pin" [(ngModel)]="pin">
+                <form>
+                  <button class="btnani" formaction="/username" href="/username" id="btn1"
+                    (click)="enterPin()">Enter</button>
+                </form>
+              </div>
+              <ng-template #templateName>
+                <input class="pin" id="btn" type="text" placeholder="Enter Name" [(ngModel)]="namePlayer">
+                <button class="btnani" id="btn1" (click)="joinGame()">Join Game</button>
+              </ng-template>
             <!-- <input class="pin" id="btn" type="text" placeholder ="Enter Name">
          <button class="btnJoin" id="btn1">Join Game</button>   -->
+          </div>
+          <div class="main" *ngIf="isPlayerAdded">
+            <img src="../../../assets/img/userlmn_8f4cd10c5bd436df71486827c6e9de95.png">
+                <div class="lds-roller">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
           </div>
         </div>
       </div>

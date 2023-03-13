@@ -56,11 +56,6 @@ const routes: Routes = [
     import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
   },
   {
-    path: 'username',
-    loadChildren: () =>
-      import('./pages/username/username.module').then((m) => m.UsernameModule),
-  },
-  {
     path: 'library',
     loadChildren: () =>
       import('./pages/library/library.module').then((m) => m.LibraryModule),
@@ -69,7 +64,8 @@ const routes: Routes = [
     path: 'slideshow',
     loadChildren: () =>
       import('./pages/slideshow/slideshow.module').then((m) => m.SlideshowModule),
-  }
+  },
+  { path: 'host', loadChildren: () => import('./pages/host/host.module').then(m => m.HostModule) }
 
 ];
 
