@@ -11,10 +11,22 @@
     align-items: center;
     background: #F8F2FA;
     flex-direction: column;
+  
+    
+
+    margin-left: auto;
+    margin-right: auto
+    
+    
 }
-
-
-img {
+.Title{
+    margin-left: 5.625rem;
+    margin-top: 33px;
+    font-size: 1.7rem;
+    font-family: 'Inter', sans-serif;
+    color: black;
+}
+img{
     width: 30px;
 }
 

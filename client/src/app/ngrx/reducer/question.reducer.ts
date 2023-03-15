@@ -105,7 +105,7 @@ export const questionReducer = createReducer(
     ...state,
     isLoading: true,
   })),
-  on(QuestionActions.deleteQuestionSuccess, (state, { questionId }) => ({
+  on(QuestionActions.deleteQuestionSuccess, (state, { questionId=0}) => ({
     ...state,
     questions: state.questions.filter((q) => q.questionId !== questionId),
     isLoading: false,

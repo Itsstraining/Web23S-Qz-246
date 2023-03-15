@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { CreateQuizRoutingModule } from './create-quiz-routing.module';
 import { CreateQuizComponent } from './create-quiz.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -11,7 +12,9 @@ import { CreateQuizComponent } from './create-quiz.component';
   ],
   imports: [
     CommonModule,
-    CreateQuizRoutingModule
+    CreateQuizRoutingModule,
+    SharedModule,
+
   ]
 })
 export class CreateQuizModule { }

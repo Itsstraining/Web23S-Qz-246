@@ -1,0 +1,47 @@
+<div class="answer-container">
+
+  <!-- <label for="answer-background" *ngIf="answerItem.id==answerItem.id" class="background"> -->
+    <!-- <div for="answer-background" *ngIf="answerItem.id=='2'" class="blue-background">
+      <div for="answer-background" *ngIf="answerItem.id=='3'" class="yellow-background">
+        <div for="answer-background" *ngIf="answerItem.id=='4'" class="green-background"> -->
+    <!-- <input *ngIf="answerItem.body.length > 0" type="text" value={{answerItem.body}} name={{answerItem.id}}
+      class="answer-background" [(ngModel)]="answerItem.body" (change)="onAnswerCheckChange()"
+      placeholder="Add answer {{answerItem.id}}" /> -->
+    <!-- </div>
+      </div>
+    </div> -->
+
+    <div class="icon">
+      <label for="answer-input" *ngIf="answerItem.id=='1' " class="red">
+        <img src="assets/plain-triangle.png">
+      </label>
+      <label for="answer-input" *ngIf="answerItem.id=='2'" class="blue">
+        <img src="assets/diamond.png">
+      </label>
+      <label for="answer-input" *ngIf="answerItem.id=='3'" class="yellow">
+        <img src="assets/new-moon.png">
+      </label>
+      <label for="answer-input" *ngIf="answerItem.id=='4'" class="green">
+        <img src="assets/square.png">
+      </label>
+    </div>
+    <input *ngIf="lengthAnswer !== 2" type="text" value={{answerItem.body}} name={{answerItem.id}} class="answer-input"
+      [(ngModel)]="answerItem.body" (change)="onAnswerCheckChange()" placeholder="Add answer {{answerItem.id}}" />
+
+    <input *ngIf="lengthAnswer == 2" type="text" value={{answerItem.body}} name={{answerItem.id}} readonly
+      class="answer-input" [(ngModel)]="answerItem.body" (change)="onAnswerCheckChange()"
+      placeholder="Add answer {{answerItem.id}}" />
+    <div class="answer-check">
+      <label for="checkbox" *ngIf="answerItem.isCorrect===true">
+        <img src="assets/check.png" (change)="onAnswerCheckChange()" [(ngModel)]="answerItem.isCorrect">
+      </label>
+
+      <label for="checkbox" *ngIf="answerItem.isCorrect===false">
+        <img src="assets/new-moon.png" (change)="onAnswerCheckChange()" [(ngModel)]="answerItem.isCorrect">
+      </label>
+
+      <input type="checkbox" [checked]="answerItem.isCorrect" [(ngModel)]="answerItem.isCorrect"
+        (change)="onAnswerCheckChange()" />
+    </div>
+  <!-- </label> -->
+</div>

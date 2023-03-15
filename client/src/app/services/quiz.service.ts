@@ -21,7 +21,7 @@ export class QuizService {
     questions: this.questionSevice.questions,
   }
 
-  updataQuiz(quiz:Quiz){
+  updateQuiz(quiz:Quiz){
     this.quiz = quiz;
   }
 

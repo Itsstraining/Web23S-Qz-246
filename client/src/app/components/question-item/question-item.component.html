@@ -1,0 +1,34 @@
+<div class="question-list-item" (click)="getQuestionItemSelect()">
+    <h3 class="question-list-item-title">
+      <span class="question-list-number">{{indexQuestion}} {{questionItem.questionType}}</span>
+    </h3>
+    <div class="question-preview">
+      <h4 class="question-preview-title">
+        {{questionItem.title}}
+      </h4>
+      <div class="question-preview-time">
+        <span class="question-preview-time-text">
+          {{questionItem.answerTime}}
+        </span>
+      </div>
+      <div class="question-preview-warning">
+          <img src="assets/warning.png">
+      </div>
+      <div class="question-preview-background-image">
+          <div *ngIf="questionItem.backgroundImage==''"></div>
+          <img style="border: none;" *ngIf="questionItem.backgroundImage!==''"
+          [src]="questionItem.backgroundImage" alt="" />
+      </div>
+      <div class="question-preview-answers" *ngIf="questionItem.questionType=='Quiz'">
+        <div class="answer-image"></div>
+        <div class="answer-image"></div>
+        <div class="answer-image"></div>
+        <div class="answer-image"></div>
+      </div>
+      <div class="question-preview-answers" *ngIf="questionItem.questionType!=='Quiz'">
+        <div class="answer-image"></div>
+        <div class="answer-image"></div>
+      </div>
+    </div>
+  </div>
+  
