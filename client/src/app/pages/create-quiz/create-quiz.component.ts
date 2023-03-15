@@ -150,15 +150,12 @@ export class CreateQuizComponent {
       answers: this.questionItem!.answers,
       questionId: this.questionItem!.questionId+1,
     }
-    if(this.indexQuestionItem==this.questtionService.questions.length-1){
-      this.questtionService.questions.push(question);
-    }else{
-      this.questtionService.questions.splice(this.indexQuestionItem+1, 0, question);
-    }
+
   }
 
   deleteQuestion(){
     // this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
+    this.questtionService.deleteQuestion(this.questionItem!.questionId);
     this.questions = this.questtionService.questions;
     this.questionItem = this.questions[0];
   }
