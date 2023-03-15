@@ -31,7 +31,7 @@ export class CreateQuizComponent {
       { id: "3", body: "", isCorrect: false },
       { id: "4", body: "", isCorrect: false },
     ],
-    questionId: 1,
+    questionId: "1",
   }
   indexQuestionItem :number = 0;
 
@@ -135,7 +135,7 @@ export class CreateQuizComponent {
         { id: "3", body: "cc", isCorrect: false },
         { id: "4", body: "dd", isCorrect: false },
       ],
-      questionId: this.questions.length+1,
+      questionId: Date.now().toString(),
     }
     this.questtionService.questions.push(question);
   }
@@ -158,7 +158,7 @@ export class CreateQuizComponent {
   }
 
   deleteQuestion(){
-    this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
+    // this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
     this.questions = this.questtionService.questions;
     this.questionItem = this.questions[0];
   }
