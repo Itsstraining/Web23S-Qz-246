@@ -54,7 +54,7 @@
                 <div class="image-sth" *ngIf="questionItem?.backgroundImage!=''">
                     <img [src]="questionItem?.backgroundImage" alt="">
                     <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
-                         />
+                        [(ngModel)]="quiz.quizImage" />
                 </div>
 
 
@@ -62,15 +62,15 @@
                     <label for="image-file" class="change-image">
                         <h3>Click to change image</h3>
                     </label>
-                    <!-- <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
-                        [(ngModel)]="quiz.quizImage" /> -->
+                    <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
+                        [(ngModel)]="quiz.quizImage" />
                 </div>
                 <div class="image-input" *ngIf="questionItem?.backgroundImage==''">
                     <label for="image-file" class="image-button">
                         <img src="../../../assets/plus.png" alt="">
                     </label>
                     <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
-                         />
+                        [(ngModel)]="quiz.quizImage" />
                 </div>
                 <h3 *ngIf="questionItem?.backgroundImage==''">
                     Find and upload an image
@@ -105,15 +105,15 @@
                     <label>Background Image</label>
                 </div>
                 <div class="backgroundImage">
-                    <label for="image-file2" class="image-button" *ngIf="quiz.quizImage==''">
+                    <label for="image-file" class="image-button" *ngIf="questionItem?.backgroundImage==''">
                         <img src="../../../assets/plus.png" alt="">
                     </label>
-                    <input hidden id="image-file2" type="file" (change)="onChangeQuiz($event)"
+                    <input hidden class="image-file" type="file" (change)="onChangeQuiz($event)"
                         [(ngModel)]="quiz.quizImage" />
-                    
+
                 </div>
-                <label for="image-file2" *ngIf="quiz.quizImage!=''">
-                    <img class="quiz-image" [src]="quiz.quizImage"/>
+                <label for="image-file" *ngIf="questionItem?.backgroundImage!=''">
+                    <img class="quiz-image" [src]="questionItem?.backgroundImage" />
                 </label>
 
                 <div style="margin-top: 10%;">

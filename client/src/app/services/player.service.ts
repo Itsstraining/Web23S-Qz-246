@@ -23,14 +23,14 @@ export class PlayerService {
     return this.socket.fromEvent("get-player-list");
   }
 
-  sendPlayerListUpdate(){
-    console.log("sendPlayerListUpdate",this.playerList)
-    this.socket.emit("send-player-list", this.playerList)
+  sendPlayerListUpdate(playerList:any) {
+    console.log("sendPlayerListUpdate",playerList)
+    this.socket.emit("send-player-list", playerList)
   }
 
-  updatePlayerList(playerList:any) {
-    this.playerList = playerList
-  }
+  // updatePlayerList(playerList:any) {
+  //   this.playerList = playerList
+  // }
 
   joinGame(data:any) {
     this.socket.emit('join-room', data);

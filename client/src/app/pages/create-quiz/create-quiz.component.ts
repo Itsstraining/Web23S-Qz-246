@@ -34,7 +34,7 @@ export class CreateQuizComponent {
     questionId: "1",
   }
   indexQuestionItem :number = 0;
-  
+
   onChangeQuiz(event: any) {
     const reader = new FileReader();
     if(event.target.files && event.target.files.length) {
@@ -148,16 +148,19 @@ export class CreateQuizComponent {
       backgroundImage: this.questionItem!.backgroundImage,
       title: this.questionItem!.title,
       answers: this.questionItem!.answers,
-      questionId: Date.now().toString(),
+      questionId: this.questionItem!.questionId+1,
     }
-    this.questtionService.declareQuestion(this.questionItem!.questionId,question);
+    if(this.indexQuestionItem==this.questtionService.questions.length-1){
+      this.questtionService.questions.push(question);
+    }else{
+      this.questtionService.questions.splice(this.indexQuestionItem+1, 0, question);
+    }
   }
 
   deleteQuestion(){
-    // this.questtionService.questions.splice(parseInt(this.questionItem!.questionId)-1,1).toString();
-    this.questtionService.deleteQuestion(this.questionItem!.questionId);
+    // this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
     this.questions = this.questtionService.questions;
-    // this.questionItem = this.questions[0];
+    this.questionItem = this.questions[0];
   }
 
   updateQuiz(){
@@ -170,7 +173,7 @@ export class CreateQuizComponent {
       questions: this.questions,
       quizId: this.quiz.quizId,
     }
-    
+
     this.quizService.updateQuiz(newQuiz);
     this.quiz = newQuiz;
   }
