@@ -23,6 +23,7 @@ export class LoppyComponent {
   lenghtPlayer = 0;
   questionList$!: Observable<Question[]>;
   lenghtQuestion = 0;
+  questionData!: Question;
   constructor(private playerService: PlayerService,
     private adminHostService: AdminHostService,
     private questionService: QuestionService,
@@ -37,6 +38,7 @@ export class LoppyComponent {
       })
       this.questionList$ = this.store.select((state) => state.question.questions);
       this.questionList$.subscribe((data)=>{
+        this.questionData = data[0];
         this.lenghtQuestion = data.length;
       })
     }
@@ -50,8 +52,10 @@ export class LoppyComponent {
 
   startGame() {
     // this.getQuestionByIndex(this.currentQuestionIndex)
-    this.adminHostService.startGame(this.questionService.questions[0])
-    this.adminHostService.sendLenghtQuestions(this.questionService.questions.length)
+    // this.adminHostService.startGame(this.questionService.questions[0])
+    this.adminHostService.startGame(this.questionData)
+    // this.adminHostService.sendLenghtQuestions(this.questionService.questions.length)
+    this.adminHostService.sendLenghtQuestions(this.lenghtQuestion)
     // this.adminHostService.sendPlayerList(this.playerService.playerList)
     this.adminHostService.sendPlayerList(this.playerList$)
     // this.playerList = this.playerService.playerList;

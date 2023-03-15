@@ -31,6 +31,11 @@ export const addNewQuestionFailure=createAction(
   props<{error:string}>()
 );
 
+export const updateSeleceQuestion=createAction(
+  "[Question] UPDATE_SELECE_QUESTION",
+  props<{question:Question}>()
+);
+
 export const updateQuestion=createAction(
   "[Question] UPDATE_QUESTION",
   props<{question:Question}>()
