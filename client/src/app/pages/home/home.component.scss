@@ -1,80 +1,28 @@
 .ren-act {
-  // margin-top: 2%;
+  margin-top: 2%;
   margin-left: 5%;
   font-size: 1.3rem;
- 
+  background-color: #fff;
   
 }
-
-// .arrow {
-  
-//   // margin-right: 6%;
-// }
-
-// .ren-act-1 {
-  
-  
-
-// }
-
-// .ren-act-2 {
-//   font-size: 1.5rem;
-// }
-
-// .ren-act-2 #down {
-//   background-color: white;
-//   border: #ffffff;
-//   margin-top: 1%;
-//   margin-left: 2%;
-//   width: 20%;
-//   height: auto;
-//   font-size: 1.3rem;
-// }
-
-// .ren-act-3 #down {
-//   background-color: white;
-//   border: #ffffff;
-//   margin-top: 1%;
-//   margin-left: 3%;
-//   width: 15%;
-//   height: auto;
-//   font-size: 1.3rem;
-// }
-
-
+.ren-act-1 {
+  color: black;
+  background-color: #fff;
+}
 img {
   width: 10%;
   height: 10%;
 }
-
-// #down {
-//     background-color: white;
-//     border: #ffffff;
-//     margin-top: 1%;
-//     width: 15%;
-//     height: auto;
-//     font-size: 1.3rem;
-// }
-
-
-// #down:hover {
-//     background-color: whitesmoke;
-//     // border: #f33c3c;
-//     // color: white;
-// }
-
 .math {
   display: flex;
   // margin-left: 3%;
   gap: 3rem;
 
 }
-
-
 * {
   box-sizing: border-box;
+  background-color: #fff;
 }
-
 .slider {
   width: 1380px;
   text-align: center;
@@ -85,21 +33,19 @@ img {
   // margin-top: 1%;
   margin-left: 60px;
 }
-
 .slides {
   display: flex;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  padding: 7px;
+  padding: 15px;
   // margin-left: 1%;
   /*
     scroll-snap-points-x: repeat(300px);
     scroll-snap-type: mandatory;
     */
 }
-
 .slides>button {
   font-weight: 700;
   font-size: 25px;
@@ -110,39 +56,41 @@ img {
     scroll-snap-type: mandatory;
     */
 }
-
 .slides::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 7px;
+  height: 7px;
+  padding: 100px;
+  
+ 
   // margin-top: 15px
 
 }
-
 .slides::-webkit-scrollbar-thumb {
   background: black;
   border-radius: 5px;
-}
 
+  
+}
 .slides::-webkit-scrollbar-track {
   background: transparent;
+  margin-left: 20px;
 }
+// .slides>button {
+//   scroll-snap-align: start;
+//   flex-shrink: 0;
+//   width: 200px;
+//   height: 200px;
+//   margin-right: 10px;
+//   border-radius: 10px;
+//   background: #eee;
+//   transform-origin: center center;
+//   transform: scale(1);
+//   transition: transform 0.5s;
+//   position: relative;
 
-.slides>button {
-  scroll-snap-align: start;
-  flex-shrink: 0;
-  width: 200px;
-  height: 200px;
-  margin-right: 10px;
-  border-radius: 10px;
-  background: #eee;
-  transform-origin: center center;
-  transform: scale(1);
-  transition: transform 0.5s;
-  position: relative;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  // font-size: 50px;
-}
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   // font-size: 50px;
+// }
 
