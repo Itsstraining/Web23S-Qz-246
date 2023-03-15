@@ -17,9 +17,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { questionReducer } from './ngrx/reducer/question.reducer';
 import { UserEffect } from './ngrx/effects/user.effect';
-
-
-
+import { SocketIoModule } from 'ngx-socket-io';
+const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +32,7 @@ import { UserEffect } from './ngrx/effects/user.effect';
     EffectsModule.forRoot([
 
     ]),
+    SocketIoModule.forRoot(config),
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,

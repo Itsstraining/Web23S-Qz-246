@@ -9,12 +9,12 @@ export class PlayerService {
 
   constructor( private socket:Socket) { }
   playerList : Player[]= [
-    // {
-    //   id: 1,
-    //   name: "Player 1",
-    //   score: 0,
-    //   correctAnswer: 0,
-    // },
+    {
+      id: "1",
+      name: "Player 1",
+      score: 0,
+      correctAnswer: 0,
+    },
   ];
 
   playerCurrent!:Player
