@@ -30,6 +30,8 @@ import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.compone
 
 
 import { SocketIoModule } from 'ngx-socket-io';
+import { playerReducer } from './ngrx/reducer/player.reducer';
+import { roomReducer } from './ngrx/reducer/room.reducer';
 const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
@@ -57,7 +59,11 @@ const config = { url: 'http://localhost:3000', options: {} };
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
     StoreModule.forRoot({
-      user: userReducer
+      user: userReducer,
+      player: playerReducer,
+      question: questionReducer,
+      quiz: questionReducer,
+      room: roomReducer
     }),
     // EffectsModule.forRoot([UserEffect]),
   ],

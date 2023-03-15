@@ -64,9 +64,9 @@ const routes: Routes = [
       import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
   {
-    path: 'slideshow',
-    loadChildren: () =>
-      import('./pages/slideshow/slideshow.module').then((m) => m.SlideshowModule),
+    path: '',
+    redirectTo: 'home',
+    pathMatch: 'full',
   },
   { path: 'host'  ,  canActivate: [AuthGuard], loadChildren: () => import('./pages/host/host.module').then(m => m.HostModule) }
 

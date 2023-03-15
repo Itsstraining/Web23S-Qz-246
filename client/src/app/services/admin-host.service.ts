@@ -9,8 +9,8 @@ export class AdminHostService {
 
   constructor(private socket:Socket) { }
 
-  createRoom(roomId:any) {
-    this.socket.emit('create-room', roomId);
+  createRoom(roomId:string, lengthQusetions:number) {
+    this.socket.emit('create-room', { room: roomId, lengthQusetions: lengthQusetions});
   }
 
   getPlayersByRoomId() {
@@ -31,5 +31,8 @@ export class AdminHostService {
 
   sendShowRanking(playerList:any){
     this.socket.emit("show-ranking",playerList)
+  }
+  sendLenghtQuestions(lenght:any){
+    this.socket.emit("send-lenght-questions",lenght)
   }
 }

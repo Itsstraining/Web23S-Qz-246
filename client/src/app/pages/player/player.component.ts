@@ -32,12 +32,19 @@ export class PlayerComponent {
   isShowRank = false;
   infoPlayer!: Player;
   rank = 0;
-
+  scorePlayer = 0;
+  listIcon = [
+    "square",
+    "circle",
+    "triangle",
+    "rhombus"];
+  lengthQuestions = this.questionService.questionLength;
   constructor(private playerService: PlayerService,
     private questionService: QuestionService) { }
 
   ngOnInit() {
     this.time = 6;
+    this.infoPlayer = this.playerService.playerCurrent;
     this.makeIteration();
     this.isShowCountdown = true;
     this.isResultScreen = false;
@@ -45,8 +52,8 @@ export class PlayerComponent {
     this.questionData = this.questionService.questionSelected;
     this.getNextQuestion()
     this.getShowQuestionCorrect()
-    this.getPlayerList()
-    // this.showRank()
+    // this.getPlayerList()
+    this.showRank()
   }
 
   makeIteration = (): void => {
@@ -76,18 +83,20 @@ export class PlayerComponent {
       this.isShowCountdown = true;
       this.isQuestionScreen = false;
       this.isResultScreen = false;
+      this.time = 6;
+      this.infoPlayer = this.playerService.playerCurrent;
       this.makeIteration()
     });
   }
 
-  getPlayerList() {
-    this.playerService.getPlayerList().subscribe((playerList: any) => {
-      this.playerService.playerList = playerList;
-      console.log("getPlayerList", this.playerService.playerList)
-      // this.playerService.updatePlayerList(playerList)
-    }
-    )
-  }
+  // getPlayerList() {
+  //   this.playerService.getPlayerList().subscribe((playerList: any) => {
+  //     this.playerService.playerList = playerList;
+  //     console.log("getPlayerList", this.playerService.playerList)
+  //     // this.playerService.updatePlayerList(playerList)
+  //   }
+  //   )
+  // }
 
   getShowQuestionCorrect() {
     this.playerService.showQuestionCorrect().subscribe((question: any) => {
@@ -95,14 +104,16 @@ export class PlayerComponent {
       // console.log(this.isAnwerCorrect)
       this.isSelectAnswer = false;
       this.isResultScreen = true;
+      this.scorePlayer = this.playerService.playerCurrent.score;
     });
   }
 
+  tempInfoPlayer?: Player;
   selectAnswer(item: any) {
     this.isResultScreen = true;
     this.isSelectAnswer = true;
     // console.log("selectAnswer",item)
-    this.isQuestionScreen = false;
+    // this.isQuestionScreen = false;
     this.questionData!.answers.forEach((answer: any) => {
       if (answer.id == item.id) {
         if (answer.isCorrect) {
@@ -115,7 +126,7 @@ export class PlayerComponent {
             if (player.id === this.playerService.playerCurrent.id &&
               player.name === this.playerService.playerCurrent.name) {
               console.log("selectAnswer", player)
-              this.playerService.playerCurrent = player;
+              // this.tempInfoPlayer = player;
               player.score += this.questionData!.point;
               player.correctAnswer++
             }
@@ -130,6 +141,7 @@ export class PlayerComponent {
 
   showRank() {
     this.playerService.showRanking().subscribe((playerList: any) => {
+      this.isQuestionScreen=false;
       this.isShowRank = true;
       this.isResultScreen = false;
       this.playerService.updatePlayerList(playerList)

@@ -6,54 +6,29 @@
                 <div id="joinn">Join at: www.Qz.com</div>
             </div>
             <div class="pin">
-                <div id="pinn">GAMEPIN:2351655</div>
+                <div id="pinn">GAMEPIN:{{pinGame}}</div>
             </div>
         </div>
-
         <div class="wait">
             <div class="hihi">
                 <p>Watiting for player</p>
                 <div class="start">
-                    <button class="btn">Start</button>
+                    <button class="btn" (click)="startGame()">Start</button>
                 </div>
             </div>
         </div>
-
-
-
         <div class="user">
-            <p class="K">Khoi</p>
-            <p class="K">Trung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Khoi</p>
-            <p class="K">Trung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
-            <p class="K">Dung</p>
+            <p class="K"  *ngFor="let item of playerList$|async">{{item.name}}</p>
         </div>
-
-
-
         <div class="icon">
             <div class="icon-1">
                 <img src="../../../../assets/user.png" class="icon-chat">
-                <div class="num">8</div>
+                <div class="num">{{lenghtPlayer}}</div>
             </div>
             <div class="icon-2">
-
                 <img src="../../../../assets/volume.png" class="icon-volume">
-                <!-- <mat-slider min="0" max="100" step="1" showTickMarks discrete [displayWith]="formatLabel"class="inner rotate" id="loa"> 
-                    <input matSliderThumb>
-                  </mat-slider> -->
                 <img src="../../../../assets/settings.png" class="icon-setting">
             </div>
         </div>
-
     </div>
 </div>

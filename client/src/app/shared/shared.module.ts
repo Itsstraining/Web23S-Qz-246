@@ -14,8 +14,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import { JoinGameModule } from "../pages/join-game/join-game.module";
-import {MatIconModule} from '@angular/material/icon';
-
 @NgModule({
   declarations: [
     NarBarComponent,
@@ -35,7 +33,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatExpansionModule,
     MatSliderModule,
     MatButtonModule,
-    MatIconModule,
+    CommonModule
   ],
   providers: [
     FormsModule,
@@ -53,8 +51,7 @@ import {MatIconModule} from '@angular/material/icon';
     MatMenuModule,
     MatExpansionModule,
     MatSliderModule,
-    MatButtonModule,
-    MatIconModule,
+    MatButtonModule
   ]
 })
 export class SharedModule { }

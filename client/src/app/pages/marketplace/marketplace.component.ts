@@ -119,6 +119,62 @@ export class MarketplaceComponent {
       pay: "$2.99",
     },
   ]
+  Cus= [
+    {
+      id :1,
+      name :"Maps of the world",
+      activity: "12 acitivities",
+      discription: "Thế giới rộng lớn liệu rằng bạn có thể tìm được những người giống như bạn? Hãy thử tìm kiếm và tìm thấy những người bạn thân nhất của bạn.",
+      status: "1k buyed",
+      image: "https://www.rd.com/wp-content/uploads/2021/05/GettyImages-476743000.jpg",
+      pay: "$0.99",
+    },
+    {
+      id :2,
+      name :"Countries fact",
+      activity: "12 acitivities",
+      discription: "Động vật nào là động vật có thể sống ở nhiều nơi khác nhau? Hãy thử tìm kiếm và tìm thấy những người bạn thân nhất của bạn",
+      status: "723 buyed",
+      image: "https://img.jakpost.net/c/2018/10/13/2018_10_13_56180_1539429081._large.jpg",
+      pay: "$1.99",
+    },
+    {
+      id :3,
+      name :"Learn around the world ",
+      activity: "12 acitivities",
+      discription: "Thế giới rộng lớn liệu rằng bạn có thể tìm được những người giống như bạn? Hãy thử tìm kiếm và tìm thấy những người bạn thân nhất của bạn.",
+      status: "845 buyed",
+      image: "https://mir-s3-cdn-cf.behance.net/project_modules/disp/0910169664225.560d7e6b57e3d.jpg",
+      pay: "$1.99",
+    },
+    {
+      id :4,
+      name :"Universe",
+      activity: "12 acitivities",
+      discription: "Du lịch thế giới rộng lớn và tìm kiếm những người bạn thân nhất của bạn. Hãy thử tìm kiếm và tìm thấy những người bạn thân nhất của bạn.",
+      status: "2k buyed",
+      image: "https://media.istockphoto.com/id/1087841488/photo/whole-world-in-hands-mixed-media.jpg?s=612x612&w=0&k=20&c=kyPO8VmfdpkSSg7mtfEsyFxDcXqDqlBG-HRHU6tBUIQ=",
+      pay: "$2.99",
+    },
+    {
+      id :5,
+      name :"Global Celebrations",
+      activity: "12 acitivities",
+      discription: "Tư duy và tìm kiếm những người bạn thân nhất của bạn. Hãy thử tìm kiếm và tìm thấy những người bạn thân nhất của bạn.",
+      status: "2k buyed",
+      image: "https://www.ontariosciencecentre.ca/media/2098/fireworksheader3.jpg",
+      pay: "$2.99",
+    },
+    {
+      id :6,
+      name :"Religious Holidays",
+      activity: "12 acitivities",
+      discription: "Du lịch thế giới rộng lớn và tìm kiếm những người bạn thân nhất của bạn. Hãy thử tìm kiếm và tìm thấy những người bạn thân nhất của bạn.",
+      status: "2k buyed",
+      image: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/01/17/11/istock-994807816.jpg?width=1200",
+      pay: "$2.99",
+    },
+  ]
 
 //   let slideIndex = 1;
 // showSlides(slideIndex);

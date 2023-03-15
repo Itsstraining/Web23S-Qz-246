@@ -15,6 +15,7 @@ export class QuizGateway {
 
   // clients = [];
   room = '';
+  lengthQusetions = 0;
   handleConnection(client: Socket, ...args: any[]) {
     console.log(`client ${client.id} connected`);
     // this.client.join('123')
@@ -28,7 +29,8 @@ export class QuizGateway {
   @SubscribeMessage('create-room')
   handlecreateRoom(client: Socket, payload: any): any {
     // client.join("123");
-    this.room = payload;
+    this.room = payload.room;
+    this.lengthQusetions = payload.lengthQusetions;
     this.server.in(client.id).socketsJoin(this.room);
     console.log(`admin ${client.id} joined room: ${this.room}`);
     // console.log(payload);
@@ -60,6 +62,12 @@ export class QuizGateway {
   handleStartGame(@MessageBody() body: any) {
     // console.log(body);
     this.server.to(this.room).emit('next-question-item', body);
+  }
+
+  @SubscribeMessage('send-lenght-questions')
+  handleGetLenghtQuestions(@MessageBody() body: any) {
+    // console.log(body);
+    this.server.to(this.room).emit('get-lenght-questions', body);
   }
 
   @SubscribeMessage('timeout-questions')
