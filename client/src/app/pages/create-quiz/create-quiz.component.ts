@@ -13,173 +13,173 @@ import { Quiz } from 'src/models/quiz.model';
 export class CreateQuizComponent {
   constructor(private questtionService: QuestionService,private quizService:QuizService) { }
 
-  quiz :Quiz= this.quizService.quiz;
-  questions :Question[] = this.questtionService.questions;
-  questionTypeList = this.questtionService.questionType;
-  questionTimeList = this.questtionService.questionTime;
-  questionPointList = this.questtionService.questionPoint;
-  isSettingQuiz = false;
-  questionItem?:Question={
-    questionType: "Quiz",
-    point: 1,
-    answerTime: 30,
-    backgroundImage: "",
-    title: "Câu hỏi mới",
-    answers: [
-      { id: "1", body: "", isCorrect: false },
-      { id: "2", body: "", isCorrect: false },
-      { id: "3", body: "", isCorrect: false },
-      { id: "4", body: "", isCorrect: false },
-    ],
-    questionId: 1,
-  }
-  indexQuestionItem :number = 0;
-  
-  onChangeQuiz(event: any) {
-    const reader = new FileReader();
-    if(event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.quiz.quizImage = reader.result as string;
-      };
-      // $('.image-input label').css('display','none');
-    }
-  }
+//   quiz :Quiz= this.quizService.quiz;
+//   questions :Question[] = this.questtionService.questions;
+//   questionTypeList = this.questtionService.questionType;
+//   questionTimeList = this.questtionService.questionTime;
+//   questionPointList = this.questtionService.questionPoint;
+//   isSettingQuiz = false;
+//   questionItem?:Question={
+//     questionType: "Quiz",
+//     point: 1,
+//     answerTime: 30,
+//     backgroundImage: "",
+//     title: "Câu hỏi mới",
+//     answers: [
+//       { id: "1", body: "", isCorrect: false },
+//       { id: "2", body: "", isCorrect: false },
+//       { id: "3", body: "", isCorrect: false },
+//       { id: "4", body: "", isCorrect: false },
+//     ],
+//     questionId: 1,
+//   }
+//   indexQuestionItem :number = 0;
 
-  onChangeQuestion(event: any) {
-    const reader = new FileReader();
-    if(event.target.files && event.target.files.length) {
-      const [file] = event.target.files;
-      reader.readAsDataURL(file);
-      reader.onload = () => {
-        this.questionItem!.backgroundImage = reader.result as string;
-      };
-    }
-  }
+//   onChangeQuiz(event: any) {
+//     const reader = new FileReader();
+//     if(event.target.files && event.target.files.length) {
+//       const [file] = event.target.files;
+//       reader.readAsDataURL(file);
+//       reader.onload = () => {
+//         this.quiz.quizImage = reader.result as string;
+//       };
+//       // $('.image-input label').css('display','none');
+//     }
+//   }
 
-  changeSettingQuiz(){
-    this.isSettingQuiz = !this.isSettingQuiz;
-  }
+//   onChangeQuestion(event: any) {
+//     const reader = new FileReader();
+//     if(event.target.files && event.target.files.length) {
+//       const [file] = event.target.files;
+//       reader.readAsDataURL(file);
+//       reader.onload = () => {
+//         this.questionItem!.backgroundImage = reader.result as string;
+//       };
+//     }
+//   }
 
-  getQuestionItem(questionItem: Question){
-    this.questionItem = questionItem;
-  }
+//   changeSettingQuiz(){
+//     this.isSettingQuiz = !this.isSettingQuiz;
+//   }
 
-  getQuestionItemIndex(indexQuestion: number){
-    this.indexQuestionItem = indexQuestion;
-  }
+//   getQuestionItem(questionItem: Question){
+//     this.questionItem = questionItem;
+//   }
 
-  changeQuestionType(){
-    let question:Question={
-      questionType: this.questionItem!.questionType,
-      point: this.questionItem!.point,
-      answerTime: this.questionItem!.answerTime,
-      backgroundImage: this.questionItem!.backgroundImage,
-      title: this.questionItem!.title,
-      questionId: this.questionItem!.questionId,
-      answers: this.questionItem!.answers,
-    }
-    if(this.questionItem!.questionType == "True/False"){
-      question!.answers = [
-        { id: "1", body: "True", isCorrect: false },
-        { id: "2", body: "False", isCorrect: false },
-      ]
-    }else{
-      question!.answers = [
-        { id: "1", body: "", isCorrect: false },
-        { id: "2", body: "", isCorrect: false },
-        { id: "3", body: "", isCorrect: false },
-        { id: "4", body: "", isCorrect: false },
-      ]
-    }
-    this.questtionService.updateQuestion(question!);
-    this.questionItem=question!;
-  }
+//   getQuestionItemIndex(indexQuestion: number){
+//     this.indexQuestionItem = indexQuestion;
+//   }
 
-  updateQuestion(){
-    let question:Question={
-      questionType: this.questionItem!.questionType,
-      point: this.questionItem!.point,
-      answerTime: this.questionItem!.answerTime,
-      backgroundImage: this.questionItem!.backgroundImage,
-      title: this.questionItem!.title,
-      questionId: this.questionItem!.questionId,
-      answers: this.questionItem!.answers,
-    }
-    this.questtionService.updateQuestion(question!);
-    this.questionItem=question!;
-  }
+//   changeQuestionType(){
+//     let question:Question={
+//       questionType: this.questionItem!.questionType,
+//       point: this.questionItem!.point,
+//       answerTime: this.questionItem!.answerTime,
+//       backgroundImage: this.questionItem!.backgroundImage,
+//       title: this.questionItem!.title,
+//       questionId: this.questionItem!.questionId,
+//       answers: this.questionItem!.answers,
+//     }
+//     if(this.questionItem!.questionType == "True/False"){
+//       question!.answers = [
+//         { id: "1", body: "True", isCorrect: false },
+//         { id: "2", body: "False", isCorrect: false },
+//       ]
+//     }else{
+//       question!.answers = [
+//         { id: "1", body: "", isCorrect: false },
+//         { id: "2", body: "", isCorrect: false },
+//         { id: "3", body: "", isCorrect: false },
+//         { id: "4", body: "", isCorrect: false },
+//       ]
+//     }
+//     this.questtionService.updateQuestion(question!);
+//     this.questionItem=question!;
+//   }
 
-  onAnswerCheckChange(answer:Answer){
-    this.questionItem?.answers.forEach((item)=>{
-      if(item.id==answer.id){
-        item.isCorrect = answer.isCorrect;
-        item.body = answer.body;
-      }else{
-        item.isCorrect = false;
-      }
-    })
-  }
+//   updateQuestion(){
+//     let question:Question={
+//       questionType: this.questionItem!.questionType,
+//       point: this.questionItem!.point,
+//       answerTime: this.questionItem!.answerTime,
+//       backgroundImage: this.questionItem!.backgroundImage,
+//       title: this.questionItem!.title,
+//       questionId: this.questionItem!.questionId,
+//       answers: this.questionItem!.answers,
+//     }
+//     this.questtionService.updateQuestion(question!);
+//     this.questionItem=question!;
+//   }
 
-  addQuestion(){
-    let question:Question = {
-      questionType: "Quiz",
-      point: 1,
-      answerTime: 30,
-      backgroundImage: "",
-      title: "",
-      answers: [
-        { id: "1", body: "aa", isCorrect: false },
-        { id: "2", body: "bb", isCorrect: false },
-        { id: "3", body: "cc", isCorrect: false },
-        { id: "4", body: "dd", isCorrect: false },
-      ],
-      questionId: this.questions.length+1,
-    }
-    this.questtionService.questions.push(question);
-  }
+//   onAnswerCheckChange(answer:Answer){
+//     this.questionItem?.answers.forEach((item)=>{
+//       if(item.id==answer.id){
+//         item.isCorrect = answer.isCorrect;
+//         item.body = answer.body;
+//       }else{
+//         item.isCorrect = false;
+//       }
+//     })
+//   }
 
-  duplicateQuestion(){
-    let question:Question = {
-      questionType: this.questionItem!.questionType,
-      point: this.questionItem!.point,
-      answerTime: this.questionItem!.answerTime,
-      backgroundImage: this.questionItem!.backgroundImage,
-      title: this.questionItem!.title,
-      answers: this.questionItem!.answers,
-      questionId: this.questionItem!.questionId+1,
-    }
-    if(this.indexQuestionItem==this.questtionService.questions.length-1){
-      this.questtionService.questions.push(question);
-    }else{
-      this.questtionService.questions.splice(this.indexQuestionItem+1, 0, question);
-    }
-  }
+//   addQuestion(){
+//     let question:Question = {
+//       questionType: "Quiz",
+//       point: 1,
+//       answerTime: 30,
+//       backgroundImage: "",
+//       title: "",
+//       answers: [
+//         { id: "1", body: "aa", isCorrect: false },
+//         { id: "2", body: "bb", isCorrect: false },
+//         { id: "3", body: "cc", isCorrect: false },
+//         { id: "4", body: "dd", isCorrect: false },
+//       ],
+//       questionId: this.questions.length+1,
+//     }
+//     this.questtionService.questions.push(question);
+//   }
 
-  deleteQuestion(){
-    this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
-    this.questions = this.questtionService.questions;
-    this.questionItem = this.questions[0];
-  }
+//   duplicateQuestion(){
+//     let question:Question = {
+//       questionType: this.questionItem!.questionType,
+//       point: this.questionItem!.point,
+//       answerTime: this.questionItem!.answerTime,
+//       backgroundImage: this.questionItem!.backgroundImage,
+//       title: this.questionItem!.title,
+//       answers: this.questionItem!.answers,
+//       questionId: this.questionItem!.questionId+1,
+//     }
+//     if(this.indexQuestionItem==this.questtionService.questions.length-1){
+//       this.questtionService.questions.push(question);
+//     }else{
+//       this.questtionService.questions.splice(this.indexQuestionItem+1, 0, question);
+//     }
+//   }
 
-  updateQuiz(){
-    let newQuiz:Quiz= {
-      quizName: this.quiz.quizName,
-      quizDescription: this.quiz.quizDescription,
-      quizImage: this.quiz.quizImage,
-      creatorId: this.quiz.creatorId,
-      isPublic: this.quiz.isPublic,
-      questions: this.questions,
-      quizId: this.quiz.quizId,
-    }
-    
-    this.quizService.updateQuiz(newQuiz);
-    this.quiz = newQuiz;
-  }
+//   deleteQuestion(){
+//     this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
+//     this.questions = this.questtionService.questions;
+//     this.questionItem = this.questions[0];
+//   }
 
-  saveQuiz(){
-    this.updateQuiz();
-    this.quizService.saveQuiz();
-  }
+//   updateQuiz(){
+//     let newQuiz:Quiz= {
+//       quizName: this.quiz.quizName,
+//       quizDescription: this.quiz.quizDescription,
+//       quizImage: this.quiz.quizImage,
+//       creatorId: this.quiz.creatorId,
+//       isPublic: this.quiz.isPublic,
+//       questions: this.questions,
+//       quizId: this.quiz.quizId,
+//     }
+
+//     this.quizService.updateQuiz(newQuiz);
+//     this.quiz = newQuiz;
+//   }
+
+//   saveQuiz(){
+//     this.updateQuiz();
+//     this.quizService.saveQuiz();
+//   }
 }

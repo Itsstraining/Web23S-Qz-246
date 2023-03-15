@@ -22,7 +22,7 @@
       </div>
       <div class="img">
         <div class="quiz">
-          <p>{{questionData?.questionType}}</p>
+          <p>{{(questionData$|async)?.questionType}}</p>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
         <img src="https://i.imgur.com/DmVkmUE.jpg">
       </div>
       <div class="choice-question" *ngIf="!isResultScreen">
-          <div class="answerItem" (click)="selectAnswer(item)" *ngFor="let item of questionData!.answers; let i=index">
+          <div class="answerItem" (click)="selectAnswer(item)" *ngFor="let item of (questionData$|async)!.answers; let i=index">
             <div [class]="listIcon[i]"></div>
           </div>
       </div>
@@ -61,7 +61,8 @@
     </div>
     <div class="bottom">
       <div class="user-name">
-        <p>{{infoPlayer.name}}</p>
+        <!-- <p>{{infoPlayer.name}}</p> -->
+        <p>{{(playerData$|async)?.name}}</p>
       </div>
       <div class="score">
         {{scorePlayer}}
@@ -78,10 +79,10 @@
           <p>{{rank}}</p>
         </div>
         <div class="correct">
-          <p>{{infoPlayer.name}}</p>
+          <p>{{(playerData$|async)?.name}}</p>
         </div>
         <div class="correct">
-          <p>{{infoPlayer.score}} score</p>
+          <p>{{(playerData$|async)?.score}} score</p>
         </div>
       </div>
     </div>
