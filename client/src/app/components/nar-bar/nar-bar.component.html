@@ -8,11 +8,19 @@
         <div class="right">
            <img src="../../../assets/6878705.png" class="play">
            <img src="../../../assets/add.png" class="add">
-            <button class="login">Login</button>
+            <button class="login" (click)="authService.loginWithGoogle()">Login</button>
+            <!-- {{authService.userInfo.displayName}}
+            {{authService.userInfo.email}}
+            {{authService.userInfo.photoURL}} -->
+            <!-- <button class="login" *ngIf="authService.loginWithGoogle()" (click)="authService.logoutWithGoogle()">Logout</button> -->
             <img src="../../../assets/avatar.png" class="ava" mat-button [matMenuTriggerFor]="menu" >
             <mat-menu #menu="matMenu">
-                <button mat-menu-item class="logout">Logout</button>
+                <button mat-menu-item class="logout" (click)="authService.logoutWithGoogle()">Logout</button>
+                {{authService.userInfo.displayName}}
+                {{authService.userInfo.email}}
+                {{authService.userInfo.photoURL}}
             </mat-menu>
+            
         </div>
 </ul>
 
