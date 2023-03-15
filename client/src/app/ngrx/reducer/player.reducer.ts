@@ -3,9 +3,16 @@ import { PlayerState } from '../states/player.state';
 import * as PlayerActions from '../actions/player.action';
 
 export const initialState: PlayerState = {
-  players: [],
+  players: [
+    {
+      id: '1',
+      name: 'Player 1',
+      score: 0,
+      correctAnswer: 0,
+    },
+  ],
   player: null,
-  error: "",
+  error: '',
   isSuccess: false,
   isLoading: false,
 };
@@ -40,19 +47,28 @@ export const playerReducer = createReducer(
     error,
     isLoading: false,
   })),
-  on(PlayerActions.addNewPlayer, (state) => ({
+  on(PlayerActions.addNewPlayer, (state, { player }) => ({
     ...state,
-    isLoading: true,
-  })),
-  on(PlayerActions.addNewPlayerSuccess, (state, { player }) => ({
-    ...state,
+    // isLoading: true,
     players: [...state.players, player],
-    isLoading: false,
   })),
-  on(PlayerActions.addNewPlayerFailure, (state, { error }) => ({
+  // on(PlayerActions.addNewPlayerSuccess, (state, { player }) => ({
+  //   ...state,
+  //   players: [...state.players, player],
+  //   isLoading: false,
+  // })),
+  // on(PlayerActions.addNewPlayerFailure, (state, { error }) => ({
+  //   ...state,
+  //   error,
+  //   isLoading: false,
+  // })),
+  on(PlayerActions.sortPlayers, (state) => ({
     ...state,
-    error,
-    isLoading: false,
+    players: state.players.sort((a, b) => b.score - a.score),
+  })),
+  on(PlayerActions.updatePlayers, (state, { players }) => ({
+    ...state,
+    players: players,
   })),
   on(PlayerActions.updatePlayer, (state) => ({
     ...state,
@@ -83,4 +99,3 @@ export const playerReducer = createReducer(
     isLoading: false,
   }))
 );
-

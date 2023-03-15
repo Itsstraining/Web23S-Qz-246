@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
     private  navbarService: NavBarService
     ) { }
 
-  pages=["/login","/player","/ranking","/create-quiz","/loppy","/library"];
+  pages=["/login","/player","/raking","/create-quiz","/loppy","/library","/join-game",'/host'];
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
