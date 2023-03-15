@@ -22,7 +22,7 @@ export class QuestionService {
         { id: "3", body: "cc", isCorrect: false },
         { id: "4", body: "dd", isCorrect: false },
       ],
-      questionId: 1,
+      questionId: "1",
     },
     {
       questionType: "True/False",
@@ -34,7 +34,7 @@ export class QuestionService {
         { id: "1", body: "True", isCorrect: true },
         { id: "2", body: "False", isCorrect: false },
       ],
-      questionId: 2,
+      questionId: "2",
     },
   ];
 
@@ -55,7 +55,7 @@ export class QuestionService {
   questionSelected?:Question ;
 
   updateQuestion(question: Question){
-    this.questions[question.questionId-1] = question;
+    // this.questions[question.questionId-1] = question;
   }
   getLenghtQuestions() {
     // const channel = 'message-' + roomId;
