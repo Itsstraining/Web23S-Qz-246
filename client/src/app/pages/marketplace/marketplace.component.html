@@ -1,3 +1,6 @@
+
+ 
+ 
  <div class="topics">Topics</div>
 <!-- <div class="topics-1">
   <button id="down1">Math</button>
@@ -31,6 +34,12 @@
 <div class="topics-2">English Grammar </div>
 <div class="math">
   <div *ngFor="let item of Eng" >
+    <app-trending [trending]="item"></app-trending>
+  </div>
+</div> 
+<div class="topics-2">General knowledge and trivia </div>
+<div class="math">
+  <div *ngFor="let item of Cus" >
     <app-trending [trending]="item"></app-trending>
   </div>
 </div> 
