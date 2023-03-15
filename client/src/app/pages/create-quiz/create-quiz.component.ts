@@ -31,7 +31,7 @@ export class CreateQuizComponent {
       { id: "3", body: "", isCorrect: false },
       { id: "4", body: "", isCorrect: false },
     ],
-    questionId: 1,
+    questionId: "1",
   }
   indexQuestionItem :number = 0;
   
@@ -135,7 +135,7 @@ export class CreateQuizComponent {
         { id: "3", body: "cc", isCorrect: false },
         { id: "4", body: "dd", isCorrect: false },
       ],
-      questionId: this.questions.length+1,
+      questionId: Date.now().toString(),
     }
     this.questtionService.questions.push(question);
   }
@@ -148,19 +148,16 @@ export class CreateQuizComponent {
       backgroundImage: this.questionItem!.backgroundImage,
       title: this.questionItem!.title,
       answers: this.questionItem!.answers,
-      questionId: this.questionItem!.questionId+1,
+      questionId: Date.now().toString(),
     }
-    if(this.indexQuestionItem==this.questtionService.questions.length-1){
-      this.questtionService.questions.push(question);
-    }else{
-      this.questtionService.questions.splice(this.indexQuestionItem+1, 0, question);
-    }
+    this.questtionService.declareQuestion(this.questionItem!.questionId,question);
   }
 
   deleteQuestion(){
-    this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
+    // this.questtionService.questions.splice(parseInt(this.questionItem!.questionId)-1,1).toString();
+    this.questtionService.deleteQuestion(this.questionItem!.questionId);
     this.questions = this.questtionService.questions;
-    this.questionItem = this.questions[0];
+    // this.questionItem = this.questions[0];
   }
 
   updateQuiz(){

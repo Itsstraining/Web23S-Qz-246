@@ -7,5 +7,5 @@ export interface Question {
   backgroundImage: string;
   title: string;
   answers: Answer[];
-  questionId: number;
+  questionId: string;
 }
