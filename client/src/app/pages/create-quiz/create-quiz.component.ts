@@ -135,7 +135,7 @@ export class CreateQuizComponent {
         { id: "3", body: "cc", isCorrect: false },
         { id: "4", body: "dd", isCorrect: false },
       ],
-      questionId: Date.now().toString(),
+      questionId: (parseInt(this.questionItem!.questionId)+1).toString(),
     }
     this.questtionService.questions.push(question);
   }
@@ -148,7 +148,7 @@ export class CreateQuizComponent {
       backgroundImage: this.questionItem!.backgroundImage,
       title: this.questionItem!.title,
       answers: this.questionItem!.answers,
-      questionId: this.questionItem!.questionId+1,
+      questionId: (parseInt(this.questionItem!.questionId)+1).toString(),
     }
 
   }
@@ -157,7 +157,7 @@ export class CreateQuizComponent {
     // this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
     this.questtionService.deleteQuestion(this.questionItem!.questionId);
     this.questions = this.questtionService.questions;
-    this.questionItem = this.questions[0];
+    // this.questionItem = this.questions[0];
   }
 
   updateQuiz(){
