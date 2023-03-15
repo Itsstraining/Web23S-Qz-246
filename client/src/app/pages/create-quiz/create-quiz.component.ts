@@ -148,9 +148,9 @@ export class CreateQuizComponent {
       backgroundImage: this.questionItem!.backgroundImage,
       title: this.questionItem!.title,
       answers: this.questionItem!.answers,
-      questionId: (parseInt(this.questionItem!.questionId)+1).toString(),
+      questionId: Date.now().toString(),
     }
-
+    this.questtionService.declareQuestion(this.questionItem!.questionId,question);
   }
 
   deleteQuestion(){
