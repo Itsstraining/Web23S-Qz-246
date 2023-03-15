@@ -9,6 +9,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatButtonModule} from '@angular/material/button';
 import { JoinGameModule } from "../pages/join-game/join-game.module";
 import { CommonModule } from "@angular/common";
+import {MatTooltipModule} from '@angular/material/tooltip';
 @NgModule({
   declarations: [
     NarBarComponent,
@@ -20,7 +21,8 @@ import { CommonModule } from "@angular/common";
     MatExpansionModule,
     MatSliderModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
+    MatTooltipModule
   ],
   providers: [
     FormsModule
@@ -33,7 +35,8 @@ import { CommonModule } from "@angular/common";
     MatMenuModule,
     MatExpansionModule,
     MatSliderModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTooltipModule
   ]
 })
 export class SharedModule { }
