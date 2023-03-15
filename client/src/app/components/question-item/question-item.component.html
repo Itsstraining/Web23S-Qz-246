@@ -11,7 +11,7 @@
           {{questionItem.answerTime}}
         </span>
       </div>
-      <div class="question-preview-warning">
+      <div class="question-preview-warning" *ngIf="isCheck">
           <img src="assets/warning.png">
       </div>
       <div class="question-preview-background-image">
@@ -19,7 +19,7 @@
           <img style="border: none;" *ngIf="questionItem.backgroundImage!==''"
           [src]="questionItem.backgroundImage" alt="" />
       </div>
-      <div class="question-preview-answers" *ngIf="questionItem.questionType=='Quiz'">
+      <div class="question-preview-answers" *ngIf="questionItem.questionType==='Quiz'">
         <div class="answer-image"></div>
         <div class="answer-image"></div>
         <div class="answer-image"></div>

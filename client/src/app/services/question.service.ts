@@ -54,9 +54,31 @@ export class QuestionService {
 
   questionSelected?:Question ;
 
-  updateQuestion(question: Question){
-    // this.questions[question.questionId-1] = question;
+  getIndexQuestion(questionId:string){
+    return this.questions.findIndex((item)=>item.questionId==questionId);
   }
+
+  updateQuestion(question: Question){
+    let index = this.getIndexQuestion(question.questionId);
+    this.questions[index] = question;
+  }
+
+  deleteQuestion(questionId:string){
+    let index = this.getIndexQuestion(questionId);
+    this.questions.splice(index,1);
+  }
+
+  declareQuestion(indexQuestionItem:string, question:Question){
+    let index = this.getIndexQuestion(indexQuestionItem);
+    if(index==this.questions.length-1){
+      this.questions.push(question);
+    }else{
+      this.questions.splice(index+1, 0, question);
+    }
+
+  }
+
+
   getLenghtQuestions() {
     // const channel = 'message-' + roomId;
     return this.socket.fromEvent("get-lenght-questions");
