@@ -148,16 +148,16 @@ export class CreateQuizComponent {
       backgroundImage: this.questionItem!.backgroundImage,
       title: this.questionItem!.title,
       answers: this.questionItem!.answers,
-      questionId: this.questionItem!.questionId+1,
+      questionId: Date.now().toString(),
     }
-
+    this.questtionService.declareQuestion(this.questionItem!.questionId,question);
   }
 
   deleteQuestion(){
     // this.questtionService.questions.splice(this.questionItem!.questionId-1,1);
     this.questtionService.deleteQuestion(this.questionItem!.questionId);
     this.questions = this.questtionService.questions;
-    this.questionItem = this.questions[0];
+    // this.questionItem = this.questions[0];
   }
 
   updateQuiz(){
