@@ -32,7 +32,9 @@ export class JoinGameComponent {
       this.playerService.playerList.findIndex((player: any) => {
         if (player.name === this.namePlayer) {
           console.log("playerCurrent", player)
-          this.playerService.playerCurrent = player
+          let infoPlayer = player
+          // delete infoPlayer.room;
+          this.playerService.playerCurrent = infoPlayer
         }
       })
       // this.playerService.updatePlayerList(playerList)
@@ -73,6 +75,9 @@ export class JoinGameComponent {
       this.questionService.questionSelected = question;
       console.log("join-game", this.playerService.playerList)
       this.router.navigateByUrl('/player');
+    });
+    this.questionService.getLenghtQuestions().subscribe((length: any) => {
+      this.questionService.questionLength = length
     });
   }
 }

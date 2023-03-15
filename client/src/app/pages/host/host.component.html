@@ -1,62 +1,103 @@
 <div class="container">
   <div class="background">
-      <img src="https://i.imgur.com/DmVkmUE.jpg" alt="image">
+    <img src="https://i.imgur.com/DmVkmUE.jpg" alt="image">
   </div>
-  <div class="question">
+  <div class="load" *ngIf="isShowCountdown" >
+    <div class="question">
+        <h1 style="color: white; font-size:5vw;">{{this.timer}}</h1>
+    </div>
+
+    <div class="lds-facebook">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div class="load" *ngIf="isShowQuestion" >
+    <div class="question">
       <div class="content-question">
-          What is your favorite color ?
+        {{questionData?.title}}
       </div>
-      <button>Skip</button>
-  </div>
-  <div class="time-img">
+      <button *ngIf="!isNextQuestion" (click)="skipQuestion()">Skip</button>
+    </div>
+    <div class="time-img">
       <div class="time">
-          <p>00</p>
+        <p>{{timerQuestion}}</p>
       </div>
       <div class="img">
-          <img src="https://img4.thuthuatphanmem.vn/uploads/2020/12/26/hinh-anh-hoat-hinh-cuon-sach-mo-ra_051501119.jpg" alt="image">
+        <img [src]="questionData?.backgroundImage" onerror="this.style.display='none'">
       </div>
       <div class="next-page">
-          <button>Next</button>
+        <button  *ngIf="isNextQuestion" (click)="nextQuestion()">Next</button>
       </div>
-  </div>
-  <div class="answers">
+    </div>
+    <div class="answers">
       <div class="choice-question">
-          <div class="answerItem">
-              <span class="square"></span>
-              <div class="content-answer">
-                  a b c d
-              </div>
-              <div class="correct-answer">
-                  <img src="https://i.imgur.com/yd9guup.png">
-              </div>
+        <div class="answerItem" *ngFor="let item of questionData?.answers;let i=index">
+          <span [class]="listIcon[i]"></span>
+          <div class="content-answer">
+            {{item.body}}
           </div>
-          <div class="answerItem"><span class="circle"></span>
-              <div class="content-answer">
-
-              </div>
-              <div class="correct-answer">
-
-              </div>
+          <div class="correct-answer" >
+            <img *ngIf="timerQuestion==0 && item.isCorrect" src="https://i.imgur.com/yd9guup.png">
           </div>
-          <div class="answerItem"><span class="triangle"></span>
-              <div class="content-answer">
-
-              </div>
-              <div class="correct-answer">
-
-              </div>
+        </div>
+        <!-- <div class="answerItem"><span class="circle"></span>
+          <div class="content-answer">
           </div>
-          <div class="answerItem"><span class="rhombus"></span>
-              <div class="icon">
+        </div>
+        <div class="answerItem"><span class="triangle"></span>
+          <div class="content-answer">
 
-              </div>
-              <div class="content-answer">
-
-              </div>
-              <div class="correct-answer">
-
-              </div>
           </div>
+        </div>
+        <div class="answerItem"><span class="rhombus"></span>
+          <div class="content-answer">
+          </div>
+        </div> -->
       </div>
+    </div>
+  </div>
+  <div class="content" *ngIf="isShowRank" >
+    <div class="background">
+      <img src="https://i.imgur.com/DmVkmUE.jpg">
+    </div>
+    <div class="scoreboard">
+      <div class="header">
+        <p>Scoreboard</p>
+        <button (click)="showNewQuestion()">Next</button>
+      </div>
+      <div class="rank"  *ngFor="let player of (playerList$ |async)">
+        <div class="member" >
+          <div class="user-name">
+            <p>{{player.name}}</p>
+          </div>
+          <div class="score">
+            <p>{{player.score}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="content" *ngIf="isShowSummary" >
+    <div class="background">
+      <img src="https://i.imgur.com/DmVkmUE.jpg">
+    </div>
+    <div class="scoreboard">
+      <div class="header">
+        <p>Summary</p>
+        <button (click)="exit()">Exit</button>
+      </div>
+      <div class="rank"  *ngFor="let player of playerList$ |async">
+        <div class="member">
+          <div class="user-name">
+            <p>{{player.name}}</p>
+          </div>
+          <div class="score">
+            <p>{{player.score}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

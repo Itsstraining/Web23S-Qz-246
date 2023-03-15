@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { questionReducer } from './ngrx/reducer/question.reducer';
 import { UserEffect } from './ngrx/effects/user.effect';
 import { SocketIoModule } from 'ngx-socket-io';
+import { playerReducer } from './ngrx/reducer/player.reducer';
+import { roomReducer } from './ngrx/reducer/room.reducer';
 const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
@@ -42,7 +44,11 @@ const config = { url: 'http://localhost:3000', options: {} };
     provideFirestore(() => getFirestore()),
     provideDatabase(() => getDatabase()),
     StoreModule.forRoot({
-      user: userReducer
+      user: userReducer,
+      player: playerReducer,
+      question: questionReducer,
+      quiz: questionReducer,
+      room: roomReducer
     }),
     EffectsModule.forRoot([UserEffect]),
   ],

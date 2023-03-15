@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Socket } from 'ngx-socket-io';
 import { Question } from 'src/models/question.model';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Question } from 'src/models/question.model';
 })
 export class QuestionService {
 
-  constructor() { }
+  constructor( private socket:Socket) { }
 
   questions:Question[] = [
     {
@@ -37,6 +38,8 @@ export class QuestionService {
     },
   ];
 
+  questionLength = this.questions.length;
+
   questionType=[
     "Quiz","True/False"
   ]
@@ -54,5 +57,8 @@ export class QuestionService {
   updateQuestion(question: Question){
     // this.questions[question.questionId-1] = question;
   }
-
+  getLenghtQuestions() {
+    // const channel = 'message-' + roomId;
+    return this.socket.fromEvent("get-lenght-questions");
+  }
 }

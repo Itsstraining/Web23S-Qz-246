@@ -36,14 +36,23 @@ export const addNewPlayer=createAction(
   props<{player:Player}>()
 );
 
-export const addNewPlayerSuccess=createAction(
-  "[Player] CREATE_PLAYER_SUCCESS",
-  props<{player:Player}>()
+// export const addNewPlayerSuccess=createAction(
+//   "[Player] CREATE_PLAYER_SUCCESS",
+//   props<{player:Player}>()
+// );
+
+// export const addNewPlayerFailure=createAction(
+//   "[Player] CREATE_PLAYER_FAILURE",
+//   props<{error:string}>()
+// );
+
+export const sortPlayers=createAction(
+  "[Player] SORT_PLAYERS",
 );
 
-export const addNewPlayerFailure=createAction(
-  "[Player] CREATE_PLAYER_FAILURE",
-  props<{error:string}>()
+export const updatePlayers=createAction(
+  "[Player] UPDATE_PLAYERS",
+  props<{players:Player[]}>()
 );
 
 export const updatePlayer=createAction(
