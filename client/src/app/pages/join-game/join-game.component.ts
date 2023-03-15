@@ -18,9 +18,11 @@ export class JoinGameComponent {
   isPlayerAdded = false
   namePlayer: string = ""
   question$?: Observable<Question | any>;
-  constructor(private playerService: PlayerService,
+  constructor(
+    private playerService: PlayerService,
     private router: Router,
-    private questionService: QuestionService) { }
+    private questionService: QuestionService
+    ) { }
 
   ngOnInit(): void {
     this.getNextQuestion();
@@ -38,16 +40,18 @@ export class JoinGameComponent {
   }
 
   enterPin() {
-    this.isInputName = true;
-    if (isNaN(Number(this.pin)) || this.namePlayer.length === 0) {
+    if (isNaN(Number(this.pin)) ) {
       alert("Please enter correct pin")
       return
     }
+    this.isInputName = true;
   }
 
   joinGame() {
-    console.log(this.pin);
-    console.log(this.name);
+    if (this.namePlayer.length === 0) {
+      alert("Please enter name")
+      return
+    }
     if (this.namePlayer.length === 0) {
       alert("Please enter name")
       return

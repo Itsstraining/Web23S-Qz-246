@@ -41,14 +41,16 @@
 }
 
 .wait{
+    display: flex;
     margin-top: 2%;
     padding-top: 1%;
     padding-bottom: 3%;
 }
 .wait p{
-    margin-top: 2%;
     padding: 0;
     margin: 0;
+    font-size: 3.5rem;
+    
 }
 .join {
     display: flex;
@@ -59,8 +61,8 @@
     font-size: 150%;
     box-sizing: border-box;
     padding: 1em 1em;
-    width: 250px;
-	height: 60px;
+    width: 290px;
+	height: 80px;
 	transform: skew(20deg);
     // border-bottom-left-radius: 50px;
     // border-bottom-right-radius: 50px;
@@ -69,11 +71,14 @@
 }
 
 #joinn{
-    transform: skew(-20deg);
+    transform: skew(-13deg);
+    font-weight: bold;
 }
 
 #pinn{
     transform: skew(-20deg);
+    font-weight: bold;
+    // margin-top: -4%;
 }
 
 .pin {
@@ -85,8 +90,8 @@
     font-size: 210%;
     box-sizing: border-box;
     padding: 1em 1em;
-    width: 300px;
-	height: 50px;
+    width: 320px;
+	height: 80px;
 	transform: skew(20deg);
 }
 
@@ -113,14 +118,18 @@ p {
     justify-content: flex-start;
     width: 50%;
     height: 40rem;
+ 
     // background-color: aqua;
     align-items: center;
     margin-top: 8%;
     flex-wrap: wrap;
     overflow-y: scroll;
     margin: 0;
+    overflow: hidden;
 }
+
 .K{
+   
     color: rgb(255, 255, 255);
     fill: rgb(255, 255, 255);
     margin: 1vmin 1.5vmin;
@@ -132,41 +141,60 @@ p {
     background-color: rgb(67, 117, 192);
     border-radius: 0.4vmin;
     font-size: 3rem;
+    animation-name: example;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-iteration-count:infinite;
+    animation-direction: alternate-reverse; 
 }
+@keyframes example {
+    0% {color: rgb(121, 130, 180);}
+    100% {color: rgb(255, 255, 255);}
+  
+  }
 .start {
     // justify-content: space-between;
-    margin-left: 85%;
-    margin-top: 0%;
-    
+    margin-left: 170%;
+    margin-top: -5%;
 }
 
 .btn {
     // margin-left: 90%;
     font-size: 2rem;
     border-radius: 10px;
+    background-color: rgb(92, 155, 226);
+    width: 15vh;
+    color: #f3f3f3;
     // margin-left: 3%;
 
 }
-.btn:hover {
+// .btn:hover {
    
-    background-color: rgb(93, 138, 244);
-}
+//     background-color: ;
+// }
 .icon {
     display: flex;
     // justify-content: end;
     // justify-content: flex-end;
     margin-left: 85%;
     margin-top: 5%;
-    background-color: chartreuse;
+    
 }
 .icon-1{
     display: flex   ;
-    background-color: rgb(68, 66, 66);
-    width: 80px;
+    margin-top: -3%;
+    background-color: rgb(54, 50, 50);
+    width: 90px;
+    height: 40px;
+
     
 }
 .icon-2{
     margin-left: 10%;
+ 
+  
+    
+
     // justify-content: flex-end;
     // width: 10%;
    
@@ -176,23 +204,26 @@ p {
     color: #f3f3f3;
     margin-top: 12%;
     margin-left: 7px;
+    padding: auto;
 }
 .icon-volume {
     // margin-left: 290%;
     // margin-top: 100%;
-    width: 25%;
+    width: 22%;
 }
 .icon-setting {
     // margin-left: 5%;
-    width: 25%;
+    width: 21%;
     margin-left: 10px;
   
     // margin-top: 100%;
 }
 .icon-chat {
-    width: 25px;
-    height: 27px;
+    width: 23px;
+    height: 22px;
     margin-top: 2%;
+    padding: 6px;
+ 
     // margin-left: 100%;
     // margin-top: 15%; 
 }

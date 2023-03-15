@@ -1,4 +1,4 @@
-<div class="question-list-item" (click)="getQuestionItemSelect()" >
+<div class="question-list-item" (click)="getQuestionItemSelect()">
     <h3 class="question-list-item-title">
       <span class="question-list-number">{{indexQuestion}} {{questionItem.questionType}}</span>
     </h3>
@@ -10,6 +10,9 @@
         <span class="question-preview-time-text">
           {{questionItem.answerTime}}
         </span>
+      </div>
+      <div class="question-preview-warning">
+          <img src="assets/warning.png">
       </div>
       <div class="question-preview-background-image">
           <div *ngIf="questionItem.backgroundImage==''"></div>

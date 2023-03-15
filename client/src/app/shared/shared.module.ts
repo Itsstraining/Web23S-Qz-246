@@ -36,7 +36,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatSliderModule,
     MatButtonModule,
     MatIconModule,
-  
   ],
   providers: [
     FormsModule,

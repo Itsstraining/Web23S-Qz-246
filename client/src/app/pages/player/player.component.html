@@ -18,7 +18,7 @@
       <img src="https://i.imgur.com/0t72GFL.jpg">
     </div>
   </div>
-  <div class="show__question" *ngIf="isShowQuestion">
+  <div class="show__question" *ngIf="isQuestionScreen">
     <div class="top">
       <div class="quantity-question">
         <p>1 of 10</p>
@@ -32,17 +32,15 @@
         </div>
       </div>
     </div>
-
     <div class="center-question">
       <div class="background">
         <img src="https://i.imgur.com/DmVkmUE.jpg">
       </div>
-
-      <div class="choice-question" *ngIf="!isShowResultQuestion">
-        <div class="answerItem" (click)="selectAnswer()">
-          <div class="square"></div>
-        </div>
-        <div class="answerItem" (click)="selectAnswer()">
+      <div class="choice-question" *ngIf="!isResultScreen">
+          <div class="answerItem" (click)="selectAnswer('1')" *ngFor="let item of questionData!.answers">
+            <div class="square"></div>
+          </div>
+        <!-- <div class="answerItem" (click)="selectAnswer()">
           <div class="circle"></div>
         </div>
         <div class="answerItem" (click)="selectAnswer()">
@@ -50,18 +48,16 @@
         </div>
         <div class="answerItem" (click)="selectAnswer()">
           <div class="rhombus"></div>
-        </div>
+        </div> -->
       </div>
-
-      <div class="content" *ngIf="isShowResultQuestion && isSelectAnswer" (click)="renderResultQuestion()">
+      <div class="content" *ngIf="isResultScreen && isSelectAnswer" (click)="renderResultQuestion()">
         <div class="lds-facebook">
           <div></div>
           <div></div>
           <div></div>
         </div>
       </div>
-
-      <div class="content" *ngIf="isShowResultQuestion && !isSelectAnswer && isAnwerCorrect">
+      <div class="content" *ngIf="isResultScreen && !isSelectAnswer && isAnwerCorrect">
         <div class="img-Correct">
           <img src="https://cdn-icons-png.flaticon.com/512/5610/5610944.png">
         </div>
@@ -69,8 +65,7 @@
           <p>Correct</p>
         </div>
       </div>
-
-      <div class="content" *ngIf="isShowResultQuestion && !isSelectAnswer && !isAnwerCorrect">
+      <div class="content" *ngIf="isResultScreen && !isSelectAnswer && !isAnwerCorrect">
         <div class="img-Correct">
           <img src="https://img.freepik.com/free-icon/cancel_318-580464.jpg">
         </div>
@@ -78,9 +73,7 @@
           <p>Incorrect</p>
         </div>
       </div>
-
     </div>
-
     <div class="bottom">
       <div class="user-name">
         <p>Duy</p>

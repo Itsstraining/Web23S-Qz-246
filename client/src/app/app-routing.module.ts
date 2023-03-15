@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   {
     path: 'create-quiz',
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/create-quiz/create-quiz.module').then(
         (m) => m.CreateQuizModule
@@ -44,6 +44,7 @@ const routes: Routes = [
   },
   {
     path: 'loppy',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/loppy/loppy/loppy.module').then((m) => m.LoppyModule),
   },
@@ -52,16 +53,13 @@ const routes: Routes = [
 
   {
     path: 'join-game',
+    canActivate: [AuthGuard],
     loadChildren: () =>
     import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
   },
   {
-    path: 'username',
-    loadChildren: () =>
-      import('./pages/username/username.module').then((m) => m.UsernameModule),
-  },
-  {
     path: 'library',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
@@ -69,7 +67,8 @@ const routes: Routes = [
     path: 'slideshow',
     loadChildren: () =>
       import('./pages/slideshow/slideshow.module').then((m) => m.SlideshowModule),
-  }
+  },
+  { path: 'host'  ,  canActivate: [AuthGuard], loadChildren: () => import('./pages/host/host.module').then(m => m.HostModule) }
 
 ];
 

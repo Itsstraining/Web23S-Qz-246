@@ -29,6 +29,8 @@ import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.compone
 
 
 
+import { SocketIoModule } from 'ngx-socket-io';
+const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +47,7 @@ import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.compone
     EffectsModule.forRoot([
 
     ]),
+    SocketIoModule.forRoot(config),
     HttpClientModule,
     SharedModule,
     BrowserAnimationsModule,

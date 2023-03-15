@@ -1,152 +1,171 @@
 <div class="page">
-<div id="navBar">
-    <div class="navBar-left">
-        <div class="title">Qz</div>
-        <div class="quiz-info">
-            <input value="{{quiz.quizName}}" placeholder="Enter Qz Title..." [(ngModel)]="quiz.quizName">
-            <button class="quiz-info-button" (click)="changeSettingQuiz()">Settings
+    <div id="navBar">
+        <div class="navBar-left">
+            <div class="title">Qz</div>
+            <div class="quiz-info">
+                <input value="{{quiz.quizName}}" placeholder="Enter Qz Title..." [(ngModel)]="quiz.quizName">
+                <button class="quiz-info-button" (click)="changeSettingQuiz()">Settings
+                </button>
+            </div>
+
+        </div>
+
+
+
+        <div class="navBar-right">
+            <button class="btn" id="theme">
+                <img src="../../../assets/palette.png">
+                themes
             </button>
-        </div>
-
-    </div>
-
-
-
-    <div class="navBar-right">
-        <button class="btn" id="theme">
-            <img src="../../../assets/palette.png">
-            themes
-        </button>
-        <button class="btn" id="preview">
-            <img src="../../../assets/eye.png">
-            preview
-        </button>
-        <div id="line"></div>
-
-
-
-        <button class="btn" id="exit">Exit
-        </button>
-        <button (click)="saveQuiz()" class="btn" id="save">Save</button>
-    </div>
-</div>
-
-<section class="section">
-    <div class="question-list">
-        <div class="question-list-container">
-            <div *ngFor="let item of questions; let indexElement=index;">
-                <app-question-item [questionItem]="item" [indexQuestion]="indexElement+1"
-                    (itemIndexSelect)="getQuestionItemIndex($event)"
-                    (questionItemSelect)="getQuestionItem($event)"></app-question-item>
-            </div>
-
-
-            <button class="add-question-button" (click)="addQuestion()">
-                Add question
+            <button class="btn" id="preview">
+                <img src="../../../assets/eye.png">
+                preview
             </button>
+            <div id="line"></div>
+
+
+
+            <button class="btn" id="exit">Exit
+            </button>
+            <button (click)="saveQuiz()" class="btn" id="save">Save</button>
         </div>
     </div>
-    <div class="question-creator">
-        <input type="text" name="question" value={{questionItem?.title}} placeholder="Write your question here"
-            class="question-name" [(ngModel)]="questionItem!.title" (ngModelChange)="updateQuestion()" />
 
-        <div class="image-container">
-            <div class="image-sth">
-                <img [src]="questionItem?.backgroundImage" alt="">
+    <section class="section">
+        <div class="question-list">
+            <div class="question-list-container">
+                <div *ngFor="let item of questions; let indexElement=index;">
+                    <app-question-item [questionItem]="item" [indexQuestion]="indexElement+1"
+                        (itemIndexSelect)="getQuestionItemIndex($event)"
+                        (questionItemSelect)="getQuestionItem($event)"></app-question-item>
+                </div>
             </div>
-            <div class="image-input">
-                <!-- <label for="image-file" class="image-button">
-                    <img src="../../../assets/plus.png" alt="">
-                </label> -->
-                <input id="image-file" type="file" (change)="onChangeQuestion($event)" [(ngModel)]="quiz.quizImage"/>
+            <div class="add-question-div">
+                <button class="add-question-button" (click)="addQuestion()">
+                    Add question
+                </button>
             </div>
-            <h3>
-                Find and upload an image
-            </h3>
-            
-            
         </div>
-        <div class="answers-container">
-            <div class="answer-field" *ngFor="let item of questionItem?.answers">
-                <app-answer-input [answerItem]="item" [lengthAnswer]="questionItem!.answers.length"
-                    (answerItemSelect)="onAnswerCheckChange($event)"></app-answer-input>
-                
-            </div>
+        <div class="question-creator">
+            <input type="text" name="question" value={{questionItem?.title}} placeholder="Write your question here"
+                class="question-name" [(ngModel)]="questionItem!.title" (ngModelChange)="updateQuestion()" />
 
-        </div>
-    </div>
-    <div class="options">
-        <div *ngIf="isSettingQuiz" style="display: block" class="question-options">
-            <div class="option-label">
-                <label>Title</label>
-            
-            <input value={{quiz.quizName}} type="text" name="name" [(ngModel)]="quiz.quizName" placeholder="Quiz mới"/>
-            </div>
-            <div class="option-label">
-                <label>Description</label>
-            
-            <input value={{quiz.quizDescription}} type="text" name="description" [(ngModel)]="quiz.quizDescription" placeholder="Mô tả quiz mới" />
-        </div>
-            <div class="option-label">
-                <label>Background Image</label>
-            </div>
-            <div>
-                <label for="image-file" class="image-button">
-                    <img src="../../../assets/plus.png" alt="">
-                </label>
-                <input class="image-file" type="file" (change)="onChangeQuiz($event)" [(ngModel)]="quiz.quizImage"/>
-            </div>
-            <img class="quiz-image" [src]="questionItem?.backgroundImage"/>
-            <div style="margin-top: 10%;">
-                <button class="option-button" (click)="updateQuiz()">
-                    Submit</button>
-            </div>
-        </div>
-        <div *ngIf="!isSettingQuiz" style="display:block" class="question-options">
-            <div class="option">
-                <div class="option-label">
-                    <label>
-                        Question type
+            <div class="image-container">
+                <div class="image-sth" *ngIf="questionItem?.backgroundImage!=''">
+                    <img [src]="questionItem?.backgroundImage" alt="">
+                    <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
+                        [(ngModel)]="quiz.quizImage" />
+                </div>
+
+
+                <div *ngIf="questionItem?.backgroundImage!=''">
+                    <label for="image-file" class="change-image">
+                        <h3>Click to change image</h3>
                     </label>
+                    <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
+                        [(ngModel)]="quiz.quizImage" />
                 </div>
-                <select [(ngModel)]="questionItem!.questionType" (ngModelChange)="changeQuestionType()">
-                    <option defaultValue disabled>
-                        Select question type
-                    </option>
-                    <option *ngFor="let type of this.questionTypeList" [selected]="type === questionItem?.questionType"
-                        [value]="type">
-                        {{ type }}
-                    </option>
-                </select>
+                <div class="image-input" *ngIf="questionItem?.backgroundImage==''">
+                    <label for="image-file" class="image-button">
+                        <img src="../../../assets/plus.png" alt="">
+                    </label>
+                    <input hidden id="image-file" type="file" (change)="onChangeQuestion($event)"
+                        [(ngModel)]="quiz.quizImage" />
+                </div>
+                <h3 *ngIf="questionItem?.backgroundImage==''">
+                    Find and upload an image
+                </h3>
+
+
             </div>
-            <div class="option">
+            <div class="answers-container">
+                <div class="answer-field" *ngFor="let item of questionItem?.answers">
+                    <app-answer-input [answerItem]="item" [lengthAnswer]="questionItem!.answers.length"
+                        (answerItemSelect)="onAnswerCheckChange($event)"></app-answer-input>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="options">
+            <div *ngIf="isSettingQuiz" style="display: block" class="question-options">
                 <div class="option-label">
-                    <label>Time limit</label>
+                    <label>Title</label>
+
+                    <input value={{quiz.quizName}} type="text" name="name" [(ngModel)]="quiz.quizName"
+                        placeholder="Quiz mới" />
                 </div>
-                <select [(ngModel)]="questionItem!.answerTime" (ngModelChange)="updateQuestion()">
-                    <option defaultValue disabled>
-                        Set time limit
-                    </option>
-                    <option *ngFor="let type of this.questionTimeList" [selected]="type === questionItem?.answerTime"
-                        [value]="type">
-                        {{ type }} seconds
-                    </option>
-                </select>
-            </div>
-            <div class="option">
                 <div class="option-label">
-                    <label>Points</label>
+                    <label>Description</label>
+
+                    <input value={{quiz.quizDescription}} type="text" name="description"
+                        [(ngModel)]="quiz.quizDescription" placeholder="Mô tả quiz mới" />
                 </div>
-                <select [(ngModel)]="questionItem!.point" (ngModelChange)="updateQuestion()">
-                    <option defaultValue disabled>Set points type
-                    </option>
-                    <option *ngFor="let type of this.questionPointList" [selected]="type === questionItem?.point"
-                        [value]="type">
-                        {{ type }}
-                    </option>
-                </select>
+                <div class="option-label">
+                    <label>Background Image</label>
+                </div>
+                <div class="backgroundImage">
+                    <label for="image-file" class="image-button" *ngIf="questionItem?.backgroundImage==''">
+                        <img src="../../../assets/plus.png" alt="">
+                    </label>
+                    <input hidden class="image-file" type="file" (change)="onChangeQuiz($event)"
+                        [(ngModel)]="quiz.quizImage" />
+                    
+                </div>
+                <label for="image-file" *ngIf="questionItem?.backgroundImage!=''">
+                    <img class="quiz-image" [src]="questionItem?.backgroundImage" />
+                </label>
+
+                <div style="margin-top: 10%;">
+                    <button class="option-button" (click)="updateQuiz()">
+                        Submit</button>
+                </div>
             </div>
-            <div class=option>
+            <div *ngIf="!isSettingQuiz" style="display:block" class="question-options">
+                <div class="option">
+                    <div class="option-label">
+                        <label>
+                            Question type
+                        </label>
+                    </div>
+                    <select [(ngModel)]="questionItem!.questionType" (ngModelChange)="changeQuestionType()">
+                        <option defaultValue disabled>
+                            Select question type
+                        </option>
+                        <option *ngFor="let type of this.questionTypeList"
+                            [selected]="type === questionItem?.questionType" [value]="type">
+                            {{ type }}
+                        </option>
+                    </select>
+                </div>
+                <div class="option">
+                    <div class="option-label">
+                        <label>Time limit</label>
+                    </div>
+                    <select [(ngModel)]="questionItem!.answerTime" (ngModelChange)="updateQuestion()">
+                        <option defaultValue disabled>
+                            Set time limit
+                        </option>
+                        <option *ngFor="let type of this.questionTimeList"
+                            [selected]="type === questionItem?.answerTime" [value]="type">
+                            {{ type }} seconds
+                        </option>
+                    </select>
+                </div>
+                <div class="option">
+                    <div class="option-label">
+                        <label>Points</label>
+                    </div>
+                    <select [(ngModel)]="questionItem!.point" (ngModelChange)="updateQuestion()">
+                        <option defaultValue disabled>Set points type
+                        </option>
+                        <option *ngFor="let type of this.questionPointList" [selected]="type === questionItem?.point"
+                            [value]="type">
+                            {{ type }}
+                        </option>
+                    </select>
+                </div>
+                <!-- <div class=option>
                 <div class="option-label">
                     <label>Answer options</label>
                 </div>
@@ -162,18 +181,18 @@
                         Multiple choice
                     </option>
                 </select>
-            </div>
-            <div style="
+            </div> -->
+                <div style="
         margin-top: 10%;
         display: flex;
         justify-content: space-between;
         align-items: center;">
 
-                <button class="option-button" (click)="duplicateQuestion()">Duplicate</button>
+                    <button class="option-button" (click)="duplicateQuestion()">Duplicate</button>
 
-                <button class="option-button" (click)="deleteQuestion()"> Delete</button>
+                    <button class="option-button" (click)="deleteQuestion()"> Delete</button>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 </div>

@@ -26,10 +26,10 @@ export class CreateQuizComponent {
     backgroundImage: "",
     title: "Câu hỏi mới",
     answers: [
-      { id: "a", body: "", isCorrect: false },
-      { id: "b", body: "", isCorrect: false },
-      { id: "c", body: "", isCorrect: false },
-      { id: "d", body: "", isCorrect: false },
+      { id: "1", body: "", isCorrect: false },
+      { id: "2", body: "", isCorrect: false },
+      { id: "3", body: "", isCorrect: false },
+      { id: "4", body: "", isCorrect: false },
     ],
     questionId: 1,
   }
@@ -82,15 +82,15 @@ export class CreateQuizComponent {
     }
     if(this.questionItem!.questionType == "True/False"){
       question!.answers = [
-        { id: "a", body: "True", isCorrect: false },
-        { id: "b", body: "False", isCorrect: false },
+        { id: "1", body: "True", isCorrect: false },
+        { id: "2", body: "False", isCorrect: false },
       ]
     }else{
       question!.answers = [
-        { id: "a", body: "", isCorrect: false },
-        { id: "b", body: "", isCorrect: false },
-        { id: "c", body: "", isCorrect: false },
-        { id: "d", body: "", isCorrect: false },
+        { id: "1", body: "", isCorrect: false },
+        { id: "2", body: "", isCorrect: false },
+        { id: "3", body: "", isCorrect: false },
+        { id: "4", body: "", isCorrect: false },
       ]
     }
     this.questtionService.updateQuestion(question!);
@@ -130,10 +130,10 @@ export class CreateQuizComponent {
       backgroundImage: "",
       title: "",
       answers: [
-        { id: "a", body: "aa", isCorrect: false },
-        { id: "b", body: "bb", isCorrect: false },
-        { id: "c", body: "cc", isCorrect: false },
-        { id: "d", body: "dd", isCorrect: false },
+        { id: "1", body: "aa", isCorrect: false },
+        { id: "2", body: "bb", isCorrect: false },
+        { id: "3", body: "cc", isCorrect: false },
+        { id: "4", body: "dd", isCorrect: false },
       ],
       questionId: this.questions.length+1,
     }

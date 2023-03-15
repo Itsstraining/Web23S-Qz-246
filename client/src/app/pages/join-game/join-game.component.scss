@@ -79,11 +79,11 @@
   0%{
     transform: scale(0.8);
   }
-  
+
   50%{
     transform: scale(1.2);
   }
-  
+
   100%{
     transform: scale(0.8);
   }
@@ -91,36 +91,36 @@
 .container {
     /* width: 1200px;  */
     /* height: 100%;
-  
+
     margin: 0 auto; */
     /* background-color: #F8F2FA; */
     display:  flex;
-    // background:#F8F2FA; 
-    position:absolute;  
+    // background:#F8F2FA;
+    position:absolute;
     top:0px;
     right:0px;
     bottom:0px;
     left:0px;
-    // align-items: center; 
+    // align-items: center;
     // align-content: center;
     // justify-content: center;
     flex-direction: row;
-    
+
 
     margin-left: auto;
-    margin-right: auto   
+    margin-right: auto
 }
 .gif1{
   margin-top: 2rem;
   width: 33%;
-  
-  
+
+
 }
 .container2{
   margin-top: 4rem;
   display:  flex;
-  // background:#F8F2FA; 
-  // align-items: center; 
+  // background:#F8F2FA;
+  // align-items: center;
   // align-content: center;
   // justify-content: center;
   flex-direction: column  ;
@@ -147,27 +147,27 @@ img {
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .lets {
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
     }
   }
-  
-  
+
+
 
 
 .lets{
@@ -240,7 +240,7 @@ img {
     --scale: 1;
     --shiftX: 0px;
     --shiftY: 2.5rem;
-    margin-top: 1.25rem;    
+    margin-top: 1.25rem;
 }
 
 .main{
@@ -314,7 +314,7 @@ img {
     --shiftY: 40px;
     max-width: 352px;
     font-size: 1.25rem;
-    // margin-bottom: 45px; 
+    // margin-bottom: 45px;
     font-family: 'Inter', sans-serif;
     margin-top: 1.875rem;
 }
@@ -386,7 +386,7 @@ img {
     font-size: 1.25rem;
     // margin-bottom: 45px;
     font-family: 'Inter', sans-serif;
-    
+
 
 
 }
@@ -395,7 +395,7 @@ img {
 .pin{
     align-items: center;
     justify-content: center;
-    
+
 
 }
 #btn{
@@ -405,10 +405,10 @@ img {
   font-size: 1rem;
 
 }
-.join{
-  
-    /* margin-bottom: 300px; */
-}
+// .join{
+
+//     /* margin-bottom: 300px; */
+// }
 // #btn1{
 //     background:#1368CE;
 //     color:#fff;
@@ -423,7 +423,7 @@ img {
 //     width: 300px;
 //     border-radius: 10px;
 
-    
+
 // }
 
 // #btn1:hover{
@@ -458,14 +458,14 @@ input{
     text-align: center;
     font-family: 'Inter', sans-serif;
     font-size: 1.1rem;
-    
+
 }
 button{
     text-align: center;
     // font-family: 'Inter', sans-serif;
     font-size: 2rem;
 
-    
+
 }
 
     /* body {
@@ -495,9 +495,9 @@ h1 {
   margin: 20px;
 } */
 
-  
+
   /* 1 */
-  
+
   #btn1:after {
     position: absolute;
     content: "";
@@ -533,7 +533,7 @@ h1 {
 //     flex-direction: row;
 //     margin:0;
 //     // margin-left: 800px;
-    
+
 //   }
 
 
@@ -608,54 +608,54 @@ body {
     text-align: center;
     font-family: sans-serif;
   }
-  
+
   .lets {
     animation-duration: 0.5s;
     animation-name: animate-fade;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .lets{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
     }
   }
 
-  
+
   .letss {
     animation-duration: 0.5s;
     animation-name: animate-fade;
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .letss{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
@@ -667,20 +667,20 @@ body {
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .fontfeel{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
@@ -692,20 +692,20 @@ body {
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .feel{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
@@ -717,20 +717,20 @@ body {
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   img{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
@@ -742,20 +742,20 @@ body {
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .btnani{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
@@ -767,32 +767,116 @@ body {
     animation-delay: 0.5s;
     animation-fill-mode: backwards;
   }
-      
 
-  
+
+
   .pin{
     animation-name: animate-pop;
     animation-timing-function: cubic-bezier(.26,.53,.74,1.48);
   }
-  
+
   @keyframes animate-pop {
     0% {
       opacity: 0;
       transform: scale(0.5, 0.5);
     }
-          
+
     100% {
       opacity: 1;
       transform: scale(1, 1);
     }
   }
-  
-  
-  
-  
 
-  
-  
+
+
+  .lds-roller {
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+  }
+  .lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #fff;
+    margin: -4px 0 0 -4px;
+  }
+  .lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+  }
+  .lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+  }
+  .lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+  }
+  .lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+  }
+  .lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+  }
+  .lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+  }
+  .lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+  }
+  .lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+  }
+  .lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+  }
+  .lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+  }
+  .lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+  }
+  .lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+  }
+  .lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+  }
+  .lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+  }
+  .lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+  }
+  .lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+  }
+  @keyframes lds-roller {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+
+
+
 
 
 
