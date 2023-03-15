@@ -55,6 +55,11 @@ export const updatePlayers=createAction(
   props<{players:Player[]}>()
 );
 
+export const updateSelecePlayer=createAction(
+  "[Player] UPDATE_SELECE_PLAYER",
+  props<{player:Player}>()
+);
+
 export const updatePlayer=createAction(
   "[Player] UPDATE_PLAYER",
   props<{player:Player}>()

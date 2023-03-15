@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { PlayerState } from 'src/app/ngrx/states/player.state';
+import { QuestionState } from 'src/app/ngrx/states/question.state';
 import { PlayerService } from 'src/app/services/player.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { Answer } from 'src/models/answer.model';
 import { Player } from 'src/models/player.model';
 import { Question } from 'src/models/question.model';
-
+import * as PlayerActions from '../../ngrx/actions/player.action';
+import * as QuestionActions from '../../ngrx/actions/question.action';
 @Component({
   selector: 'app-player',
   templateUrl: './player.component.html',
@@ -26,8 +30,10 @@ export class PlayerComponent {
   showText = false;
   answerSelected?: Answer;
 
-  question$?: Observable<Question | any>;
+  questionList$?: Observable<Question[]>;
   questionData?: Question;
+  playerList$?: Observable<Player[]>;
+  playerData?: Player;
   currentIndex = 1;
   isShowRank = false;
   infoPlayer!: Player;
@@ -40,7 +46,21 @@ export class PlayerComponent {
     "rhombus"];
   lengthQuestions = this.questionService.questionLength;
   constructor(private playerService: PlayerService,
-    private questionService: QuestionService) { }
+    private questionService: QuestionService,
+    private store: Store<{
+      question: QuestionState,
+      player: PlayerState
+    }>) {
+    this.questionList$ = this.store.select((state) => state.question.questions);
+    this.questionList$.subscribe((data) => {
+      this.questionData = data[0];
+      this.lengthQuestions = data.length;
+    })
+    this.playerList$ = this.store.select((state) => state.player.players);
+    this.playerList$.subscribe((data) => {
+      // this.playerData = data[0];
+    })
+  }
 
   ngOnInit() {
     this.time = 6;
@@ -75,8 +95,7 @@ export class PlayerComponent {
   }
 
   getNextQuestion() {
-    this.question$ = this.playerService.nextQuestion();
-    this.question$.subscribe((question: any) => {
+    this.playerService.nextQuestion().subscribe((question: any) => {
       this.questionService.questionSelected = question;
       this.currentIndex++;
       this.questionData = this.questionService.questionSelected;

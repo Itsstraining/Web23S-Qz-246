@@ -81,6 +81,10 @@ export const questionReducer = createReducer(
     error,
     isLoading: false,
   })),
+  on(QuestionActions.updateSeleceQuestion, (state, { question }) => ({
+    ...state,
+    selectedQuestion: question,
+  })),
   on(QuestionActions.updateQuestion, (state) => ({
     ...state,
     isLoading: true,

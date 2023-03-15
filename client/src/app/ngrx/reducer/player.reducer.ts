@@ -70,6 +70,11 @@ export const playerReducer = createReducer(
     ...state,
     players: players,
   })),
+  on(PlayerActions.updateSelecePlayer, (state, { player }) => ({
+    ...state,
+    player: player,
+  })),
+
   on(PlayerActions.updatePlayer, (state) => ({
     ...state,
     isLoading: true,
