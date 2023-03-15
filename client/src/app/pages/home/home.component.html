@@ -1,15 +1,30 @@
+<!-- <div class="ren-act">Rencent Activity</div> -->
+<!-- <div class="ren-act-1">
+  <button id="down">
+    <img src="https://cdn-icons-png.flaticon.com/512/32/32195.png" alt=""> Math
+  </button>
+</div> -->
+<div class="navbar">
+<nav>
+  <ul class="snip1168">
+    <li class="current"><a href="home" data-hover="Home">Home</a></li>
+    <li><a href="library" data-hover="Library">Library</a></li>
+    <li><a href="marketplace" data-hover="Marketplace">Marketplace</a></li>
+  </ul>
+</nav>
+</div>
 
-<mat-accordion   >
+
+
+<mat-accordion>
   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
     <mat-expansion-panel-header class="ren-act">
-      <mat-panel-title class="ren-act-1" >
         Math  
-      </mat-panel-title>
     </mat-expansion-panel-header>
     <div class="slider">
       <div class="slides">
         <div class="math">
-          <div *ngFor="let item of taskquizMath" >
+          <div *ngFor="let item of taskquizMath">
             <app-taskquiz [taskquiz]="item"></app-taskquiz>
           </div>
         </div>
@@ -27,19 +42,19 @@
 <mat-accordion  >
   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle >
     <mat-expansion-panel-header class="ren-act" >
-      <mat-panel-title class="ren-act-1" >
+      
         English and language  
-     </mat-panel-title>
+     
     </mat-expansion-panel-header>
     <div class="slider">
       <div class="slides">
-    <div class="math">
-      <div *ngFor="let item of taskquizEnglish" >
-        <app-taskquiz [taskquiz]="item"></app-taskquiz>
+        <div class="math">
+          <div *ngFor="let item of taskquizEnglish">
+            <app-taskquiz [taskquiz]="item"></app-taskquiz>
+          </div>
+        </div>
       </div>
     </div>
-      </div>
-    </div>  
   </mat-expansion-panel>
 </mat-accordion>
 
@@ -48,83 +63,78 @@
 
 
 
-<mat-accordion  >
+<mat-accordion>
   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
     <mat-expansion-panel-header class="ren-act">
-      <mat-panel-title class="ren-act-1" >
+     
         Science  
-      </mat-panel-title>
-    </mat-expansion-panel-header>
-    <div class="slider">
-      <div class="slides">
-    <div class="math">
-      <div *ngFor="let item of taskquizScience" >
-        <app-taskquiz [taskquiz]="item"></app-taskquiz>
-      </div>
-    </div>
-      </div>
-    </div>
-  </mat-expansion-panel>
-</mat-accordion>
-
-<mat-accordion  >
-  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
-    <mat-expansion-panel-header class="ren-act">
-      <mat-panel-title class="ren-act-1" >
-        Languages ​​of the world
-      </mat-panel-title>
     
     </mat-expansion-panel-header>
     <div class="slider">
       <div class="slides">
-    <div class="math">
-      <div *ngFor="let item of taskquizScience" >
-        <app-taskquiz [taskquiz]="item"></app-taskquiz>
-      </div>
-    </div>
+        <div class="math">
+          <div *ngFor="let item of taskquizScience">
+            <app-taskquiz [taskquiz]="item"></app-taskquiz>
+          </div>
+        </div>
       </div>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
 
-<mat-accordion  >
+<mat-accordion>
   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
     <mat-expansion-panel-header class="ren-act">
-      <mat-panel-title class="ren-act-1" > 
+    
+        Languages ​​of the world
+    
+    </mat-expansion-panel-header>
+    <div class="slider">
+      <div class="slides">
+        <div class="math">
+          <div *ngFor="let item of taskquizScience">
+            <app-taskquiz [taskquiz]="item"></app-taskquiz>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<mat-accordion>
+  <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+    <mat-expansion-panel-header class="ren-act">
+      <mat-panel-title class="ren-act-1">
         Computer Science and Skills
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div class="slider">
       <div class="slides">
-    <div class="math">
-      <div *ngFor="let item of taskquizScience" >
-        <app-taskquiz [taskquiz]="item"></app-taskquiz>
-      </div>
-    </div>
+        <div class="math">
+          <div *ngFor="let item of taskquizScience">
+            <app-taskquiz [taskquiz]="item"></app-taskquiz>
+          </div>
+        </div>
       </div>
     </div>
   </mat-expansion-panel>
 </mat-accordion>
 
-<mat-accordion  >
+<mat-accordion>
   <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
     <mat-expansion-panel-header class="ren-act">
-      <mat-panel-title class="ren-act-1" > 
+      <mat-panel-title class="ren-act-1">
         Vocational and technical education
       </mat-panel-title>
     </mat-expansion-panel-header>
     <div class="slider">
       <div class="slides">
-    <div class="math">
-      <div *ngFor="let item of taskquizScience" >
-        <app-taskquiz [taskquiz]="item"></app-taskquiz>
-      </div>
-    </div>
+        <div class="math">
+          <div *ngFor="let item of taskquizScience">
+            <app-taskquiz [taskquiz]="item"></app-taskquiz>
+          </div>
+        </div>
       </div>
     </div>
   </mat-expansion-panel>
-</mat-accordion> 
-
-
-
- 
+</mat-accordion>

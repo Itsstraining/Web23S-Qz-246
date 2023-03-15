@@ -15,8 +15,20 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatIconButton } from '@angular/material/button';
+
+
+
+import { TaskquizComponent } from './components/taskquiz/taskquiz.component';
+import { TrendingComponent } from './components/trending/trending.component';
 import { questionReducer } from './ngrx/reducer/question.reducer';
 import { UserEffect } from './ngrx/effects/user.effect';
+import { QuestionItemComponent } from './components/question-item/question-item.component';
+import { AnswerInputComponent } from './components/answer-input/answer-input.component';
+import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.component';
+
+
+
 import { SocketIoModule } from 'ngx-socket-io';
 import { playerReducer } from './ngrx/reducer/player.reducer';
 import { roomReducer } from './ngrx/reducer/room.reducer';
@@ -24,12 +36,15 @@ const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
+    NavBarNewComponent,
+
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({
-      question: questionReducer,
+      // question: questionReducer,
     }, {}),
     EffectsModule.forRoot([
 
@@ -50,7 +65,7 @@ const config = { url: 'http://localhost:3000', options: {} };
       quiz: questionReducer,
       room: roomReducer
     }),
-    EffectsModule.forRoot([UserEffect]),
+    // EffectsModule.forRoot([UserEffect]),
   ],
   providers: [],
   bootstrap: [AppComponent]
