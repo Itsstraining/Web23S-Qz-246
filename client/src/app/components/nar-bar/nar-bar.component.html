@@ -7,11 +7,11 @@
       <li><a href="marketplace" data-hover="Marketplace">Marketplace</a></li>
       <div class="right">
         <img src="../../../assets/6878705.png" class="play" [routerLink]="['/join-game']">
-        <img src="../../../assets/add.png" class="add" [routerLink]="['/create-quiz']" *ngIf="user!=null">
-        <button class="login" [routerLink]="['/login']" *ngIf="user==null">Login</button>
-        <img src="../../../assets/avatar.png" class="ava" mat-button [matMenuTriggerFor]="menu" *ngIf="user!=null">
+        <img src="../../../assets/add.png" class="add" [routerLink]="['/create-quiz']" *ngIf="infoUser!=null">
+        <button class="login" [routerLink]="['/login']" *ngIf="infoUser==null">Login</button>
+        <img src="../../../assets/avatar.png" class="ava" mat-button [matMenuTriggerFor]="menu" *ngIf="infoUser!=null">
         <mat-menu #menu="matMenu">
-          <button mat-menu-item class="logout">Logout</button>
+          <button mat-menu-item class="logout"  (click)="logOut()">Logout</button>
         </mat-menu>
       </div>
     </ul>

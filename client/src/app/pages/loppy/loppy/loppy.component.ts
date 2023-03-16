@@ -9,6 +9,7 @@ import { PlayerService } from 'src/app/services/player.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { Player } from 'src/models/player.model';
 import { Question } from 'src/models/question.model';
+import { Room } from 'src/models/room.model';
 import * as PlayerActions from '../../../ngrx/actions/player.action';
 @Component({
   selector: 'app-loppy',
@@ -82,7 +83,15 @@ export class LoppyComponent {
         // // console.log("list-join-game", data)
         this.playerListData = data;
       })
+      this.adminHostService.sendPlayerList(this.playerListData)
       // console.log(this.playerList$)
+      let room:Room={
+        id:Date.now().toString(),
+        pin:this.pinGame,
+        players:[],
+        quizId:"",
+        createId:"",
+      }
     });
   }
 

@@ -30,7 +30,7 @@ export class QuizService {
     
     async getQuizzesByUserId(id:string): Promise<Quiz[]> {
         try{
-            console.log(id);
+            // console.log(id);
             let data= await this.quizModel.find({creatorId: id}).populate('questions').exec();
             return data as Quiz[];
         }catch(e){

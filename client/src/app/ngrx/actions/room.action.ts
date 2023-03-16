@@ -31,6 +31,22 @@ export const getRoomFailure = createAction(
   props<{ error: string }>()
 );
 
+export const getRoomByPin = createAction(
+  "[Room] GET_ROOM_BY_CREATE_ID",
+  props<{ pin: string }>()
+);
+
+export const getRoomByPinSuccess = createAction(
+  "[Room] GET_ROOM_BY_CREATE_ID_SUCCESS",
+  props<{ room: Room }>()
+);
+
+export const getRoomByPinFailure = createAction(
+  "[Room] GET_ROOM_BY_CREATE_ID_FAILURE",
+  props<{ error: string }>()
+);
+
+
 export const addNewRoom = createAction(
   "[Room] CREATE_ROOM",
   props<{ room: Room }>()

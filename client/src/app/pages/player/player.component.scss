@@ -1,322 +1,323 @@
 .container{
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }
 .top{
-    position: relative;
-    width: 100%;
-    height: 2.8rem;
-    background-color: #F8F2FA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 90%;
+  position: relative;
+  width: 100%;
+  height: 2.8rem;
+  background-color: #F8F2FA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 90%;
 }
 .quantity-question{
-    position: absolute;
-    width: 50%;
-    left: 2em;
-    p{
-        color: #000;
-        font-size: 1.5em;
-        font-weight: 700;
-        margin: 0;
-    }
+  position: absolute;
+  width: 50%;
+  left: 2em;
+  p{
+      color: #000;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin: 0;
+  }
 }
-.img{
-    display: flex;
-    padding: 5px 5px;
-    justify-content: center;
-    align-items: center;
-    width: 7%;
-    height: auto;
-    background-color: #fff;
-    border-radius: 1rem;
+.img-name{
+  display: flex;
+  padding: 5px 5px;
+  justify-content: center;
+  align-items: center;
+  width: 7%;
+  height: auto;
+  background-color: #fff;
+  border-radius: 0.8rem;
 }
 .logo{
-    display: flex;
-    justify-content: center;
-    width: 1.2rem;
-    img{
-        width: 100%;
-        background-color: #fff;
-    }
+  display: flex;
+  justify-content: center;
+  width: 1.2rem;
+  img{
+      width: 100%;
+  }
 }
- 
+
 .quiz{
-    width:40%;
-    margin-left: 0.5em;
-    display: flex;
-    justify-content: center;
-    p{
-        margin: 0;
-        color: #000;
-        font-weight: 700;
-        font-size: 1.1em;
-    }
+  width:40%;
+  margin-left: 0.5em;
+  display: flex;
+  justify-content: center;
+  p{
+      margin: 0;
+      color: #000;
+      font-weight: 700;
+      font-size: 1.5vw;
+  }
 }
 .center-result{
-    width: 100%;
-    height: 84%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+  width: 100%;
+  height: 84%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 
 .background {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+  }
 }
-.background img{
-    width: 100%;
-    height: 100%;
-}
+
 .content{
-    position: absolute;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    padding: 1em 1em;
+  position: absolute;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 1em 1em;
 }
 .img-Correct{
-    width: 5rem;
-    height: 5rem;
-    margin-bottom: 1em;
-    img{
-        width: 100%;
-        height: 100%;
-    }
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1em;
+  img{
+      width: 100%;
+      height: 100%;
+  }
 }
 .correct{
-    padding: 1rem 2rem;
-    width: auto;
-    height: 5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #000;
-    opacity: 75%;
-    p{
-        margin: 0;
-        color: #fff;
-        font-weight: 600;
-        font-size: 3rem;
-    }
+  padding: 1rem 2rem;
+  width: auto;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  opacity: 75%;
+  p{
+      margin: 0;
+      color: #fff;
+      font-weight: 600;
+      font-size: 3rem;
+  }
 }
 .bottom{
-    width: 100%;
-    height: 4rem;
-    background-color: #F8F2FA;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    opacity: 90%;
+  width: 100%;
+  height: 4rem;
+  background-color: #F8F2FA;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  opacity: 90%;
 }
 .user-name{
-    position: absolute;
-    left: 2em;
-    p{
-        color: #000;
-        font-size: 1.5em;
-        font-weight: 700;
-        margin: 0;
-    }
+  position: absolute;
+  left: 2em;
+  p{
+      color: #000;
+      font-size: 1.5em;
+      font-weight: 700;
+      margin: 0;
+  }
 }
 .score{
-    position: absolute;
-    right: 2em;
-    padding: 8px 8px;
-    background-color: #000;
-    color: #fff;
-    border-radius: 0.2rem;
-    font-size: 1.2em;
-    font-weight: 600;
+  position: absolute;
+  right: 2em;
+  padding: 8px 8px;
+  background-color: #000;
+  color: #fff;
+  border-radius: 0.2rem;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 
 .center-question{
-    width: 100%;
-    height: 84%;
-    background-color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+  width: 100%;
+  height: 84%;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 .choice-question{
-    width: 95%;
-    height: 80%;
-    position: absolute;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
+  width: 95%;
+  height: 80%;
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .answerItem{
-    width :40%;
-    background-color: rgb(115, 209, 178);
-    height: 14rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  width :40%;
+  background-color: rgb(115, 209, 178);
+  height: 14rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .answerItem:nth-child(1){
-    border: 1px solid #A6142C;
-    background-color: #E21B3C;
-    box-shadow: 0px 0.29rem 0px 0px #A6142C;
+  border: 1px solid #A6142C;
+  background-color: #E21B3C;
+  box-shadow: 0px 0.29rem 0px 0px #A6142C;
 }
 .answerItem:nth-child(1):hover{
-    background-color: #D01937;
+  background-color: #D01937;
 }
 .answerItem:nth-child(2){
-    border: 1px solid #0E4D98;
-    background-color: #3D68BA;
-    box-shadow: 0px 0.3rem 0px 0px #0E4D98;
+  border: 1px solid #0E4D98;
+  background-color: #3D68BA;
+  box-shadow: 0px 0.3rem 0px 0px #0E4D98;
 }
 .answerItem:nth-child(2):hover{
-    background-color: #1260BE;
+  background-color: #1260BE;
 }
 .answerItem:nth-child(3){
-    border: 1px solid #A97C00;
-    background-color: #C8A800;
-    box-shadow: 0px 0.3rem 0px 0px #A97C00;
-    
+  border: 1px solid #A97C00;
+  background-color: #C8A800;
+  box-shadow: 0px 0.3rem 0px 0px #A97C00;
+
 }
 .answerItem:nth-child(3):hover{
-    background-color: #c79200;
+  background-color: #c79200;
 }
 
 .answerItem:nth-child(4){
-    border: 1px solid #1E6B09;
-    background-color: #4BA812;
-    box-shadow: 0px 0.3rem 0px 0px #1E6B09;
+  border: 1px solid #1E6B09;
+  background-color: #4BA812;
+  box-shadow: 0px 0.3rem 0px 0px #1E6B09;
 }
 .answerItem:nth-child(4):hover{
-    background-color: #237e0b;
+  background-color: #237e0b;
 }
 .square{
-    width: 4rem;
-    height: 4rem;
-    background-color: #f8f9fa;
+  width: 4rem;
+  height: 4rem;
+  background-color: #f8f9fa;
 }
 .triangle{
-    width: 0;
-    height: 0;
-    border-left: 2.5rem transparent solid;
-    border-right: 2.5rem transparent solid;
-    border-bottom: 4rem #F8F2FA solid;
+  width: 0;
+  height: 0;
+  border-left: 2.5rem transparent solid;
+  border-right: 2.5rem transparent solid;
+  border-bottom: 4rem #F8F2FA solid;
 }
 .rhombus{
-    width: 3rem;
-    height: 3rem;
-    background: #f8f9fa;
-    transform: rotate(-45deg);
+  width: 3rem;
+  height: 3rem;
+  background: #f8f9fa;
+  transform: rotate(-45deg);
 }
 .circle{
-    width: 4rem;
-    height: 4rem;
-    border-radius: 150px;
-    background-color: #F8F2FA;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 150px;
+  background-color: #F8F2FA;
 }
 
 .show__question{
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 //timer
 .background__img{
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    background-color: #000;
-    img{
-        width: 100%;
-        max-height: 100%;
-        object-fit: cover;
-        opacity: 60%;
-    }
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background-color: #000;
+  img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 60%;
+  }
 }
 .loading{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    overflow: hidden;
-    background-color: #000;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  background-color: #000;
 }
 .loading-animation{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 .loading-text{
-    width: 100%;
-    height: 45%;
-    position: absolute;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    p{
-        margin-top: 5rem;
-        color: #fff;
-        font-size: 3.5rem;
-        font-weight: 700;
-    }
+  width: 100%;
+  height: 45%;
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  p{
+      margin-top: 5rem;
+      color: #fff;
+      font-size: 3.5rem;
+      font-weight: 700;
+  }
 }
 .lds-facebook {
-    display: inline-block;
-    position: relative;
-    align-items: center;
-    width: 100px;
-    height: 100px;
+  display: inline-block;
+  position: relative;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+}
+.lds-facebook div {
+  display: inline-block;
+  position: absolute;
+  left: 10px;
+  width: 20px;
+  background: #fff;
+  animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+}
+.lds-facebook div:nth-child(1) {
+  left: 10px;
+  animation-delay: -0.24s;
+}
+.lds-facebook div:nth-child(2) {
+  left: 40px;
+  animation-delay: -0.12s;
+}
+.lds-facebook div:nth-child(3) {
+  left: 70px;
+  animation-delay: 0;
+}
+@keyframes lds-facebook {
+  0% {
+    top: 10px;
+    height: 80px;
   }
-  .lds-facebook div {
-    display: inline-block;
-    position: absolute;
-    left: 10px;
-    width: 20px;
-    background: #fff;
-    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  50%, 100% {
+    top: 30px;
+    height: 40px;
   }
-  .lds-facebook div:nth-child(1) {
-    left: 10px;
-    animation-delay: -0.24s;
-  }
-  .lds-facebook div:nth-child(2) {
-    left: 40px;
-    animation-delay: -0.12s;
-  }
-  .lds-facebook div:nth-child(3) {
-    left: 70px;
-    animation-delay: 0;
-  }
-  @keyframes lds-facebook {
-    0% {
-      top: 10px;
-      height: 80px;
-    }
-    50%, 100% {
-      top: 30px;
-      height: 40px;
-    }
-  }
+}

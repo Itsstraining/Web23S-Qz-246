@@ -56,6 +56,11 @@ export const updateQuestions=createAction(
   props<{questions:Question[]}>()
 );
 
+export const updateSelectedQuestion=createAction(
+  "[Question] UPDATE_SELECTED_QUESTION",
+  props<{question:Question}>()
+);
+
 export const deleteQuestion=createAction(
   "[Question] DELETE_QUESTION",
   props<{questionId:string}>()

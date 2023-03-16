@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Post, Put, Query } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put, Query } from '@nestjs/common';
 import { Room } from 'src/schemas/room.schema';
 import { RoomService } from 'src/services/room/room.service';
 
@@ -13,8 +13,9 @@ export class RoomController {
     async get(@Query('id') _id: string) {
         return await this.roomService.getOne(_id);
     }
-    @Get()
-    async getRoomByPin(@Query('pin') pin: string) {
+    @Get("/:pin")
+    async getRoomByPin(@Param('pin') pin: string) {
+        // console.log(pin);
         return await this.roomService.getRoomByPin(pin);
     }
     // 

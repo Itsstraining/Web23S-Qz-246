@@ -25,7 +25,7 @@ export class AuthGuard implements CanActivate {
           resolve(true);
         } else {
           this.authService.userInfo = null;
-          window.alert('You need to login to access this page!');
+          // window.alert('You need to login to access this page!');
           this.router.navigate(['/login']);
           resolve(false);
         }

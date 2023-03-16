@@ -20,4 +20,16 @@ export class UserEffect {
     //         }),
     //     )
     // )
+    logout$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(UserActions.logout),
+      switchMap(() => this.authService.logoutWithGoogle()),
+      map(() => {
+        // this.route.navigate(['/']);
+        return UserActions.logoutSuccess();
+      }),
+      catchError((error) => of(UserActions.logoutFailure({ error })))
+    )
+  );
+
 }

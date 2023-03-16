@@ -40,6 +40,20 @@ export const roomReducer = createReducer(
     error,
     isLoading: false,
   })),
+  on(RoomActions.getRoomByPin, (state,{pin}) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(RoomActions.getRoomByPinSuccess, (state, { room }) => ({
+    ...state,
+    room:room,
+    isLoading: false,
+  })),
+  on(RoomActions.getRoomByPinFailure, (state, { error }) => ({
+    ...state,
+    error:error,
+    isLoading: false,
+  })),
   on(RoomActions.addNewRoom, (state) => ({
     ...state,
     isLoading: true,
@@ -47,6 +61,7 @@ export const roomReducer = createReducer(
   on(RoomActions.addNewRoomSuccess, (state, { room }) => ({
     ...state,
     rooms: [...state.rooms, room],
+    room: room,
     isLoading: false,
   })),
   on(RoomActions.addNewRoomFailure, (state, { error }) => ({

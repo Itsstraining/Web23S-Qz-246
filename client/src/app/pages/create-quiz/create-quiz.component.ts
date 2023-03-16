@@ -1,20 +1,30 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { QuestionState } from 'src/app/ngrx/states/question.state';
+import { QuizState } from 'src/app/ngrx/states/quiz.state';
 import { QuestionService } from 'src/app/services/question.service';
 import { QuizService } from 'src/app/services/quiz.service';
 import { Answer } from 'src/models/answer.model';
 import { Question } from 'src/models/question.model';
 import { Quiz } from 'src/models/quiz.model';
-
+import * as QuestionActions from '../../ngrx/actions/question.action';
+import * as QuizActions from '../../ngrx/actions/quiz.action';
 @Component({
   selector: 'app-create-quiz',
   templateUrl: './create-quiz.component.html',
   styleUrls: ['./create-quiz.component.scss']
 })
 export class CreateQuizComponent {
-  constructor(private questtionService: QuestionService,private quizService:QuizService) { }
+  constructor(private questtionService: QuestionService,private quizService:QuizService,
+    private store:Store<{question:QuestionState, quiz:QuizState}>) {
+      // this.questions$ = this.store.select((state)=>state.question.questions)
+      // this.quiz$ = this.store.select((state)=>state.quiz.selectedQuiz)
+    }
 
   quiz :Quiz= this.quizService.quiz;
   questions :Question[] = this.questtionService.questions;
+  // questions$:Observable<Question[]>
   questionTypeList = this.questtionService.questionType;
   questionTimeList = this.questtionService.questionTime;
   questionPointList = this.questtionService.questionPoint;

@@ -71,6 +71,7 @@ export class AuthService {
       try {
         await this.auth.signOut();
         localStorage.removeItem('userInfo');
+        this.authStore.dispatch(UserActions.logout());
         resolve('Logout success');
         this.router.navigate(['home']);
       } catch (error) {

@@ -61,6 +61,11 @@ export const updateQuizFailure=createAction(
   props<{error:string}>()
 );
 
+export const updateSelectedQuiz=createAction(
+  "[Quiz] UPDATE_SELECTED_QUIZ",
+  props<{quiz:Quiz}>()
+);
+
 export const deleteQuiz=createAction(
   "[Quiz] DELETE_QUIZ",
   props<{quizId:string}>()
