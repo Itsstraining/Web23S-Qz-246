@@ -2,12 +2,11 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
-import { AuthService } from "src/app/services/auth.service";
-import * as UserActions from '../actions/user.action';
+import * as RoomActions from '../actions/room.action';
 
 @Injectable()
 export class UserEffect {
-    constructor(private actions$ : Actions,private authService:AuthService , private http:HttpClient){}
+    constructor(private actions$ : Actions, private http:HttpClient){}
     // getUser$=createEffect(
     //     ()=>this.actions$.pipe(
     //         ofType(UserActions.login),

@@ -9,5 +9,12 @@ import { NavBarService } from 'src/app/services/nav-bar.service';
 })
 export class NarBarComponent {
   constructor(public authService:AuthService, public nav:NavBarService){}
-  
+  user = this.authService.userInfo;
+  ngOnInit(): void {
+    console.log(this.user);
+  }
+
+  async logOut(){
+    await this.authService.logoutWithGoogle();
+  }
 }

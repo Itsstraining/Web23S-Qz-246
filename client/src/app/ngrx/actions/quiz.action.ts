@@ -16,6 +16,21 @@ export const getQuizzesFailure=createAction(
   props<{error:string}>()
 );
 
+export const getQuizzesByCreateId=createAction(
+  "[Quiz] GET_QUIZZES_BY_CREATE_ID",
+  props<{createId:string}>()
+);
+
+export const getQuizzesByCreateIdSuccess=createAction(
+  "[Quiz] GET_QUIZZES_BY_CREATE_ID_SUCCESS",
+  props<{quizzes:Quiz[]}>()
+);
+
+export const getQuizzesByCreateIdFailure=createAction(
+  "[Quiz] GET_QUIZZES_BY_CREATE_ID_FAILURE",
+  props<{error:string}>()
+);
+
 export const addNewQuiz=createAction(
   "[Quiz] ADD_NEW_QUIZ",
   props<{quiz:Quiz}>()

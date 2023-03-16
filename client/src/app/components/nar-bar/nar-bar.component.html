@@ -1,22 +1,19 @@
-<div class="navbar">
-    <nav>
-      <ul class="snip1168">
-        <img src="../../../assets/logo.png" class="logo">
-        <li><a href="home" data-hover="Home">Home</a></li>
-        <li><a href="library" data-hover="Library">Library</a></li>
-        <li><a href="marketplace" data-hover="Marketplace">Marketplace</a></li>
-        <div class="right">
-           <img src="../../../assets/6878705.png" class="play">
-           <img src="../../../assets/add.png" class="add">
-            <button class="login">Login</button>
-            <img src="../../../assets/avatar.png" class="ava" mat-button [matMenuTriggerFor]="menu" >
-            <mat-menu #menu="matMenu">
-                <button mat-menu-item class="logout">Logout</button>
-            </mat-menu>
-        </div>
-</ul>
-
-      
-    </nav>
-   
-    </div>
+<div class="navbar" *ngIf="nav.visible">
+  <nav>
+    <ul class="snip1168">
+      <img src="../../../assets/logo.png" class="logo">
+      <li><a href="home" data-hover="Home">Home</a></li>
+      <li><a href="library" data-hover="Library">Library</a></li>
+      <li><a href="marketplace" data-hover="Marketplace">Marketplace</a></li>
+      <div class="right">
+        <img src="../../../assets/6878705.png" class="play" [routerLink]="['/join-game']">
+        <img src="../../../assets/add.png" class="add" [routerLink]="['/create-quiz']" *ngIf="user!=null">
+        <button class="login" [routerLink]="['/login']" *ngIf="user==null">Login</button>
+        <img src="../../../assets/avatar.png" class="ava" mat-button [matMenuTriggerFor]="menu" *ngIf="user!=null">
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item class="logout">Logout</button>
+        </mat-menu>
+      </div>
+    </ul>
+  </nav>
+</div>

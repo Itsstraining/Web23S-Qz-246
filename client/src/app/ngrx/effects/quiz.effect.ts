@@ -4,22 +4,23 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { catchError, map, of, switchMap } from "rxjs";
 import { environment } from "src/environments/environment";
 import { Quiz } from "src/models/quiz.model";
-import * as QuestionsActions from "../actions/quiz.action";
+import * as QuizActions from '../actions/quiz.action';
 
 @Injectable()
 export class QuizEffects {
   constructor(private actions$: Actions, private http:HttpClient) {}
-  baseURL:string = environment.baseURL+'quiz/';
+  baseURL:string = environment.baseURL+'quiz';
   getQuizzes = createEffect(()=> this.actions$.pipe(
-    ofType(QuestionsActions.getQuizzes),
+    ofType(QuizActions.getQuizzesByCreateId),
     switchMap((action)=>{
-      return this.http.get(`${this.baseURL}all`)
+      // console.log(action);
+      return this.http.get(`${this.baseURL}/${action.createId}`);
     }),
     map((reponse)=>{
-      return QuestionsActions.getQuizzesSuccess({quizzes:<Array<Quiz>>reponse})
+      return QuizActions.getQuizzesByCreateIdSuccess({quizzes:<Array<Quiz>>reponse})
     }),
     catchError((error)=>{
-      return of(QuestionsActions.getQuizzesFailure({error:error.message}));
+      return of(QuizActions.getQuizzesByCreateIdFailure({error:error.message}));
     }),
   ));
 }
