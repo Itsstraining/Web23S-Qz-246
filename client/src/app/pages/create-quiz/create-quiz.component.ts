@@ -135,7 +135,7 @@ export class CreateQuizComponent {
         { id: "3", body: "cc", isCorrect: false },
         { id: "4", body: "dd", isCorrect: false },
       ],
-      questionId: Date.now().toString(),
+      questionId: (parseInt(this.questionItem!.questionId)+1).toString(),
     }
     this.questtionService.questions.push(question);
   }

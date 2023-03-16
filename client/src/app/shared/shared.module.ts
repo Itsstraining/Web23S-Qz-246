@@ -5,6 +5,8 @@ import { TrendingComponent } from "../components/trending/trending.component";
 import { QuestionItemComponent } from "../components/question-item/question-item.component";
 import { AnswerInputComponent } from "../components/answer-input/answer-input.component";
 import { CommonModule } from "@angular/common";
+import { Auth } from "@angular/fire/auth";
+
 import {MatMenuModule} from '@angular/material/menu';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatSliderModule} from '@angular/material/slider';
@@ -23,6 +25,10 @@ import { RouterModule } from "@angular/router";
     TrendingComponent,
     QuestionItemComponent,
     AnswerInputComponent,
+    
+    
+    
+    
   ],
   imports: [
     RouterModule,
@@ -32,7 +38,7 @@ import { RouterModule } from "@angular/router";
     MatExpansionModule,
     MatSliderModule,
     MatButtonModule,
-    CommonModule
+    CommonModule,
   ],
   providers: [
     FormsModule,
