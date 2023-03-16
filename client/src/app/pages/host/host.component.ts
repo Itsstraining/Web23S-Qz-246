@@ -23,6 +23,7 @@ export class HostComponent {
     "rhombus"];
   timer = 5;
   playerList$?: Observable<Player[]>;
+  playerListData!: Player[];
   // playerList:Player[]=this.playerService.playerList;
   lengthPlayer = 0;
   pinGame = "";
@@ -56,6 +57,7 @@ export class HostComponent {
     this.playerList$ = this.store.select((state) => state.player.players);
     this.playerList$.subscribe((data)=>{
       this.lengthPlayer = data.length;
+      this.playerListData = data;
     }
   )
   }
@@ -109,10 +111,25 @@ export class HostComponent {
     });
   }
   nextQuestion(){
+    if(this.lengthPlayer!=0){
+      // this.playerService.playerList.sort((a, b) => b.score - a.score);
+
+      this.playerListData=this.playerListData.slice().sort((a, b) => b.score as number - a.score as number);
+      // playerListSort.sort();
+      // // console.log("player-List-Sort",this.playerListData)
+      this.store.dispatch(PlayerActions.sortPlayers({players:this.playerListData}));
+      this.playerList$?.subscribe((data)=>{
+        this.playerListData = data;
+      })
+    }
+
     // if(this.currentQuestionIndex==(this.questionService.questions.length-1){
     if(this.currentQuestionIndex==this.lenghtQuestion-1){
       this.currentQuestionIndex++;
-      this.adminHostService.sendShowRanking(this.playerList$)
+      // this.playerList$?.subscribe((data)=>{
+        this.adminHostService.sendShowRanking(this.playerListData)
+      // })
+      // this.adminHostService.sendShowRanking(this.playerList$)
       this.isShowCountdown=false;
       this.isShowQuestion=false;
       this.isShowRank=false;
@@ -126,13 +143,15 @@ export class HostComponent {
     // if(this.playerService.playerList.length!=0){
     //   this.playerService.playerList.sort((a, b) => b.score - a.score);
     // }
-    if(this.lengthPlayer!=0){
-      // this.playerService.playerList.sort((a, b) => b.score - a.score);
-      this.store.dispatch(PlayerActions.sortPlayers());
-    }
+
+
     // this.adminHostService.sendPlayerList(this.playerService.playerList)
     // this.playerList=this.playerService.playerList;
-    this.adminHostService.sendPlayerList(this.playerList$)
+    this.playerList$?.subscribe((data)=>{
+      this.playerListData = data;
+    })
+    this.adminHostService.sendPlayerList(this.playerListData)
+    // this.adminHostService.sendPlayerList(this.playerList$)
     // this.playerList=this.playerService.playerList;
   }
 
@@ -146,7 +165,11 @@ export class HostComponent {
       this.isShowRank=false;
       this.isShowCountdown=true;
       // this.timeQuestionCountdown(5)
-      // this.adminHostService.startGame(this.questionData)
+      this.questionList$.subscribe((data)=>{
+        this.questionData = data[this.currentQuestionIndex];
+        this.timerQuestion = this.questionData?.answerTime;
+      });
+      this.adminHostService.startGame(this.questionData!)
     }
   }
   exit(){

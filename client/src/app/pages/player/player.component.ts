@@ -33,10 +33,11 @@ export class PlayerComponent {
   questionList$?: Observable<Question[]>;
   questionData$?: Observable<Question|null>;;
   playerList$?: Observable<Player[]>;
+  playerListData?: Player[] ;
   playerData$?: Observable<Player|null>;
   currentIndex = 1;
   isShowRank = false;
-  infoPlayer!: Player|null;
+  infoPlayer!: Player;
   rank = 0;
   scorePlayer = 0;
   scoreQuestion = 0;
@@ -59,12 +60,17 @@ export class PlayerComponent {
     // })
     this.questionData$ = this.store.select((state) => state.question.selectedQuestion);
     this.playerList$ = this.store.select((state) => state.player.players);
+    this.playerList$.subscribe((data) => {
+      this.playerListData = data;
+    })
     this.questionData$.subscribe((data) => {
       this.scoreQuestion = data?.point || 0;
+      // // console.log("scoreQuestion", this.scoreQuestion)
     })
     this.playerData$ = this.store.select((state) => state.player.player);
     this.playerData$.subscribe((data:any) => {
       this.infoPlayer = data;
+      // // console.log("infoPlayer", this.infoPlayer)
     })
     // this.playerData =this.store.select((state) => state.player.player);
   }
@@ -93,6 +99,7 @@ export class PlayerComponent {
       // console.log("Time is over");
       this.isShowCountdown = false;
       this.isQuestionScreen = true;
+      // // console.log("infoPlayer", this.infoPlayer)
     }
     // console.log(this.time);
     this.time -= 1;
@@ -104,7 +111,13 @@ export class PlayerComponent {
 
   getNextQuestion() {
     this.playerService.nextQuestion().subscribe((question: any) => {
-      this.questionService.questionSelected = question;
+      // this.questionService.questionSelected = question;
+      this.store.dispatch(QuestionActions.updateSeleceQuestion({question: question}))
+      // console.log("join-game", this.playerService.playerList)
+      this.playerList$?.subscribe((data) => {
+        // // console.log("join-game-player-list555", data)
+        this.playerListData = data;
+      })
       this.currentIndex++;
       // this.questionData = this.questionService.questionSelected;
       this.isShowCountdown = true;
@@ -132,9 +145,7 @@ export class PlayerComponent {
       this.isSelectAnswer = false;
       this.isResultScreen = true;
       // this.scorePlayer = this.playerService.playerCurrent.score;
-      this.playerData$?.subscribe((data) => {
-        this.scorePlayer = data?.score || 0;
-      })
+      this.scorePlayer = this.infoPlayer.score;
     });
   }
 
@@ -152,27 +163,49 @@ export class PlayerComponent {
             // console.log(item.id)
             this.isAnwerCorrect = true;
             // console.log("selectAnswer", this.playerService.playerList)
-            console.log("selectAnswer", data)
+            // console.log("selectAnswer-list-player", data)
             // this.playerService.playerList.forEach((player: Player) => {
-            this.playerList$?.subscribe((data) => {
-              data?.forEach((player: Player) => {
-                // this.playerService.playerList.forEach((player: Player) => {
+            // this.infoPlayer!.score += this.scoreQuestion;
+            // this.infoPlayer!.correctAnswer++
 
-                  // console.log(player.name)
-                  // if (player.id === this.playerService.playerCurrent.id &&
-                  //   player.name === this.playerService.playerCurrent.name) {
-                  if (player.id === this.infoPlayer?.id &&
-                    player.name === this.infoPlayer.name) {
-                    console.log("selectAnswer", player)
-                    // this.tempInfoPlayer = player;
-                    // player.score += this.questionData!.point;
-                    player.score += this.scoreQuestion;
-                    player.correctAnswer++
-                    }
-                  });
+            this.infoPlayer={
+              id: this.infoPlayer?.id,
+              name: this.infoPlayer?.name,
+              score: this.infoPlayer?.score + this.scoreQuestion,
+              correctAnswer: this.infoPlayer?.correctAnswer + 1
+            }
+
+            // // console.log("infoPlayer-player", this.infoPlayer)
+            this.store.dispatch(PlayerActions.updatePlayer({player: this.infoPlayer as Player}))
+            this.playerList$?.subscribe((data) => {
+            //   data?.forEach((player: Player) => {
+            //     // this.playerService.playerList.forEach((player: Player) => {
+
+            //       // console.log(player.name)
+            //       // if (player.id === this.playerService.playerCurrent.id &&
+            //       //   player.name === this.playerService.playerCurrent.name) {
+            //       if (player.id === this.infoPlayer?.id &&
+            //         player.name === this.infoPlayer.name) {
+            //         console.log("selectAnswer-player", player)
+            //         // this.tempInfoPlayer = player;
+            //         // player.score += this.questionData!.point;
+            //         player.score += this.scoreQuestion;
+            //         player.correctAnswer++
+            //         console.log("selectAnswer-point+++", player)
+            //         }
+            //       });
+                this.playerListData = data;
+                // // console.log("selectAnswer-player-list", this.playerListData)
                 });
 
-            this.playerService.sendPlayerListUpdate(this.playerList$)
+                this.playerData$?.subscribe((data) => {
+                  this.infoPlayer = data as Player;
+                })
+
+              // this.playerList$?.subscribe((data) => {
+                this.playerService.sendPlayerListUpdate(this.playerListData);
+              // })
+
           } else {
             this.isAnwerCorrect = false;
           }
@@ -211,6 +244,10 @@ export class PlayerComponent {
       this.isResultScreen = false;
       // this.playerService.updatePlayerList(playerList)
       this.store.dispatch(PlayerActions.updatePlayers({players: playerList }))
+      this.playerList$?.subscribe((data) => {
+        // // console.log("join-game-player-rank", data)
+        this.playerListData = data;
+      })
       let index = playerList.findIndex((player: Player) => player.name === this.playerService.playerCurrent.name)
       // this.infoPlayer = this.playerService.playerCurrent
       this.rank = index + 1

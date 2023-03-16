@@ -32,22 +32,22 @@ import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.compone
 import { SocketIoModule } from 'ngx-socket-io';
 import { playerReducer } from './ngrx/reducer/player.reducer';
 import { roomReducer } from './ngrx/reducer/room.reducer';
+import { QuizEffects } from './ngrx/effects/quiz.effect';
 const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
     AppComponent,
     NavBarNewComponent,
 
-    
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({
-      // question: questionReducer,
-    }, {}),
     EffectsModule.forRoot([
-
+      QuizEffects,
+      ,
+      
     ]),
     SocketIoModule.forRoot(config),
     HttpClientModule,

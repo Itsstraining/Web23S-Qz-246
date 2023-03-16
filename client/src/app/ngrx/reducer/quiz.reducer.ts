@@ -16,14 +16,14 @@ export const quizReducer = createReducer(
     ...state,
     isLoading: true,
   })),
-  on(QuizActions.getQuizzesSuccess, (state, { quizzes }) => ({
+  on(QuizActions.getQuizzesSuccess, (state, action) => ({
     ...state,
-    quizzes,
+    quizzes :action.quizzes,
     isLoading: false,
   })),
-  on(QuizActions.getQuizzesFailure, (state, { error }) => ({
+  on(QuizActions.getQuizzesFailure, (state, action) => ({
     ...state,
-    error,
+    error: action.error,
     isLoading: false,
   })),
   on(QuizActions.getQuiz, (state) => ({

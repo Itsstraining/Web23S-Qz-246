@@ -48,6 +48,7 @@ export const addNewPlayer=createAction(
 
 export const sortPlayers=createAction(
   "[Player] SORT_PLAYERS",
+  props<{players:Player[]}>()
 );
 
 export const updatePlayers=createAction(
@@ -65,15 +66,15 @@ export const updatePlayer=createAction(
   props<{player:Player}>()
 );
 
-export const updatePlayerSuccess=createAction(
-  "[Player] UPDATE_PLAYER_SUCCESS",
-  props<{player:Player}>()
-);
+// export const updatePlayerSuccess=createAction(
+//   "[Player] UPDATE_PLAYER_SUCCESS",
+//   props<{player:Player}>()
+// );
 
-export const updatePlayerFailure=createAction(
-  "[Player] UPDATE_PLAYER_FAILURE",
-  props<{error:string}>()
-);
+// export const updatePlayerFailure=createAction(
+//   "[Player] UPDATE_PLAYER_FAILURE",
+//   props<{error:string}>()
+// );
 
 export const deletePlayer=createAction(
   "[Player] DELETE_PLAYER",
