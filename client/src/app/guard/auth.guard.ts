@@ -19,9 +19,15 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
     return new Promise((resolve, reject) => {
-      onAuthStateChanged(this.auth, (ueserInfo) => {
-        if (ueserInfo) {
-          this.authService.userInfo = ueserInfo;
+      onAuthStateChanged(this.auth, (userInfo) => {
+        if (userInfo) {
+          // this.authService.userInfo = userInfo;
+          this.authService.userInfo = {
+            userid: userInfo?.uid as string,
+            displayName: userInfo?.displayName as string,
+            email: userInfo?.email as string,
+            photoURL: userInfo?.photoURL as string
+          };
           resolve(true);
         } else {
           this.authService.userInfo = null;

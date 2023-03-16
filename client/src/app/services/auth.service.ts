@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  public userInfo: any;
+  public userInfo!: User|null;
   public baseURL:string = environment.baseURL+'users/';
   constructor(
     private auth: Auth,
@@ -22,7 +22,7 @@ export class AuthService {
     authState(this.auth).subscribe((user) => {
       if (user) {
         let account: User = {
-          userid: user?.uid,
+          userid: user?.uid as string,
           displayName: user?.displayName as string,
           email: user?.email as string,
           photoURL: user?.photoURL as string

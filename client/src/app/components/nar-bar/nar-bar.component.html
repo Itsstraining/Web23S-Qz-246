@@ -1,4 +1,5 @@
-<div class="navbar" *ngIf="nav.visible">
+
+<!-- <div class="navbar" *ngIf="nav.visible">
   <nav>
     <ul class="snip1168">
       <img src="../../../assets/logo.png" class="logo">
@@ -11,9 +12,51 @@
         <button class="login" [routerLink]="['/login']" *ngIf="infoUser==null">Login</button>
         <img src="../../../assets/avatar.png" class="ava" mat-button [matMenuTriggerFor]="menu" *ngIf="infoUser!=null">
         <mat-menu #menu="matMenu">
-          <button mat-menu-item class="logout"  (click)="logOut()">Logout</button>
+          <button mat-menu-item class="logout"  (click)="logOut()">Logout</button> -->
+
+<div id="navBar" *ngIf="nav.visible">
+    <div class="navBar-left">
+        <div class="title">Qz</div>
+        <ul class="snip1168">
+            <li><a id="home" href="home" data-hover="Home">
+                    <img src="assets/home.png">
+                    Home
+                </a></li>
+            <li><a href="library" data-hover="Library">
+                    <img src="assets/list.png">
+                    Library
+                </a></li>
+            <li><a href="marketplace" data-hover="Marketplace">
+                    <img src="assets/shop.png">
+                    Marketplace
+                </a></li>
+        </ul>
+    </div>
+    <div class="navBar-right">
+        <button id="play" >
+            <a class="btn" href="join-game">
+                Play
+            </a>
+        </button>
+        <button id="create"  *ngIf="infoUser!=null">
+            <a class="btn" href="create-quiz">
+                Create
+            </a>
+        </button>
+        <button class="btn" id="login"  *ngIf="infoUser==null" [routerLink]="['/login']">Login
+        </button>
+        <button id="avatar"  *ngIf="infoUser!=null">
+            <img [src]="infoUser.photoURL" alt="" mat-button [matMenuTriggerFor]="menu">
+        </button>
+        <mat-menu #menu="matMenu">
+            <div id="name-display">
+                User: {{infoUser?.displayName}}
+            </div>
+            <button id="logout"  (click)="logOut()">
+                <img src="assets/logout.png">
+                Sign out
+            </button>
+
         </mat-menu>
-      </div>
-    </ul>
-  </nav>
+    </div>
 </div>
