@@ -43,6 +43,7 @@ export class JoinGameComponent {
       this.playerList$ = this.store.select((state) => state.player.players);
       this.playerList$.subscribe((data)=>{
         this.lenghtPlayer = data.length;
+        // // console.log("lenghtPlayer", this.lenghtPlayer)
       })
 
      }
@@ -53,21 +54,26 @@ export class JoinGameComponent {
       // this.playerService.playerList = playerList;
       this.store.dispatch(PlayerActions.updatePlayers({players: playerList}))
       // console.log("getPlayerList", this.playerService.playerList)
-      console.log("getPlayerList", this.playerList$)
+      // // console.log("getPlayerList-1", playerList)
       // this.playerService.playerList.findIndex((player: any) => {
         this.playerList$?.subscribe((data) => {
+          // // console.log("getPlayerList-2", data)
           data.findIndex((player: any) => {
           if (player.name === this.namePlayer) {
-            console.log("playerCurrent", player)
+            // // console.log("playerCurrent", player)
             let infoPlayer = player
             // delete infoPlayer.room;
             // this.playerService.playerCurrent = infoPlayer
-            this.store.dispatch(PlayerActions.updatePlayer({player: infoPlayer}))
+            this.store.dispatch(PlayerActions.updateSelecePlayer({player: infoPlayer}))
           }
         })
       })
       // this.playerService.updatePlayerList(playerList)
     })
+  }
+
+  checkPin() {
+
   }
 
   enterPin() {
@@ -78,12 +84,22 @@ export class JoinGameComponent {
     this.isInputName = true;
   }
 
+  checkPlayer(): boolean {
+    let isExist = false
+    this.playerList$?.subscribe((data) => {
+      data.forEach((player:Player) => {
+        if (player.name === this.namePlayer) {
+          alert("Name is already exist")
+          isExist = true
+        }
+      })
+    })
+    return isExist
+  }
+
   joinGame() {
-    if (this.namePlayer.length === 0) {
-      alert("Please enter name")
-      return
-    }
-    if (this.namePlayer.length === 0) {
+
+    if (this.namePlayer.length === 0 && !this.checkPlayer()) {
       alert("Please enter name")
       return
     }
@@ -104,11 +120,15 @@ export class JoinGameComponent {
       // this.questionService.questionSelected = question;
       this.store.dispatch(QuestionActions.updateSeleceQuestion({question: question}))
       // console.log("join-game", this.playerService.playerList)
-      console.log("join-game", this.playerList$)
+      this.playerList$?.subscribe((data) => {
+        // // console.log("join-game-player-list", data)
+      })
+
       this.router.navigateByUrl('/player');
     });
     this.questionService.getLenghtQuestions().subscribe((length: any) => {
       this.questionService.questionLength = length
+      // // console.log("join-game-question-length", length)
     });
   }
 }

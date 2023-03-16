@@ -1,34 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './guard/auth.guard';
+import { NarbarGuard } from './guard/narbar.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    canActivate: [AuthGuard],
+    canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/login/login.module').then((m) => m.LoginModule),
   },
   {
     path: 'home',
-    canActivate: [AuthGuard],
+    canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: 'player',
-    canActivate: [AuthGuard],
+    canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/player/player.module').then((m) => m.PlayerModule),
   },
   {
     path: 'ranking',
+    canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/ranking/ranking.module').then((m) => m.RankingModule),
   },
   {
     path: 'create-quiz',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard,NarbarGuard],
     loadChildren: () =>
       import('./pages/create-quiz/create-quiz.module').then(
         (m) => m.CreateQuizModule
@@ -36,7 +38,7 @@ const routes: Routes = [
   },
   {
     path: 'marketplace',
-    canActivate: [AuthGuard],
+    canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/marketplace/marketplace.module').then(
         (m) => m.MarketplaceModule
@@ -44,22 +46,26 @@ const routes: Routes = [
   },
   {
     path: 'loppy',
-    canActivate: [AuthGuard],
+    canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/loppy/loppy/loppy.module').then((m) => m.LoppyModule),
   },
 
-  { path: 'slideshow', loadChildren: () => import('./pages/slideshow/slideshow.module').then(m => m.SlideshowModule) },
+  {
+    path: 'slideshow',
+    canActivate: [NarbarGuard],
+    loadChildren: () => import('./pages/slideshow/slideshow.module').then(m => m.SlideshowModule)
+  },
 
   {
     path: 'join-game',
-    canActivate: [AuthGuard],
+    canActivate: [NarbarGuard],
     loadChildren: () =>
-    import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
+      import('./pages/join-game/join-game.module').then((m) => m.JoinGameModule),
   },
   {
     path: 'library',
-    canActivate: [AuthGuard],
+    canActivate: [AuthGuard, NarbarGuard],
     loadChildren: () =>
       import('./pages/library/library.module').then((m) => m.LibraryModule),
   },
@@ -68,8 +74,11 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full',
   },
-  { path: 'host'  ,  canActivate: [AuthGuard], loadChildren: () => import('./pages/host/host.module').then(m => m.HostModule) }
-
+  {
+    path: 'host',
+    canActivate: [NarbarGuard,AuthGuard],
+     loadChildren: () => import('./pages/host/host.module').then(m => m.HostModule)
+  }
 ];
 
 @NgModule({

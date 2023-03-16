@@ -19,6 +19,7 @@ export class LoppyComponent {
 
   // playerList: Player[] = this.playerService.playerList;
   playerList$!: Observable<Player[]>;
+  playerListData!: Player[];
   pinGame = "";
   lenghtPlayer = 0;
   questionList$!: Observable<Question[]>;
@@ -50,6 +51,7 @@ export class LoppyComponent {
     this.createRoom()
   }
 
+
   startGame() {
     // this.getQuestionByIndex(this.currentQuestionIndex)
     // this.adminHostService.startGame(this.questionService.questions[0])
@@ -57,7 +59,13 @@ export class LoppyComponent {
     // this.adminHostService.sendLenghtQuestions(this.questionService.questions.length)
     this.adminHostService.sendLenghtQuestions(this.lenghtQuestion)
     // this.adminHostService.sendPlayerList(this.playerService.playerList)
-    this.adminHostService.sendPlayerList(this.playerList$)
+
+    // this.playerList$.subscribe((data)=>{
+      // // console.log("list-start-game", this.playerListData)
+      this.adminHostService.sendPlayerList(this.playerListData)
+      // return
+    // })
+    // this.adminHostService.sendPlayerList(this.playerList$)
     // this.playerList = this.playerService.playerList;
     this.router.navigate(['/host']);
     // console.log(this.playerService.playerList)
@@ -67,8 +75,14 @@ export class LoppyComponent {
     this.adminHostService.getPlayersByRoomId().subscribe((player: any) => {
       let addplayer = player
       delete addplayer.room;
+      // // console.log("addplayer", addplayer)
       // this.playerService.playerList.push(addplayer)
       this.store.dispatch(PlayerActions.addNewPlayer({player: addplayer}));
+      this.playerList$?.subscribe((data) => {
+        // // console.log("list-join-game", data)
+        this.playerListData = data;
+      })
+      // console.log(this.playerList$)
     });
   }
 
@@ -77,8 +91,12 @@ export class LoppyComponent {
       // this.playerService.playerList = playerList;
       // console.log(this.playerService.playerList)
       // this.playerService.playerList = playerList;
+      // // console.log(playerList)
       this.store.dispatch(PlayerActions.updatePlayers({players: playerList}));
-      console.log(this.playerList$)
+      this.playerList$?.subscribe((data) => {
+        // // console.log("list-player-list", data)
+        this.playerListData = data;
+      })
     }
     )
   }

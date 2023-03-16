@@ -101,6 +101,11 @@ export const questionReducer = createReducer(
     error,
     isLoading: false,
   })),
+  on(QuestionActions.updateQuestions, (state, { questions }) => ({
+    ...state,
+    questions: questions,
+  })),
+
   on(QuestionActions.deleteQuestion, (state) => ({
     ...state,
     isLoading: true,

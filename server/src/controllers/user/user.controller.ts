@@ -33,14 +33,7 @@ export class UserController {
 
     @Post('signin')
     async createToSignin(@Body() user: User) {
-        let userId= await this.userService.getById(user.userid);
-        console.log(userId);
-        if(userId!=null){
-            return "User already exists";
-        }
-        else{
-            return this.userService.create(user);
-        }
+        return this.userService.create(user);
     }
     
     // @Delete('delete')

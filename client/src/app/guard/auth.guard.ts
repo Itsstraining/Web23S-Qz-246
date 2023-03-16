@@ -12,37 +12,25 @@ import { UserService } from '../services/user.service';
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth:Auth,private authService:AuthService,private router:Router,
-    private  navbarService: NavBarService
-    ) { }
+  constructor(private auth: Auth, private authService: AuthService, private router: Router,) { }
 
-  pages=["/login","/player","/raking","/create-quiz","/loppy","/library","/join-game",'/host'];
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      let url=state.url;
-      let isPage= this.pages.includes(url);
-        if(isPage){
-          // console.log('page:'+page);
-          console.log('url:'+url);
-          this.navbarService.visible = false;
-        }else{
-          this.navbarService.visible = true;
+
+    return new Promise((resolve, reject) => {
+      onAuthStateChanged(this.auth, (ueserInfo) => {
+        if (ueserInfo) {
+          this.authService.userInfo = ueserInfo;
+          resolve(true);
+        } else {
+          this.authService.userInfo = null;
+          window.alert('You need to login to access this page!');
+          this.router.navigate(['/login']);
+          resolve(false);
         }
-      return true;
-    // return new Promise((resolve,reject)=>{
-    //   onAuthStateChanged(this.auth,(ueserInfo)=>{
-    //     if(ueserInfo){
-    //       this.authService.userInfo = ueserInfo;
-    //       resolve(true);
-    //     }else{
-    //       this.authService.userInfo = null;
-    //       window.alert('You need to login to access this page!');
-    //       this.router.navigate(['/login']);
-    //       resolve(false);
-    //     }
-    //   })
-    // })
+      })
+    })
   }
 
 }

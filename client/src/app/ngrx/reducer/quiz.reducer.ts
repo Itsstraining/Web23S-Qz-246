@@ -16,14 +16,18 @@ export const quizReducer = createReducer(
     ...state,
     isLoading: true,
   })),
-  on(QuizActions.getQuizzesSuccess, (state, { quizzes }) => ({
+  on(QuizActions.getQuizzesSuccess, (state, action) => {
+    console.log(action.quizzes);
+    return {
     ...state,
-    quizzes,
+    quizzes :action.quizzes,
+    isSuccess: true,
     isLoading: false,
-  })),
-  on(QuizActions.getQuizzesFailure, (state, { error }) => ({
+  }}),
+  on(QuizActions.getQuizzesFailure, (state, action) => ({
     ...state,
-    error,
+    error: action.error,
+    isSuccess: false,
     isLoading: false,
   })),
   on(QuizActions.getQuiz, (state) => ({
@@ -40,6 +44,23 @@ export const quizReducer = createReducer(
     error,
     isLoading: false,
   })),
+  on(QuizActions.getQuizzesByCreateId, (state,{createId}) => ({
+    ...state,
+    isLoading: true,
+  })),
+  on(QuizActions.getQuizzesByCreateIdSuccess, (state, { quizzes }) => ({
+    ...state,
+    quizzes:quizzes,
+    isSuccess: true,
+    isLoading: false,
+  })),
+  on(QuizActions.getQuizzesByCreateIdFailure, (state, { error }) => ({
+    ...state,
+    error,
+    isSuccess: false,
+    isLoading: false,
+  })),
+
   on(QuizActions.addNewQuiz, (state) => ({
     ...state,
     isLoading: true,

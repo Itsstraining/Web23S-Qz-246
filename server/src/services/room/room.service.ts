@@ -26,8 +26,23 @@ export class RoomService {
         }
     }
 
+    async getRoomByPin(pin:string): Promise<Room> {
+        try{
+            let room = await this.roomModel.findOne({pin:pin}).populate("players").exec();
+            if(room){
+                return room as Room;
+            }else{
+                return null;
+            }
+        }catch(e){
+            console.log(e);
+            return null;
+        }
+    }
+
     async create(room: Room) {
         try{
+            room.id=Date.now().toString();
             let newRoom = await this.roomModel.create(room);
             return newRoom as Room;
         }catch(e){
@@ -40,7 +55,7 @@ export class RoomService {
         try{
             let players=room.players;
             room.players=[];
-            room.id=Date.now().toString();
+            room.pin="";
             await this.roomModel.findOneAndUpdate({id:id},room);
 
             await players.forEach( async (player:any) => {

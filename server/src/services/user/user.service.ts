@@ -24,11 +24,19 @@ export class UserService {
             return null;
         }
     }
+    
 
     async create(user: User) {
         try{
-            let newUser = await this.userModel.create(user);
-            return newUser as User;
+            let find = await this.userModel.findOne({userid:user.userid}).exec();
+            if(!find){
+                let newUser = await this.userModel.create(user);
+                return newUser as User;
+            }else{
+                return null;
+            }
+
+
         }catch(e){
             console.log(e);
             return null;

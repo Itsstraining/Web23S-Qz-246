@@ -13,6 +13,10 @@ export class RoomController {
     async get(@Query('id') _id: string) {
         return await this.roomService.getOne(_id);
     }
+    @Get()
+    async getRoomByPin(@Query('pin') pin: string) {
+        return await this.roomService.getRoomByPin(pin);
+    }
     // 
     @Post()
     async create(@Body() room: Room) {

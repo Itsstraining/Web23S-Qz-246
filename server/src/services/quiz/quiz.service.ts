@@ -27,7 +27,18 @@ export class QuizService {
             return null;
         }
     }
-            
+    
+    async getQuizzesByUserId(id:string): Promise<Quiz[]> {
+        try{
+            console.log(id);
+            let data= await this.quizModel.find({creatorId: id}).populate('questions').exec();
+            return data as Quiz[];
+        }catch(e){
+            console.log(e);
+            return null;
+        }
+    }
+
     async create(quiz: Quiz) {
         try{
             let questions=quiz.questions;

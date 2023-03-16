@@ -1,15 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
 import { PlayerState } from '../states/player.state';
 import * as PlayerActions from '../actions/player.action';
+import { Player } from 'src/models/player.model';
 
 export const initialState: PlayerState = {
   players: [
-    {
-      id: '1',
-      name: 'Player 1',
-      score: 0,
-      correctAnswer: 0,
-    },
+    // {
+    //   id: '1',
+    //   name: 'Player 1',
+    //   score: 0,
+    //   correctAnswer: 0,
+    // },
   ],
   player: null,
   error: '',
@@ -62,10 +63,11 @@ export const playerReducer = createReducer(
   //   error,
   //   isLoading: false,
   // })),
-  on(PlayerActions.sortPlayers, (state) => ({
+  on(PlayerActions.sortPlayers, (state,{players}) => {
+    return {
     ...state,
-    players: state.players.sort((a, b) => b.score - a.score),
-  })),
+    players: players,
+  }}),
   on(PlayerActions.updatePlayers, (state, { players }) => ({
     ...state,
     players: players,
@@ -75,20 +77,24 @@ export const playerReducer = createReducer(
     player: player,
   })),
 
-  on(PlayerActions.updatePlayer, (state) => ({
-    ...state,
-    isLoading: true,
-  })),
-  on(PlayerActions.updatePlayerSuccess, (state, { player }) => ({
-    ...state,
-    players: state.players.map((p) => (p.id === player.id ? player : p)),
-    isLoading: false,
-  })),
-  on(PlayerActions.updatePlayerFailure, (state, { error }) => ({
-    ...state,
-    error,
-    isLoading: false,
-  })),
+  on(PlayerActions.updatePlayer, (state, { player }) => {
+    const playerList = state.players.flatMap((p) => ((p.id === player.id&& p.name==player.name) ? p=player : p));
+    return {
+      ...state,
+      players: playerList,
+      player: player,
+    };
+  }),
+  // on(PlayerActions.updatePlayerSuccess, (state, { player }) => ({
+  //   ...state,
+  //   players: state.players.map((p) => (p.id === player.id ? player : p)),
+  //   isLoading: false,
+  // })),
+  // on(PlayerActions.updatePlayerFailure, (state, { error }) => ({
+  //   ...state,
+  //   error,
+  //   isLoading: false,
+  // })),
   on(PlayerActions.deletePlayer, (state) => ({
     ...state,
     isLoading: true,

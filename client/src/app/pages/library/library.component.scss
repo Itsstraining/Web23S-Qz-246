@@ -11,13 +11,13 @@
     align-items: center;
     background: #F8F2FA;
     flex-direction: column;
-  
-    
+
+
 
     margin-left: auto;
     margin-right: auto
-    
-    
+
+
 }
 .Title{
     margin-left: 5.625rem;
@@ -120,7 +120,9 @@ img{
     height: auto;
     padding: 0.5rem 0.5rem;
     background-color: white;
-    margin: 0 auto;
+    margin-bottom: 2%;
+    margin-left:  auto;
+    margin-right: auto;
     border-radius: 4px;
     box-shadow: rgba(50, 50, 105, 0.15) 0px 2px 5px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1px 0px;
     font-size: 3rem;
@@ -187,7 +189,7 @@ input[type="checkbox"]{
 .delete{
     display: flex;
     align-items: center;
-    font-size: 1rem;   
+    font-size: 1rem;
     padding: 0.5rem 3rem 0.5rem 0.5rem;
     cursor: pointer;
 }

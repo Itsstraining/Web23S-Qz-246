@@ -16,6 +16,10 @@ export class QuizController {
     async getById(@Query('id') id: string){
         return await this.quizService.getById(id);
     }
+    @Get(":createId")
+    async getQuizzesByUserId(@Param('createId') id: string){
+        return await this.quizService.getQuizzesByUserId(id);
+    }
 
     @Post()
     async create(@Body() quiz: Quiz){
