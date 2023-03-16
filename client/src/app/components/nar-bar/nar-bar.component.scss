@@ -309,7 +309,7 @@ nav {
   // left: 0;
   // top: 0;
   // padding: 0.25em 0.5em;
-  margin-left: 1.555vw;
+  margin-left: 1.675vw;
   position: absolute;
   content: attr(data-hover);
   color: #3d3d3d;
@@ -366,6 +366,14 @@ input {
   align-items: center;
   padding: 0.75% 1%;
   grid-area: header;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: white;
+  
+  
   // height: 3.5rem;
   transition: all .2s ease;
 }
