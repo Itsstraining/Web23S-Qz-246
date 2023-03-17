@@ -27,6 +27,7 @@ import { roomReducer } from './ngrx/reducer/room.reducer';
 import { QuizEffects } from './ngrx/effects/quiz.effect';
 import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.component';
 import { quizReducer } from './ngrx/reducer/quiz.reducer';
+import { RoomEffect } from './ngrx/effects/room.effect';
 const config = { url: 'http://localhost:3000', options: {} };
 @NgModule({
   declarations: [
@@ -36,7 +37,9 @@ const config = { url: 'http://localhost:3000', options: {} };
     BrowserModule,
     AppRoutingModule,
     EffectsModule.forRoot([
-      QuizEffects
+      QuizEffects,
+      UserEffect,
+      RoomEffect
     ]),
     SocketIoModule.forRoot(config),
     HttpClientModule,

@@ -61,13 +61,14 @@ export const quizReducer = createReducer(
     isLoading: false,
   })),
 
-  on(QuizActions.addNewQuiz, (state) => ({
+  on(QuizActions.addNewQuiz, (state,{quiz}) => ({
     ...state,
     isLoading: true,
   })),
   on(QuizActions.addNewQuizSuccess, (state, { quiz }) => ({
     ...state,
     quizzes: [...state.quizzes, quiz],
+    selectedQuiz: quiz,
     isLoading: false,
   })),
   on(QuizActions.addNewQuizFailure, (state, { error }) => ({

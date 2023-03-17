@@ -21,7 +21,6 @@ export class CreateQuizComponent {
       // this.questions$ = this.store.select((state)=>state.question.questions)
       // this.quiz$ = this.store.select((state)=>state.quiz.selectedQuiz)
     }
-
   quiz :Quiz= this.quizService.quiz;
   questions :Question[] = this.questtionService.questions;
   // questions$:Observable<Question[]>
@@ -34,14 +33,14 @@ export class CreateQuizComponent {
     point: 1,
     answerTime: 30,
     backgroundImage: "",
-    title: "Câu hỏi mới",
+    title: "",
     answers: [
-      { id: "1", body: "", isCorrect: false },
-      { id: "2", body: "", isCorrect: false },
-      { id: "3", body: "", isCorrect: false },
-      { id: "4", body: "", isCorrect: false },
+      { id: "a", body: "", isCorrect: false },
+      { id: "b", body: "", isCorrect: false },
+      { id: "c", body: "", isCorrect: false },
+      { id: "d", body: "", isCorrect: false },
     ],
-    questionId: "1",
+    questionId: Date.now().toString(),
   }
   indexQuestionItem :number = 0;
 
@@ -53,7 +52,6 @@ export class CreateQuizComponent {
       reader.onload = () => {
         this.quiz.quizImage = reader.result as string;
       };
-      // $('.image-input label').css('display','none');
     }
   }
 
@@ -92,15 +90,15 @@ export class CreateQuizComponent {
     }
     if(this.questionItem!.questionType == "True/False"){
       question!.answers = [
-        { id: "1", body: "True", isCorrect: false },
-        { id: "2", body: "False", isCorrect: false },
+        { id: "a", body: "True", isCorrect: false },
+        { id: "b", body: "False", isCorrect: false },
       ]
     }else{
       question!.answers = [
-        { id: "1", body: "", isCorrect: false },
-        { id: "2", body: "", isCorrect: false },
-        { id: "3", body: "", isCorrect: false },
-        { id: "4", body: "", isCorrect: false },
+        { id: "a", body: "", isCorrect: false },
+        { id: "b", body: "", isCorrect: false },
+        { id: "c", body: "", isCorrect: false },
+        { id: "d", body: "", isCorrect: false },
       ]
     }
     this.questtionService.updateQuestion(question!);
@@ -140,12 +138,12 @@ export class CreateQuizComponent {
       backgroundImage: "",
       title: "",
       answers: [
-        { id: "1", body: "aa", isCorrect: false },
-        { id: "2", body: "bb", isCorrect: false },
-        { id: "3", body: "cc", isCorrect: false },
-        { id: "4", body: "dd", isCorrect: false },
+        { id: "a", body: "", isCorrect: false },
+        { id: "b", body: "", isCorrect: false },
+        { id: "c", body: "", isCorrect: false },
+        { id: "d", body: "", isCorrect: false },
       ],
-      questionId: (parseInt(this.questionItem!.questionId)+1).toString(),
+      questionId: Date.now().toString(),
     }
     this.questtionService.questions.push(question);
   }

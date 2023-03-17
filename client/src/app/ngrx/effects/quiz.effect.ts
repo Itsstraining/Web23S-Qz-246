@@ -23,4 +23,19 @@ export class QuizEffects {
       return of(QuizActions.getQuizzesByCreateIdFailure({error:error.message}));
     }),
   ));
+  addNewQuiz = createEffect(()=> this.actions$.pipe(
+    ofType(QuizActions.addNewQuiz),
+    switchMap((action)=>{
+      return this.http.post(`${this.baseURL}`,action.quiz);
+    }
+    ),
+    map((reponse)=>{
+      return QuizActions.addNewQuizSuccess({quiz:<Quiz>reponse})
+    }
+    ),
+    catchError((error)=>{
+      return of(QuizActions.addNewQuizFailure({error:error.message}));
+    }
+    ),
+  ));
 }

@@ -6,7 +6,7 @@ import { Room } from "src/models/room.model";
 import * as RoomActions from '../actions/room.action';
 
 @Injectable()
-export class UserEffect {
+export class RoomEffect {
   constructor(private actions$: Actions, private http: HttpClient) { }
 
   getRoomByCreateId$ = createEffect(
@@ -27,7 +27,8 @@ export class UserEffect {
     () => this.actions$.pipe(
       ofType(RoomActions.addNewRoom),
       switchMap((action) => {
-        return this.http.post(`http://localhost:3000/room`, action.room);
+        console.log("client",action.room);
+        return this.http.post(`http://localhost:3000/room/`, action.room);
       }
       ),
       map((data) => {

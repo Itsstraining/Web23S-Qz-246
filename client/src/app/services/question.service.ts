@@ -12,29 +12,17 @@ export class QuestionService {
   questions:Question[] = [
     {
       questionType: "Quiz",
-      point: 2,
+      point: 1,
       answerTime: 30,
       backgroundImage: "",
-      title: "Câu hỏi 1",
+      title: "",
       answers: [
-        { id: "1", body: "aa", isCorrect: true },
-        { id: "2", body: "bb", isCorrect: false },
-        { id: "3", body: "cc", isCorrect: false },
-        { id: "4", body: "dd", isCorrect: false },
+        { id: "a", body: "", isCorrect: true },
+        { id: "b", body: "", isCorrect: false },
+        { id: "c", body: "", isCorrect: false },
+        { id: "d", body: "", isCorrect: false },
       ],
       questionId: "1",
-    },
-    {
-      questionType: "True/False",
-      point: 1,
-      answerTime: 20,
-      backgroundImage: '',
-      title: "Câu hỏi 2",
-      answers: [
-        { id: "1", body: "True", isCorrect: true },
-        { id: "2", body: "False", isCorrect: false },
-      ],
-      questionId: "2",
     },
   ];
 

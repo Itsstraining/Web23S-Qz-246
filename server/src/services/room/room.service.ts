@@ -42,7 +42,8 @@ export class RoomService {
 
     async create(room: Room) {
         try{
-            room.id=Date.now().toString();
+            // room.id=Date.now().toString();
+            console.log(room);
             let newRoom = await this.roomModel.create(room);
             return newRoom as Room;
         }catch(e){

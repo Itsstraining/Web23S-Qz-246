@@ -20,7 +20,8 @@ export class RoomController {
     }
     // 
     @Post()
-    async create(@Body() room: Room) {
+    async create(@Body() room: any) {
+        console.log(room);
         return await this.roomService.create(room);
     }
 

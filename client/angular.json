@@ -9,7 +9,6 @@
         "@schematics/angular:component": {
           "style": "scss"
         }
-        
       },
       "root": "",
       "sourceRoot": "src",
@@ -41,13 +40,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "30mb",
+                  "maximumError": "30mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "30mb",
+                  "maximumError": "30mb"
                 }
               ],
               "outputHashing": "all"
@@ -123,5 +122,4 @@
   "cli": {
     "analytics": "185d30a2-7752-4ce5-9729-a2280c558850"
   }
-  
 }

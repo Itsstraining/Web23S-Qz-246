@@ -54,7 +54,7 @@ export const roomReducer = createReducer(
     error:error,
     isLoading: false,
   })),
-  on(RoomActions.addNewRoom, (state) => ({
+  on(RoomActions.addNewRoom, (state,{room}) => ({
     ...state,
     isLoading: true,
   })),

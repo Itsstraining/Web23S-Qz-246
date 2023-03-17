@@ -11,7 +11,7 @@ export class QuestionItemComponent {
   @Input() indexQuestion! : number;
   @Output() questionItemSelect = new EventEmitter<Question>();
   @Output() itemIndexSelect = new EventEmitter<number>();
-  isCheck:boolean = true;
+  isCheck:boolean = false;
   ngAfterViewInit() {
     if(this.indexQuestion==1){
       this.questionItemSelect.emit(this.questionItem!)

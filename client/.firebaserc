@@ -1,13 +1,4 @@
 {
-  "targets": {
-    "qz-project-a5e85": {
-      "hosting": {
-        "client": [
-          "qz-project-a5e85"
-        ]
-      }
-    }
-  },
   "projects": {
     "default": "qz-project-a5e85"
   }

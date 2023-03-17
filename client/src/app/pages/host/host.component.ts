@@ -4,12 +4,16 @@ import { Store } from '@ngrx/store';
 import { async, Observable } from 'rxjs';
 import { PlayerState } from 'src/app/ngrx/states/player.state';
 import { QuestionState } from 'src/app/ngrx/states/question.state';
+import { RoomState } from 'src/app/ngrx/states/room.state';
 import { AdminHostService } from 'src/app/services/admin-host.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { Player } from 'src/models/player.model';
 import { Question } from 'src/models/question.model';
+import { Room } from 'src/models/room.model';
 import * as PlayerActions from '../../ngrx/actions/player.action';
+import * as QuestionActions from '../../ngrx/actions/question.action';
+import * as RoomActions from '../../ngrx/actions/room.action';
 @Component({
   selector: 'app-host',
   templateUrl: './host.component.html',
@@ -38,6 +42,8 @@ export class HostComponent {
   // questionData:Question = this.questionService.questions[this.currentQuestionIndex];
   questionData?:Question;
   lenghtQuestion = 0;
+  room$?: Observable<Room|null>;
+  roomData?:Room;
   timerQuestion = this.questionData?.answerTime;
   constructor(private router :Router,
     private playerService:PlayerService,
@@ -45,7 +51,8 @@ export class HostComponent {
     private questionService:QuestionService,
     private store: Store<{
       question: QuestionState,
-      player: PlayerState
+      player: PlayerState,
+      room:RoomState
     }>) {
     this.questionList$ = this.store.select((state) => state.question.questions);
      this.questionList$.subscribe((data)=>{
@@ -60,6 +67,10 @@ export class HostComponent {
       this.playerListData = data;
     }
   )
+    this.room$ = this.store.select((state) => state.room.room);
+    this.room$.subscribe((data:any)=>{
+      this.roomData = data;
+    })
   }
 
 
@@ -75,7 +86,7 @@ export class HostComponent {
     this.adminHostService.timeOut()
   }
   makeIteration = (): void => {
-    console.clear();
+    // console.clear();
     if (this.timer > 1) {
       setTimeout(this.makeIteration, 1000);
     } else if (this.timer === 1) {
@@ -139,6 +150,9 @@ export class HostComponent {
       this.isShowQuestion=false;
       this.isShowRank=true;
       this.isNextQuestion=false;
+      let room=this.roomData;
+      room!.players=this.playerListData;
+      // this.store.dispatch(RoomActions.updateRoom({room:room!}));
     }
     // if(this.playerService.playerList.length!=0){
     //   this.playerService.playerList.sort((a, b) => b.score - a.score);
@@ -176,6 +190,6 @@ export class HostComponent {
     // this.isShowSummary=false;
     // this.currentQuestionIndex=0;
     // this.getQuestionByIndex(this.currentQuestionIndex)
-    this.router.navigate(['/loppy'])
+    this.router.navigate(['/library'])
   }
 }

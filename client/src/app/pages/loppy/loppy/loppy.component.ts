@@ -4,13 +4,21 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { PlayerState } from 'src/app/ngrx/states/player.state';
 import { QuestionState } from 'src/app/ngrx/states/question.state';
+import { QuizState } from 'src/app/ngrx/states/quiz.state';
+import { RoomState } from 'src/app/ngrx/states/room.state';
+import { UserState } from 'src/app/ngrx/states/user.state';
 import { AdminHostService } from 'src/app/services/admin-host.service';
 import { PlayerService } from 'src/app/services/player.service';
 import { QuestionService } from 'src/app/services/question.service';
 import { Player } from 'src/models/player.model';
 import { Question } from 'src/models/question.model';
+import { Quiz } from 'src/models/quiz.model';
 import { Room } from 'src/models/room.model';
+import { User } from 'src/models/user.model';
 import * as PlayerActions from '../../../ngrx/actions/player.action';
+import * as QuestionActions from '../../../ngrx/actions/question.action';
+import * as RoomActions from '../../../ngrx/actions/room.action';
+import * as UserActions from '../../../ngrx/actions/user.action';
 @Component({
   selector: 'app-loppy',
   templateUrl: './loppy.component.html',
@@ -26,13 +34,19 @@ export class LoppyComponent {
   questionList$!: Observable<Question[]>;
   lenghtQuestion = 0;
   questionData!: Question;
+  user$!: Observable<User|null>;
+  userId: string = "";
+  quiz$!: Observable<Quiz|null>;
   constructor(private playerService: PlayerService,
     private adminHostService: AdminHostService,
     private questionService: QuestionService,
     private router:Router,
     private store: Store<{
       question: QuestionState,
-      player: PlayerState
+      player: PlayerState,
+      room:RoomState,
+      user:UserState,
+      quiz:QuizState
     }>) {
       this.playerList$ = this.store.select((state) => state.player.players);
       this.playerList$.subscribe((data)=>{
@@ -43,6 +57,12 @@ export class LoppyComponent {
         this.questionData = data[0];
         this.lenghtQuestion = data.length;
       })
+
+      this.user$=this.store.select((state)=>state.user.user)
+      this.user$.subscribe((data)=>{
+        this.userId = data?.userid!;
+      })
+      this.quiz$ = this.store.select((state)=>state.quiz.selectedQuiz)
     }
 
   ngOnInit(): void {
@@ -66,6 +86,15 @@ export class LoppyComponent {
       this.adminHostService.sendPlayerList(this.playerListData)
       // return
     // })
+    let newRoom:Room={
+      id:Date.now().toString(),
+      pin:this.pinGame,
+      players:[],
+      quizId:"",
+      createId:this.userId,
+    }
+    console.log("newRoom", newRoom)
+    // this.store.dispatch(RoomActions.addNewRoom({room: newRoom}));
     // this.adminHostService.sendPlayerList(this.playerList$)
     // this.playerList = this.playerService.playerList;
     this.router.navigate(['/host']);
@@ -85,13 +114,6 @@ export class LoppyComponent {
       })
       this.adminHostService.sendPlayerList(this.playerListData)
       // console.log(this.playerList$)
-      let room:Room={
-        id:Date.now().toString(),
-        pin:this.pinGame,
-        players:[],
-        quizId:"",
-        createId:"",
-      }
     });
   }
 

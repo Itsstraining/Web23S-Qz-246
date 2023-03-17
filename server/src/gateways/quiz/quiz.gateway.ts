@@ -78,7 +78,7 @@ export class QuizGateway {
 
   @SubscribeMessage('send-player-list')
   handlePlayerList(@MessageBody() body: any) {
-    console.log(body);
+    // console.log(body);
     this.server.to(this.room).emit('get-player-list', body);
   }
 
