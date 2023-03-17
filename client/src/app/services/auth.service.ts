@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class AuthService {
   public userInfo!: User|null;
-  public baseURL:string = environment.baseURL+'users/';
+  public baseURL:string = "https://web23s-qz-ew2i3if7na-de.a.run.app/"+'users/';
   constructor(
     private auth: Auth,
     private http: HttpClient,

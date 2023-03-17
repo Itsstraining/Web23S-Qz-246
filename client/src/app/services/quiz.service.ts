@@ -38,7 +38,7 @@ export class QuizService {
   saveQuiz(){
     let data=this.quiz
     console.log(data)
-    // this.store.dispatch(QuizActions.addNewQuiz({quiz:data}))
+    this.store.dispatch(QuizActions.addNewQuiz({quiz:data}))
   }
 
 }

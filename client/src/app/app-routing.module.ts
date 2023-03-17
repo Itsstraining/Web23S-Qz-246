@@ -45,7 +45,7 @@ const routes: Routes = [
       ),
   },
   {
-    path: 'loppy',
+    path: 'lobby',
     canActivate: [NarbarGuard],
     loadChildren: () =>
       import('./pages/loppy/loppy/loppy.module').then((m) => m.LoppyModule),

@@ -13,7 +13,7 @@ export class RoomEffect {
     () => this.actions$.pipe(
       ofType(RoomActions.getRoomByPin),
       switchMap((action) => {
-        return this.http.get(`http://localhost:3000/room/${action.pin}`);
+        return this.http.get(`https://web23s-qz-ew2i3if7na-de.a.run.app/room/${action.pin}`);
       }),
       map((data) => {
         return RoomActions.getRoomByPinSuccess({ room: <Room>data });
@@ -28,7 +28,7 @@ export class RoomEffect {
       ofType(RoomActions.addNewRoom),
       switchMap((action) => {
         console.log("client",action.room);
-        return this.http.post(`http://localhost:3000/room/`, action.room);
+        return this.http.post(`https://web23s-qz-ew2i3if7na-de.a.run.app/room/`, action.room);
       }
       ),
       map((data) => {
@@ -43,7 +43,7 @@ export class RoomEffect {
     () => this.actions$.pipe(
       ofType(RoomActions.updateRoom),
       switchMap((action) => {
-        return this.http.put(`http://localhost:3000/room/${action.room.id}`, action.room);
+        return this.http.put(`https://web23s-qz-ew2i3if7na-de.a.run.app/${action.room.id}`, action.room);
       }
       ),
       map((data) => {

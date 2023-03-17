@@ -151,6 +151,7 @@ export class HostComponent {
       this.isShowRank=true;
       this.isNextQuestion=false;
       let room=this.roomData;
+      room!.pin="";
       room!.players=this.playerListData;
       // this.store.dispatch(RoomActions.updateRoom({room:room!}));
     }

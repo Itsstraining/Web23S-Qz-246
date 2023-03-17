@@ -41,6 +41,6 @@ export class LibraryComponent {
   startGame(quiz: Quiz) {
     this.store.dispatch(QuizActions.updateQuiz({ quiz: quiz }));
     this.store.dispatch(QuestionActions.updateQuestions({ questions: quiz.questions }));
-    this.router.navigate(['/loppy']);
+    this.router.navigate(['/lobby']);
   }
 }

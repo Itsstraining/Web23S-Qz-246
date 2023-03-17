@@ -28,7 +28,8 @@ import { QuizEffects } from './ngrx/effects/quiz.effect';
 import { NavBarNewComponent } from './components/nav-bar-new/nav-bar-new.component';
 import { quizReducer } from './ngrx/reducer/quiz.reducer';
 import { RoomEffect } from './ngrx/effects/room.effect';
-const config = { url: 'http://localhost:3000', options: {} };
+const config = { url: 'https://web23s-qz-ew2i3if7na-de.a.run.app', options: {} };
+// const config = { url: 'https://web23s-qz-ew2i3if7na-de.a.run.app', options: {} };
 @NgModule({
   declarations: [
     AppComponent,

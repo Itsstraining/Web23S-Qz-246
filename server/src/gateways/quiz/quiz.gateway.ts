@@ -31,7 +31,7 @@ export class QuizGateway {
     // client.join("123");
     this.room = payload.room;
     this.lengthQusetions = payload.lengthQusetions;
-    this.server.in(client.id).socketsJoin(this.room);
+    // this.server.in(client.id).socketsJoin(this.room);
     console.log(`admin ${client.id} joined room: ${this.room}`);
     // console.log(payload);
   }

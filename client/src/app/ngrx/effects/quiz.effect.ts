@@ -9,7 +9,7 @@ import * as QuizActions from '../actions/quiz.action';
 @Injectable()
 export class QuizEffects {
   constructor(private actions$: Actions, private http:HttpClient) {}
-  baseURL:string = environment.baseURL+'quiz';
+  baseURL:string = "https://web23s-qz-ew2i3if7na-de.a.run.app/"+'quiz';
   getQuizzes = createEffect(()=> this.actions$.pipe(
     ofType(QuizActions.getQuizzesByCreateId),
     switchMap((action)=>{
